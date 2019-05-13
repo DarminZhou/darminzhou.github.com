@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="发现学过的东西很容易忘，所以常常复习、总结还是蛮必要的。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习指南">
+<meta property="og:url" content="http://zhoudamin.github.io/2017/08/28/Linux学习指南/index.html">
+<meta property="og:site_name" content="Damin&#39;s Notes">
+<meta property="og:description" content="发现学过的东西很容易忘，所以常常复习、总结还是蛮必要的。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-13T15:35:07.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux学习指南">
+<meta name="twitter:description" content="发现学过的东西很容易忘，所以常常复习、总结还是蛮必要的。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhoudamin.github.io/2017/08/28/Linux学习指南/"/>
+
+
+
+
+
+  <title>Linux学习指南 | Damin's Notes</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Damin's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Learn ,Practice ,Summary !</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://zhoudamin.github.io/2017/08/28/Linux学习指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Damin ZHOU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Damin's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux学习指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-28T22:22:39+08:00">
+                2017-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/08/28/Linux学习指南/" class="leancloud_visitors" data-flag-title="Linux学习指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>发现学过的东西很容易忘，所以常常复习、总结还是蛮必要的。</p>
+<a id="more"></a>
+<h1 id="Linux基础"><a href="#Linux基础" class="headerlink" title="Linux基础"></a>Linux基础</h1><ul>
+<li>输出</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo "Hellbo"</span><br><span class="line">Hellbo</span><br></pre></td></tr></table></figure>
+<ul>
+<li>快捷键</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Ctrl+c</td>
+<td style="text-align:center">终止程序</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+d</td>
+<td style="text-align:center">键盘输入结束或退出终端</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+s</td>
+<td style="text-align:center">暂停当前程序，暂停后按下任意键恢复运行</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+z</td>
+<td style="text-align:center">把当前程序放到后台运行，fg将程序恢复到前台</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+a</td>
+<td style="text-align:center">将光标移至输入行头</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+e</td>
+<td style="text-align:center">将光标移至输入行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">Ctrl+k</td>
+<td style="text-align:center">删除从光标位置到行末</td>
+</tr>
+<tr>
+<td style="text-align:center">Alt+Backspace</td>
+<td style="text-align:center">向前删除一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">Shift+Pgup</td>
+<td style="text-align:center">将终端显示向上滚动</td>
+</tr>
+<tr>
+<td style="text-align:center">Shift+PgDn</td>
+<td style="text-align:center">将终端显示向下滚动</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>创建文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch adeni.txt  dsaidj.txt   //创建2个文件</span><br><span class="line">touch abc_&#123;1..10&#125;_linux.txt   //创建多个文件</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通配符找文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls *.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Shell通配符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>匹配0或多个字符</td>
+</tr>
+<tr>
+<td>？</td>
+<td>匹配任意一个字符</td>
+</tr>
+<tr>
+<td>[list]</td>
+<td>匹配list中的任意单一字符</td>
+</tr>
+<tr>
+<td>[!list]</td>
+<td>匹配除list中的任意单一字符以外的字符</td>
+</tr>
+<tr>
+<td>[c1-c2]</td>
+<td>匹配c1-c2终端任意单一字符</td>
+</tr>
+<tr>
+<td>{string1,string2,…}</td>
+<td>匹配list中的任意单一字符</td>
+</tr>
+<tr>
+<td>{c1..c2}</td>
+<td>匹配list中的任意单一字符</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="用户及文件权限管理"><a href="#用户及文件权限管理" class="headerlink" title="用户及文件权限管理"></a>用户及文件权限管理</h1><ul>
+<li>创建用户</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser zdm    //创建用户</span><br><span class="line">ls /home            //默认为新用户创建home目录</span><br><span class="line">su -l zdm           //切换登陆用户</span><br><span class="line">groups zdm          //查看自己属于哪些用户组</span><br><span class="line">cat /etc/group | sort    //查看 /etc/group 文件</span><br><span class="line">// 将其他用户加入sudo用户组</span><br><span class="line">su -l zdm</span><br><span class="line">sudo ls</span><br></pre></td></tr></table></figure>
+<ul>
+<li>变更文件所有者</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">touch iphone</span><br><span class="line">cd /home/zdm</span><br><span class="line">ls iphone</span><br><span class="line">sudo chown shiyanlou iphone</span><br><span class="line"></span><br><span class="line">echo "echo \"hello shiyanlou\"" &gt; iphone                //加内容</span><br><span class="line">chmod 700 iphone                         //修改权限</span><br><span class="line"></span><br><span class="line">cp -r father family    //复制目录</span><br><span class="line"></span><br><span class="line">rm test           //删除</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="环境变量及文件查找"><a href="#环境变量及文件查找" class="headerlink" title="环境变量及文件查找"></a>环境变量及文件查找</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">//创建tmp变量</span><br><span class="line"><span class="meta">$</span> declare tmp</span><br><span class="line"></span><br><span class="line">//使用=赋值</span><br><span class="line"><span class="meta">$</span> tmp=zdm</span><br><span class="line"></span><br><span class="line">//输出</span><br><span class="line"><span class="meta">$</span> echo $tmp</span><br><span class="line"></span><br><span class="line">//创建一个Shell脚本文件</span><br><span class="line"><span class="meta">$</span> gedit hello_shell.sh</span><br><span class="line"></span><br><span class="line">--------------------------</span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"></span><br><span class="line">for((i=0;i&lt;10;i++));do</span><br><span class="line">echo "hello shell"</span><br><span class="line">done </span><br><span class="line"> exit 0</span><br><span class="line"> -------------------------</span><br><span class="line"> </span><br><span class="line">//为文件添加可执行权限</span><br><span class="line"><span class="meta">$</span> chmod 755 hello_shell.sh</span><br><span class="line"></span><br><span class="line">//执行脚本</span><br><span class="line"><span class="meta">$</span> ./hello_shell.sh</span><br><span class="line"></span><br><span class="line">//创建一个C语言程序</span><br><span class="line"><span class="meta">$</span> gedit hello_world.c</span><br><span class="line"></span><br><span class="line">-----------------------------</span><br><span class="line"><span class="meta">#</span>include &lt;stdio.h&gt;</span><br><span class="line">int main(void)&#123;</span><br><span class="line">  printf("hello world!\n");</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line">-----------------------------</span><br><span class="line"></span><br><span class="line">//使用gcc生成可执行文件</span><br><span class="line"><span class="meta">$</span> gcc -o hello_world hello_world.c</span><br><span class="line"></span><br><span class="line">//创建一个mybin目录，将上面2文件放入</span><br><span class="line"><span class="meta">$</span> mkdir mybin</span><br><span class="line"><span class="meta">$</span> mv hello_shell.sh hello_world mybin/</span><br><span class="line"></span><br><span class="line">//在mybin中分别运行这两个程序</span><br><span class="line"><span class="meta">$</span> cd mybin</span><br><span class="line"><span class="meta">$</span> ./hello_shell.sh</span><br><span class="line"><span class="meta">$</span> ./hello_world</span><br></pre></td></tr></table></figure>
+<h1 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//查看磁盘容量</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">//以磁盘块大小的方式显示容量</span><br><span class="line">df -h</span><br><span class="line"></span><br><span class="line">//du 命令查看目录的容量</span><br><span class="line">du</span><br><span class="line">du -h</span><br><span class="line"></span><br><span class="line">//从/dev/zero设备创建一个容量为 256M 的空文件：</span><br><span class="line">dd if=/dev/zero of=virtual.img bs=1M count=256</span><br><span class="line">du -h virtual.img</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="任务计划crontab"><a href="#任务计划crontab" class="headerlink" title="任务计划crontab"></a>任务计划crontab</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//添加任务计划</span><br><span class="line">sudo cron -f &amp;</span><br><span class="line">crontab -e</span><br><span class="line"></span><br><span class="line">//查看</span><br><span class="line">man crontab</span><br><span class="line"></span><br><span class="line">//每分钟创建一个以当前年月日时分秒为名字的空白文件</span><br><span class="line">*/1 * * * * touch /home/shiyanlou/$(date +\%Y\%m\%d\%H\%M\%S)</span><br><span class="line"></span><br><span class="line">//查看添加了哪些任务</span><br><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line">//cron 是否成功的在后台启动</span><br><span class="line">pgrep cron</span><br><span class="line"></span><br><span class="line">//执行任务命令之后在日志中的信息反馈</span><br><span class="line">sudo tail -f /var/<span class="built_in">log</span>/syslog</span><br><span class="line"></span><br><span class="line">//删除任务</span><br><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="命令执行顺序控制与管道"><a href="#命令执行顺序控制与管道" class="headerlink" title="命令执行顺序控制与管道"></a>命令执行顺序控制与管道</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//sort排序命令</span><br><span class="line"></span><br><span class="line">//默认为字典排序</span><br><span class="line">cat /etc/passwd | sort</span><br><span class="line"></span><br><span class="line">//反转排序</span><br><span class="line">cat /etc/passwd | sort -r</span><br><span class="line"></span><br><span class="line">//按特定字段排序</span><br><span class="line">cat /etc/passwd | sort -t ":" -k 3</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="简单的文本处理"><a href="#简单的文本处理" class="headerlink" title="简单的文本处理"></a>简单的文本处理</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//tr:删除一段文本中的某些文字</span><br><span class="line"></span><br><span class="line">tr [option]...SET1 [SET2]</span><br><span class="line"></span><br><span class="line">//col: 将Tab换成等数量的空格键</span><br><span class="line"></span><br><span class="line">col [option]</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ol>
+<li>查看目录与文件：ls</li>
+<li>切换目录：cd</li>
+<li>显示当前目录：pwd</li>
+<li>创建空文件：touch</li>
+<li>创建目录：mkdir</li>
+<li>查看文件内容：cat</li>
+<li>分页查看文件内容：more</li>
+<li>查看文件尾内容：tail</li>
+<li>拷贝：cp</li>
+<li>剪切或改名：mv</li>
+<li>删除：rm</li>
+<li>搜索文件：find</li>
+<li>创建链接文件：In</li>
+<li>显示或配置网络设备：ifconfig</li>
+<li>显示网络相关信息：netstat</li>
+<li>显示进程状态：ps</li>
+<li>查看目录使用情况：du</li>
+<li>查看磁盘空间使用情况：df</li>
+<li>显示系统当前进程信息：top</li>
+<li>杀死进程：kill</li>
+<li>压缩和解压：tar</li>
+<li>改变文件或目录的拥有者和组：chown</li>
+<li>改变文件或目录的访问权限：chmod</li>
+<li>文本编辑：vim</li>
+<li>关机或重启：shutdown</li>
+<li>帮助命令：man</li>
+</ol>
+<hr>
+<h1 id="20个常用问题"><a href="#20个常用问题" class="headerlink" title="20个常用问题"></a>20个常用问题</h1><p><a href="https://linux.cn/article-4790-1.html" target="_blank" rel="noopener">20条Linux命令面试问答</a></p>
+<p><strong>问:1 如何查看当前的Linux服务器的运行级别？</strong><br>答: ‘who -r’ 和 ‘runlevel’ 命令可以用来查看当前的Linux服务器的运行级别。</p>
+<p><strong>问:2 如何查看Linux的默认网关？</strong><br>答: 用 “route -n” 和 “netstat -nr” 命令，我们可以查看默认网关。除了默认的网关信息，这两个命令还可以显示当前的路由表。</p>
+<p><strong>问:3 如何在Linux上重建初始化内存盘镜像文件？</strong><br>答: 在CentOS 5.X / RHEL 5.X中，可以用mkinitrd命令来创建初始化内存盘文件，举例如下：</p>
+<blockquote>
+<p># mkinitrd -f -v /boot/initrd-$(uname -r).img $(uname -r)</p>
+</blockquote>
+<p>如果你想要给特定的内核版本创建初始化内存盘，你就用所需的内核名替换掉 ‘uname -r’ 。<br>在CentOS 6.X / RHEL 6.X中，则用dracut命令来创建初始化内存盘文件，举例如下：</p>
+<blockquote>
+<p># dracut -f</p>
+</blockquote>
+<p>以上命令能给当前的系统版本创建初始化内存盘，给特定的内核版本重建初始化内存盘文件则使用以下命令：</p>
+<blockquote>
+<p># dracut -f initramfs-2.x.xx-xx.el6.x86_64.img 2.x.xx-xx.el6.x86_64</p>
+</blockquote>
+<p><strong>问:4 cpio命令是什么？</strong><br>答: cpio就是复制入和复制出的意思。cpio可以向一个归档文件（或单个文件）复制文件、列表，还可以从中提取文件。</p>
+<p><strong>问:5 patch命令是什么？如何使用？</strong><br>答: 顾名思义，patch命令就是用来将修改（或补丁）写进文本文件里。patch命令通常是接收diff的输出并把文件的旧版本转换为新版本。举个例子，Linux内核源代码由百万行代码文件构成，所以无论何时，任何代码贡献者贡献出代码，只需发送改动的部分而不是整个源代码，然后接收者用patch命令将改动写进原始的源代码里。<br>创建一个diff文件给patch使用，</p>
+<blockquote>
+<p># diff -Naur old_file new_file &gt; diff_file</p>
+</blockquote>
+<p>旧文件和新文件要么都是单个的文件要么都是包含文件的目录，-r参数支持目录树递归。<br>一旦diff文件创建好，我们就能在旧的文件上打上补丁，把它变成新文件：</p>
+<blockquote>
+<p># patch &lt; diff_file</p>
+</blockquote>
+<p><strong>问:6 aspell有什么用 ?</strong><br>答: 顾名思义，aspell就是Linux操作系统上的一款交互式拼写检查器。aspell命令继任了更早的一个名为ispell的程序，并且作为一款免费替代品 ，最重要的是它非常好用。当aspell程序主要被其它一些需要拼写检查能力的程序所使用的时候，在命令行中作为一个独立运行的工具的它也能十分有效。</p>
+<p><strong>问:7 如何从命令行查看域SPF记录？</strong><br>答: 我们可以用dig命令来查看域SPF记录。举例如下：</p>
+<blockquote>
+<p>linuxtechi@localhost:~$ dig -t TXT <a href="http://link.zhihu.com/?target=http%3A//google.com" target="_blank" rel="noopener">http://google.com</a></p>
+</blockquote>
+<p><strong>问:8 如何识别Linux系统中指定文件(/etc/fstab)的关联包？</strong><br>答:</p>
+<blockquote>
+<p># rpm -qf /etc/fstab</p>
+</blockquote>
+<p>以上命令能列出提供“/etc/fstab”这个文件的包。</p>
+<p><strong>问:9 哪条命令用来查看bond0的状态？</strong><br>答:</p>
+<blockquote>
+<p>cat /proc/net/bonding/bond0</p>
+</blockquote>
+<p><strong>问:10 Linux系统中的/proc文件系统有什么用？</strong><br>答: /proc文件系统是一个基于内存的文件系统，其维护着关于当前正在运行的内核状态信息，其中包括CPU、内存、分区划分、I/O地址、直接内存访问通道和正在运行的进程。这个文件系统所代表的并不是各种实际存储信息的文件，它们指向的是内存里的信息。/proc文件系统是由系统自动维护的。</p>
+<p><strong>问:11 如何在/usr目录下找出大小超过10MB的文件？</strong><br>答:</p>
+<blockquote>
+<p># find /usr -size +10M</p>
+</blockquote>
+<p><strong>问:12 如何在/home目录下找出120天之前被修改过的文件？</strong><br>答:</p>
+<blockquote>
+<p># find /home -mtime +120</p>
+</blockquote>
+<p><strong>问:13 如何在/var目录下找出90天之内未被访问过的文件？</strong><br>答:</p>
+<blockquote>
+<p># find /var ! -atime -90</p>
+</blockquote>
+<p><strong>问:14 在整个目录树下查找文件“core”，如发现则无需提示直接删除它们。</strong><br>答:</p>
+<blockquote>
+<p># find / -name core -exec rm {} \;</p>
+</blockquote>
+<p><strong>问:15 strings命令有什么作用？</strong><br>答: strings命令用来提取和显示非文本文件中的文本字符串。（LCTT 译注：当用来分析你系统上莫名其妙出现的二进制程序时，可以从中找到可疑的文件访问，对于追查入侵有用处）</p>
+<p><strong>问:16 tee 过滤器有什么作用 ?</strong><br>答: tee 过滤器用来向多个目标发送输出内容。如果用于管道的话，它可以将输出复制一份到一个文件，并复制另外一份到屏幕上（或一些其它程序）。</p>
+<blockquote>
+<p>linuxtechi@localhost:~$ ll /etc | nl | tee /tmp/ll.out</p>
+</blockquote>
+<p>在以上例子中，从ll输出可以捕获到 /tmp/ll.out 文件中，并且同样在屏幕上显示了出来。</p>
+<p><strong>问:17 export PS1 = ”$LOGNAME@hostname:\$PWD: 这条命令是在做什么？</strong><br>答: 这条export命令会更改登录提示符来显示用户名、本机名和当前工作目录。</p>
+<p><strong>问:18 ll | awk ‘{print $3,”owns”,$9}’ 这条命令是在做什么？</strong><br>答: 这条ll命令会显示这些文件的文件名和它们的拥有者。</p>
+<p><strong>问:19 :Linux中的at命令有什么用？</strong><br>答: at命令用来安排一个程序在未来的做一次一次性执行。所有提交的任务都被放在 /var/spool/at 目录下并且到了执行时间的时候通过atd守护进程来执行。</p>
+<p><strong>问:20 linux中lspci命令的作用是什么？</strong><br>答: lspci命令用来显示你的系统上PCI总线和附加设备的信息。指定-v，-vv或-vvv来获取越来越详细的输出，加上-r参数的话，命令的输出则会更具有易读性。</p>
+<hr>
+<h1 id="360Linux运维面试题"><a href="#360Linux运维面试题" class="headerlink" title="360Linux运维面试题"></a>360Linux运维面试题</h1><p><a href="https://zhuanlan.zhihu.com/p/29693614" target="_blank" rel="noopener">奇虎360Linux运维工程师面试真题</a></p>
+<p><strong>1、写一个脚本查找最后创建时间是3天前，后缀是*.log的文件并删除。</strong></p>
+<p> find / -name “*.log” -ctime +3 -exec rm -f {} \;</p>
+<p><strong>2、写一个脚本将某目录下大于100k的文件移动至/tmp下。</strong></p>
+<p> for i in <code>find /test -type f -size +100k</code>;do cd /test &amp;&amp; mv $i /tmp;done</p>
+<p><strong>3、写一个脚本将数据库备份并打包至远程服务器192.168.1.1 /backup目录下。</strong></p>
+<p> mount 192.168.1.1:/backup /mnt cd /mnt /usr/local/mysql/bin/mysqldump -hlocalhost -uroot test &gt;test.sql tar czf test.sql.tar.gz test.sql rm -f test.sql</p>
+<p><strong>4、写一个防火墙配置脚本，只允许远程主机访问本机的80端口。</strong></p>
+<p> iptables -P INPUT ACCEPT iptables -P OUTPUT ACCEPT iptables -P FORWARD ACCEPT iptables -F iptables -X iptables -A INPUT -i eth0 -p tcp –dport 80 -j ACCEPT iptables -P INPUT DROP</p>
+<p><strong>5、写一个脚本进行nginx日志统计，得到访问ip最多的前10个(nginx日志路径：/home/logs/nginx/default/access.log</strong> awk ‘{a[$1]++}END{for (j in a) print a[j],j}’ /home/logs/nginx/default/access.log|sort -nr|head -10</p>
+<p><strong>6、写出下列配置的含义</strong> </p>
+<p>（1）MaxKeepAliveRequests 100 </p>
+<p>（2）Options FollowSymLinks Order Deny Allow Deny from all Allow from 192.168.1.1</p>
+<p>（1）MaxKeepAliveRequests — 100 连接的最大请求数 </p>
+<p>（2）Options FollowSymLinks — 允许192.168.1.1可以列目录 Order Deny Allow Deny from all Allow from 192.168.1.1</p>
+<p><strong>7、写一个脚本把指定文件里的/usr/local替换为别的目录。</strong> </p>
+<p>sed ‘s:/user/local:/tmp:g’ filename</p>
+<p><strong>8、简要描述Linux的启动过程？</strong></p>
+<p> BIOS启动引导(从mbr中装载启动管理器grub)—-GRUB启动引导(装载kernel和initrd到内存)—–内核启动参数-sys init初始化..</p>
+<p><strong>9、简要叙述下列端口所运行的服务</strong></p>
+<p> 21、22、23、25、110、143、873、3306 对应的服务是 ftp ssh telnet snmp pop3 IMAP rsync</p>
+<p><strong>10、TCP断头最小长度是多少字节？</strong></p>
+<p> 64字节</p>
+<p><strong>11、让某普通用户能进行cp /dir1/file1 /dir2的命令时，请说明dir1 file1最小具有什么权限？</strong></p>
+<p>读取和执行权限rx</p>
+<hr>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------本文结束<i class="fa fa-paw"></i>感谢阅读------</div>
+    
+</div>
+  
+</div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/24/读书笔记之《程序员代码面试指南（二叉树问题）》/" rel="next" title="读书笔记之《程序员代码面试指南（二叉树问题）》">
+                <i class="fa fa-chevron-left"></i> 读书笔记之《程序员代码面试指南（二叉树问题）》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/30/面经-腾讯1/" rel="prev" title="面经-腾讯1">
+                面经-腾讯1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTU3OS82MTQ3"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Damin ZHOU" />
+          <p class="site-author-name" itemprop="name">Damin ZHOU</p>
+           
+              <p class="site-description motion-element" itemprop="description">Goals determine <br/> what you are going to be .</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">84</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/DarminZhou" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/darminzh" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhou-da-37" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/zhou.damin" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://calvin1978.blogcn.com/" title="江南白衣" target="_blank">江南白衣</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.aidansu.com/" title="AidanSu" target="_blank">AidanSu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.codingnow.com/" title="云风的 BLOG" target="_blank">云风的 BLOG</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ifeve.com/category/java/" title="方腾飞|并发编程网" target="_blank">方腾飞|并发编程网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux基础"><span class="nav-number">1.</span> <span class="nav-text">Linux基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户及文件权限管理"><span class="nav-number">2.</span> <span class="nav-text">用户及文件权限管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境变量及文件查找"><span class="nav-number">3.</span> <span class="nav-text">环境变量及文件查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#磁盘管理"><span class="nav-number">4.</span> <span class="nav-text">磁盘管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#任务计划crontab"><span class="nav-number">5.</span> <span class="nav-text">任务计划crontab</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令执行顺序控制与管道"><span class="nav-number">6.</span> <span class="nav-text">命令执行顺序控制与管道</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的文本处理"><span class="nav-number">7.</span> <span class="nav-text">简单的文本处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">8.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20个常用问题"><span class="nav-number">9.</span> <span class="nav-text">20个常用问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#360Linux运维面试题"><span class="nav-number">10.</span> <span class="nav-text">360Linux运维面试题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Damin ZHOU</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("nbMPLdebuLqzndm4qVLz2uKM-gzGzoHsz", "A49GPWtuQgIiXY5wd1aD2Qfq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+</body>
+</html>
+
+<script type="text/javascript" src="/js/src/particles.js" count="50" zindex="-2" opacity="1" color="0,104,183"></script>
+<!-- 背景动画 -->
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+
+<script type="text/javascript" src="/js/src/duoshuoshuo.js"></script>
