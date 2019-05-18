@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[My菊厂生涯]]></title>
+    <url>%2F2019%2F05%2F14%2FMy%E8%8F%8A%E5%8E%82%E7%94%9F%E6%B6%AF%2F</url>
+    <content type="text"><![CDATA[菊厂工作感悟 自己范围内的工作，一定要门清 一定要提高自己的技术工作]]></content>
+      <categories>
+        <category>观点与感想</category>
+      </categories>
+      <tags>
+        <tag>工作</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[第一次NZJ]]></title>
     <url>%2F2019%2F05%2F13%2F%E7%AC%AC%E4%B8%80%E6%AC%A1NZJ%2F</url>
     <content type="text"><![CDATA[入我厂第一次沟，以后还需更加努力。你以为是很多才更加努力吗，如果不是主管给我沟通，我还以为自己干得不好呢…23333]]></content>
@@ -511,8 +522,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>算法</tag>
+        <tag>Java</tag>
         <tag>贪心</tag>
       </tags>
   </entry>
@@ -534,9 +545,9 @@
         <category>算法与数学</category>
       </categories>
       <tags>
+        <tag>算法</tag>
         <tag>笔试</tag>
         <tag>Java</tag>
-        <tag>算法</tag>
         <tag>面试</tag>
       </tags>
   </entry>
