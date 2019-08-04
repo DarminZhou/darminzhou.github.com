@@ -185,15 +185,15 @@
         <p>非常重要的特性！</p>
 <p><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3659295201,1870844406&amp;fm=11&amp;gp=0.jpg" alt=""><br><a id="more"></a></p>
 <h1 id="Ioc"><a href="#Ioc" class="headerlink" title="Ioc"></a>Ioc</h1><p>依赖注入：<br>无需关注这些变量的初始化，只需要通过注解表示</p>
-<h2 id="Service层服务层"><a href="#Service层服务层" class="headerlink" title="Service层服务层"></a>Service层服务层</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WendaService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">(<span class="keyword">int</span> userId)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello Message: "</span> +String.valueOf(userId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Controller层"><a href="#Controller层" class="headerlink" title="Controller层"></a>Controller层</h2><p>原本是：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">WendaService wendaService</span>=new WendaService();</span><br></pre></td></tr></table></figure></p>
-<p>在用的地方依赖注入<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">Autowired</span></span><br><span class="line"><span class="keyword">WendaService</span> wendaService;</span><br></pre></td></tr></table></figure></p>
-<p>完整code:<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    WendaService wendaService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(path = &#123;<span class="meta-string">"/setting"</span> &#125;,method = &#123;RequestMethod.GET&#125;)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> String setting(HttpSession httpSession)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Setting OK. "</span> + wendaService.getMessage(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>http://127.0.0.1:8080/setting/</code><br><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Setting</span> OK. Hello <span class="keyword">Message</span>: <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Service层服务层"><a href="#Service层服务层" class="headerlink" title="Service层服务层"></a>Service层服务层</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class WendaService &#123;</span><br><span class="line">    public String getMessage(int userId)&#123;</span><br><span class="line">        return &quot;Hello Message: &quot; +String.valueOf(userId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Controller层"><a href="#Controller层" class="headerlink" title="Controller层"></a>Controller层</h2><p>原本是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WendaService wendaService=new WendaService();</span><br></pre></td></tr></table></figure></p>
+<p>在用的地方依赖注入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">WendaService wendaService;</span><br></pre></td></tr></table></figure></p>
+<p>完整code:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">public class IndexController &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    WendaService wendaService;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(path = &#123;&quot;/setting&quot; &#125;,method = &#123;RequestMethod.GET&#125;)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    public String setting(HttpSession httpSession)&#123;</span><br><span class="line">        return &quot;Setting OK. &quot; + wendaService.getMessage(1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>http://127.0.0.1:8080/setting/</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Setting OK. Hello Message: 1</span><br></pre></td></tr></table></figure></p>
 <h1 id="Aop-Log"><a href="#Aop-Log" class="headerlink" title="Aop/Log"></a>Aop/Log</h1><p>面向切面，所有业务都要处理的业务<br>好处：关注系统性能时，可以查看每个方法调用多少次，每个方法调用时间，额外注释，数据记录统计等都非常方便！</p>
-<h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-aop<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="aspect"><a href="#aspect" class="headerlink" title="aspect"></a>aspect</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogAspect</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger= LoggerFactory.getLogger(LogAspect.class);</span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"execution(* com.nowcoder.controller.IndexController.*(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        logger.info(<span class="string">"before method"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After</span>(<span class="string">"execution(* com.nowcoder.controller.IndexController.*(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        logger.info(<span class="string">"after method"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>调用IndexController.class前后会执行切面代码<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  .   ____          <span class="symbol">_</span>            <span class="symbol">__</span> <span class="symbol">_</span> <span class="symbol">_</span></span><br><span class="line"> /\\ / ___'<span class="symbol">_</span> <span class="symbol">__</span> <span class="symbol">_</span> <span class="symbol">_</span>(<span class="symbol">_</span>)<span class="symbol">_</span> <span class="symbol">__</span>  <span class="symbol">__</span> <span class="symbol">_</span> \ \ \ \</span><br><span class="line">( ( )\___ | '<span class="symbol">_</span> | '<span class="symbol">_</span>| | '<span class="symbol">_</span> \/ <span class="symbol">_</span>` | \ \ \ \</span><br><span class="line"> \\/  ___)| |<span class="symbol">_</span>)| | | | | || (<span class="symbol">_</span>| |  ) ) ) )</span><br><span class="line">  '  |____| .<span class="symbol">__</span>|<span class="symbol">_</span>| |<span class="symbol">_</span>|<span class="symbol">_</span>| |<span class="symbol">_</span>\<span class="symbol">__</span>, | / / / /</span><br><span class="line"> =========|<span class="symbol">_</span>|==============|___/=/<span class="symbol">_</span>/<span class="symbol">_</span>/<span class="symbol">_</span>/</span><br><span class="line"> :: Spring Boot ::        (v1.3.6.RELEASE)</span><br><span class="line"></span><br><span class="line"><span class="number">2017</span>-<span class="number">07</span>-<span class="number">29</span> <span class="number">09</span>:<span class="number">00</span>:<span class="number">17.625</span>  INFO <span class="number">5652</span> --- [nio-<span class="number">8080</span>-exec-<span class="number">1</span>] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'</span><br><span class="line"><span class="number">2017</span>-<span class="number">07</span>-<span class="number">29</span> <span class="number">09</span>:<span class="number">00</span>:<span class="number">17.625</span>  INFO <span class="number">5652</span> --- [nio-<span class="number">8080</span>-exec-<span class="number">1</span>] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started</span><br><span class="line"><span class="number">2017</span>-<span class="number">07</span>-<span class="number">29</span> <span class="number">09</span>:<span class="number">00</span>:<span class="number">17.635</span>  INFO <span class="number">5652</span> --- [nio-<span class="number">8080</span>-exec-<span class="number">1</span>] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed <span class="keyword">in</span> <span class="number">10</span> ms</span><br><span class="line"><span class="number">2017</span>-<span class="number">07</span>-<span class="number">29</span> <span class="number">09</span>:<span class="number">00</span>:<span class="number">17.655</span>  INFO <span class="number">5652</span> --- [nio-<span class="number">8080</span>-exec-<span class="number">1</span>] com.nowcoder.aspect.LogAspect            : before <span class="built_in">method</span></span><br><span class="line"><span class="number">2017</span>-<span class="number">07</span>-<span class="number">29</span> <span class="number">09</span>:<span class="number">00</span>:<span class="number">17.657</span>  INFO <span class="number">5652</span> --- [nio-<span class="number">8080</span>-exec-<span class="number">1</span>] com.nowcoder.aspect.LogAspect            : after <span class="built_in">method</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-boot-starter-aop&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="aspect"><a href="#aspect" class="headerlink" title="aspect"></a>aspect</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@Aspect</span><br><span class="line">public class LogAspect &#123;</span><br><span class="line">    private static final Logger logger= LoggerFactory.getLogger(LogAspect.class);</span><br><span class="line">    @Before(&quot;execution(* com.nowcoder.controller.IndexController.*(..))&quot;)</span><br><span class="line">    public void beforeMethod()&#123;</span><br><span class="line">        logger.info(&quot;before method&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @After(&quot;execution(* com.nowcoder.controller.IndexController.*(..))&quot;)</span><br><span class="line">    public void afterMethod()&#123;</span><br><span class="line">        logger.info(&quot;after method&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用IndexController.class前后会执行切面代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  .   ____          _            __ _ _</span><br><span class="line"> /\\ / ___&apos;_ __ _ _(_)_ __  __ _ \ \ \ \</span><br><span class="line">( ( )\___ | &apos;_ | &apos;_| | &apos;_ \/ _` | \ \ \ \</span><br><span class="line"> \\/  ___)| |_)| | | | | || (_| |  ) ) ) )</span><br><span class="line">  &apos;  |____| .__|_| |_|_| |_\__, | / / / /</span><br><span class="line"> =========|_|==============|___/=/_/_/_/</span><br><span class="line"> :: Spring Boot ::        (v1.3.6.RELEASE)</span><br><span class="line"></span><br><span class="line">2017-07-29 09:00:17.625  INFO 5652 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet &apos;dispatcherServlet&apos;</span><br><span class="line">2017-07-29 09:00:17.625  INFO 5652 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet &apos;dispatcherServlet&apos;: initialization started</span><br><span class="line">2017-07-29 09:00:17.635  INFO 5652 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet &apos;dispatcherServlet&apos;: initialization completed in 10 ms</span><br><span class="line">2017-07-29 09:00:17.655  INFO 5652 --- [nio-8080-exec-1] com.nowcoder.aspect.LogAspect            : before method</span><br><span class="line">2017-07-29 09:00:17.657  INFO 5652 --- [nio-8080-exec-1] com.nowcoder.aspect.LogAspect            : after method</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=728688327,4195684297&amp;fm=26&amp;gp=0.jpg" alt=""></p>
 
       
@@ -447,6 +447,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
@@ -459,15 +463,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,7 +475,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,19 +495,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,19 +507,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,7 +523,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,15 +547,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二维码防伪</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二维码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二维码防伪</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,15 +559,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博主</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
