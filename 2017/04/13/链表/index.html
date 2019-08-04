@@ -183,16 +183,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>链表基础总结。<br><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/5/41881.jpg" alt=""><br><a id="more"></a></p>
-<p><code>1.遍历</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(Node x=first ; x!=null ; x=x.next)&#123;</span><br><span class="line">	//处理x.item</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>2.定义链表</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private class Data&#123;</span><br><span class="line">    	private object obj;</span><br><span class="line">    	private Data next=null;</span><br><span class="line">    	Data(Object obj)&#123;</span><br><span class="line">    		this.obj=obj;</span><br><span class="line">    	&#125; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>3.首节点为空</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private Data first=null;</span><br></pre></td></tr></table></figure></p>
-<p><code>4.insertFirst ： 在表头插入一个新的链接点，时间复杂度为O(1)</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void insertFirst(Object obj)&#123;</span><br><span class="line">   	Data data=new Data(obj);</span><br><span class="line">   	data.next=first;</span><br><span class="line">   	first=data;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>5.deleteFirst :删除表头首节点，时间复杂度为O(1)</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public Object deleteFirst() throws Exception&#123;</span><br><span class="line">   	if(first==null)&#123;</span><br><span class="line">   		throw new Exception(&quot;empty!&quot;);</span><br><span class="line">   	&#125;</span><br><span class="line">   	Data temp=first;</span><br><span class="line">   	first=first.next;</span><br><span class="line">   	return temp.obj;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>6.find: 查找包含指定关键字的链接点，遍历查找，平均需要查找N/2次,即O(N)</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public Object find (Object obj) throws Exception&#123;</span><br><span class="line">   	if(first ==null)&#123;</span><br><span class="line">   		throw new Exception(&quot;LinkedList is empty!&quot;);</span><br><span class="line">   	&#125;</span><br><span class="line">   	Data cur=first;</span><br><span class="line">   	while (cur!=null)&#123;</span><br><span class="line">   		if(cur.obj.equals(obj))&#123;</span><br><span class="line">   			return cur.obj;</span><br><span class="line">   		&#125;</span><br><span class="line">   		cur=cur.next;</span><br><span class="line">   	&#125;</span><br><span class="line">   	return null;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>7.remove ：删除包含指定关键字的链接点，遍历查找，平均需要查找N/2次,即O(N)</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public void remove(Object obj) throws Exception&#123;</span><br><span class="line">   	if(first == null)</span><br><span class="line">   		throw new Exception(&quot;LinkedList is empty!&quot;);</span><br><span class="line">   	if(first.obj.equals(obj))&#123;</span><br><span class="line">   		first=first.next;</span><br><span class="line">   	&#125;else&#123;</span><br><span class="line">   		Data pre = first;</span><br><span class="line">   		Data cur = first.next;</span><br><span class="line">   		while(cur!=null)&#123;</span><br><span class="line">   			if(cur.obj.equals(obj))&#123;</span><br><span class="line">   				pre.next=cur.next;</span><br><span class="line">   			&#125;</span><br><span class="line">   			pre=cur;</span><br><span class="line">   			cur=cur.next;</span><br><span class="line">   		&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>8.isEmpt</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public boolean isEmpty()&#123;</span><br><span class="line">	return (first==null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>9.打印链表</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public void display()&#123;</span><br><span class="line">   	if(first==null)</span><br><span class="line">   		System.out.println(&quot;empty&quot;);</span><br><span class="line">   	Data cur=first;</span><br><span class="line">   	while(cur!=null)&#123;</span><br><span class="line">   		System.out.print(cur.obj.toString()+&quot;-&gt;&quot;);</span><br><span class="line">   		cur=cur.next;</span><br><span class="line">   	&#125;</span><br><span class="line">   	System.out.print(&quot;\n&quot;);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>10.删除指定节点</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public void deleteNode(ListNode node) &#123;</span><br><span class="line">     if(node!=null&amp;&amp;node.next!=null)&#123;</span><br><span class="line">         node.val=node.next.val;</span><br><span class="line">         node.next=node.next.next;</span><br><span class="line">     &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>1.遍历</code><br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(<span class="keyword">Node</span> <span class="title">x</span>=first ; x!=null ; x=x.next)&#123;</span><br><span class="line">	//处理x.item</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>2.定义链表</code><br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Data</span></span>&#123;</span><br><span class="line">    	<span class="keyword">private</span> <span class="keyword">object</span> obj;</span><br><span class="line">    	<span class="keyword">private</span> Data next=<span class="literal">null</span>;</span><br><span class="line">    	Data(Object obj)&#123;</span><br><span class="line">    		<span class="keyword">this</span>.obj=obj;</span><br><span class="line">    	&#125; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>3.首节点为空</code><br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="built_in">Data</span> first=<span class="built_in">null</span>;</span><br></pre></td></tr></table></figure></p>
+<p><code>4.insertFirst ： 在表头插入一个新的链接点，时间复杂度为O(1)</code><br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="literal">void</span> insertFirst(Object obj)&#123;</span><br><span class="line">   	<span class="built_in">Data</span> <span class="built_in">data</span>=<span class="literal">new</span> <span class="built_in">Data</span>(obj);</span><br><span class="line">   	<span class="built_in">data</span>.next=first;</span><br><span class="line">   	first=<span class="built_in">data</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>5.deleteFirst :删除表头首节点，时间复杂度为O(1)</code><br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function">Object <span class="title">deleteFirst</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">   	<span class="keyword">if</span>(first==<span class="keyword">null</span>)&#123;</span><br><span class="line">   		<span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"empty!"</span>);</span><br><span class="line">   	&#125;</span><br><span class="line">   	Data temp=first;</span><br><span class="line">   	first=first.next;</span><br><span class="line">   	<span class="keyword">return</span> temp.obj;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>6.find: 查找包含指定关键字的链接点，遍历查找，平均需要查找N/2次,即O(N)</code><br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Object <span class="keyword">find</span> (Object obj) <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">   	<span class="keyword">if</span>(first ==<span class="keyword">null</span>)&#123;</span><br><span class="line">   		<span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"LinkedList is empty!"</span>);</span><br><span class="line">   	&#125;</span><br><span class="line">   	Data cur=first;</span><br><span class="line">   	<span class="keyword">while</span> (cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">   		<span class="keyword">if</span>(cur.obj.equals(obj))&#123;</span><br><span class="line">   			<span class="keyword">return</span> cur.obj;</span><br><span class="line">   		&#125;</span><br><span class="line">   		cur=cur.<span class="keyword">next</span>;</span><br><span class="line">   	&#125;</span><br><span class="line">   	<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>7.remove ：删除包含指定关键字的链接点，遍历查找，平均需要查找N/2次,即O(N)</code><br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> remove(Object obj) <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">   	<span class="keyword">if</span>(first == <span class="keyword">null</span>)</span><br><span class="line">   		<span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"LinkedList is empty!"</span>);</span><br><span class="line">   	<span class="keyword">if</span>(first.obj.equals(obj))&#123;</span><br><span class="line">   		first=first.<span class="keyword">next</span>;</span><br><span class="line">   	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   		Data pre = first;</span><br><span class="line">   		Data cur = first.<span class="keyword">next</span>;</span><br><span class="line">   		<span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">   			<span class="keyword">if</span>(cur.obj.equals(obj))&#123;</span><br><span class="line">   				pre.<span class="keyword">next</span>=cur.<span class="keyword">next</span>;</span><br><span class="line">   			&#125;</span><br><span class="line">   			pre=cur;</span><br><span class="line">   			cur=cur.<span class="keyword">next</span>;</span><br><span class="line">   		&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>8.isEmpt</code><br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (first==<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>9.打印链表</code><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public void display()&#123;</span><br><span class="line">   	<span class="keyword">if</span>(<span class="attribute">first</span>==null)</span><br><span class="line">   		System.out.println(<span class="string">"empty"</span>);</span><br><span class="line">   	Data <span class="attribute">cur</span>=first;</span><br><span class="line">   	<span class="keyword">while</span>(cur!=<span class="literal">null</span>)&#123;</span><br><span class="line">   		System.out.<span class="builtin-name">print</span>(cur.obj.toString()+<span class="string">"-&gt;"</span>);</span><br><span class="line">   		<span class="attribute">cur</span>=cur.next;</span><br><span class="line">   	&#125;</span><br><span class="line">   	System.out.<span class="builtin-name">print</span>(<span class="string">"\n"</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>10.删除指定节点</code><br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public void deleteNode(ListNode <span class="keyword">node</span><span class="title">) &#123;</span></span><br><span class="line"><span class="title">     if</span>(<span class="keyword">node</span><span class="title">!=null</span>&amp;&amp;<span class="keyword">node</span>.<span class="title">next</span>!=null)&#123;</span><br><span class="line">         <span class="keyword">node</span>.<span class="title">val</span>=<span class="keyword">node</span>.<span class="title">next</span>.val;</span><br><span class="line">         <span class="keyword">node</span>.<span class="title">next</span>=<span class="keyword">node</span>.<span class="title">next</span>.next;</span><br><span class="line">     &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/3/20606.jpg" alt=""></p>
 
       
@@ -446,7 +446,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -458,11 +458,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,7 +470,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,23 +506,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,7 +518,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,15 +538,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,11 +550,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二维码</a>
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博主</a>
+                <a href="javascript:void(0)" class="js-tag color4">二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,11 +562,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">博主</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,10 +590,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网易</a>
               </li>
              
@@ -603,6 +599,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,11 +618,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">阿里</a>
+                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+                <a href="javascript:void(0)" class="js-tag color3">阿里</a>
               </li>
              
               <li class="article-tag-list-item">

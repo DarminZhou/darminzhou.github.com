@@ -190,7 +190,7 @@
 <p><code>4.JSP声明</code><br>在JSP页面中定义变量或者方法。<br>&lt;%!JAVA代码%&gt;<br><code>5.Java 表达式</code><br>在JSP页面中执行的表达式。<br>&lt;% =表达式 %&gt;  //注意:表达式不以分号结束</p>
 <p><code>6.JSP页面生命周期</code><br>·用户发出请求index.jsp<br>·是否是第一次请求—&gt;<br>·是–&gt;JSP引擎把该JSP文件转换成为一个Servlet，生成字节码文件，并执行jspInit()–&gt;再访问生成的字节码文件<br>·否–&gt;直接访问生成的字节码文件<br>·解析执行，jspService()</p>
 <p>当用户第一次请求一个jsp页面时，首先被执行的方法是构造方法。</p>
-<p><code>JSP内置对象</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1.内置对象简介</span><br><span class="line">JSP内置对象是Web容器创建的一组对象，不使用new关键就可以使用的内置对象。</span><br><span class="line"></span><br><span class="line">2.四种作用域范围</span><br><span class="line"></span><br><span class="line">3.out</span><br><span class="line"></span><br><span class="line">4.request</span><br><span class="line"></span><br><span class="line">5.session</span><br><span class="line"></span><br><span class="line">6.application</span><br><span class="line"></span><br><span class="line">7.其他内置对象</span><br><span class="line"></span><br><span class="line">缓冲区：Buffer</span><br><span class="line">缓冲区就是内存的一块区域用来保存临时数据。</span><br></pre></td></tr></table></figure></p>
+<p><code>JSP内置对象</code><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.内置对象简介</span><br><span class="line">JSP内置对象是Web容器创建的一组对象，不使用new关键就可以使用的内置对象。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.四种作用域范围</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>.out</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>.request</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>.session</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>.application</span><br><span class="line"></span><br><span class="line"><span class="number">7</span>.其他内置对象</span><br><span class="line"></span><br><span class="line">缓冲区：Buffer</span><br><span class="line">缓冲区就是内存的一块区域用来保存临时数据。</span><br></pre></td></tr></table></figure></p>
 <p><code>8.ContextConfig 的 init 方法将会主要完成以下工作：</code><br>·创建用于解析 xml 配置文件的 contextDigester 对象<br>·读取默认 context.xml 配置文件，如果存在解析它<br>·读取默认 Host 配置文件，如果存在解析它<br>·读取默认 Context 自身的配置文件，如果存在解析它<br>·设置 Context 的 DocBase</p>
 <p><code>9.ContextConfig 的 init 方法完成后，Context 容器的会执行 startInternal 方法，这个方法启动逻辑比较复杂，主要包括如下几个部分：</code><br>·创建读取资源文件的对象<br>·创建 ClassLoader 对象<br>·设置应用的工作目录<br>·启动相关的辅助类如：logger、realm、resources 等<br>·修改启动状态，通知感兴趣的观察者（Web 应用的配置）<br>·子容器的初始化<br>·获取 ServletContext 并设置必要的参数<br>·初始化“load on startup”的 Servlet</p>
 <p>10.与 Servlet 主动关联的是三个类，分别是 ServletConfig、ServletRequest 和 ServletResponse。这三个类都是通过容器传递给 Servlet 的，其中 ServletConfig 是在 Servlet 初始化时就传给 Servlet 了，而后两个是在请求达到时调用 Servlet 时传递过来的。</p>
@@ -447,7 +447,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,11 +459,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,7 +471,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,23 +507,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,7 +519,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,15 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +551,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二维码</a>
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博主</a>
+                <a href="javascript:void(0)" class="js-tag color4">二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,11 +563,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">博主</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,10 +591,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网易</a>
               </li>
              
@@ -604,6 +600,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,11 +619,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">阿里</a>
+                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+                <a href="javascript:void(0)" class="js-tag color3">阿里</a>
               </li>
              
               <li class="article-tag-list-item">

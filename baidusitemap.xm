@@ -715,11 +715,11 @@
         <title>常考面试算法题之DFS/BFS</title>
         <pubTime>2017-07-22T08:56:06.000Z</pubTime>
         
-        <tag>算法</tag>
-         
         <tag>笔试</tag>
          
         <tag>Java</tag>
+         
+        <tag>算法</tag>
          
         <tag>面试</tag>
          
@@ -1256,9 +1256,9 @@
         <title>常考面试算法题之贪心算法</title>
         <pubTime>2017-07-22T08:56:46.000Z</pubTime>
         
-        <tag>算法</tag>
-         
         <tag>Java</tag>
+         
+        <tag>算法</tag>
          
         <tag>贪心</tag>
          

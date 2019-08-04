@@ -186,12 +186,12 @@
         <p>Efounds的笔试~</p>
 <p><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/5/41149.jpg" alt=""></p>
 <a id="more"></a>
-<p><code>1.比较两个浮点数大小</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">一般不会直接用“==”或者“!=”对两个浮点数进行比较。</span><br><span class="line">判断两个浮点数float a 与 float b 是否相等可以根据他们的差的绝对值是否大于0来进行判断。</span><br><span class="line">判断相等：</span><br><span class="line">if（Math.abs(a-b)&lt;=0）&#123;相等&#125;</span><br><span class="line">或者</span><br><span class="line">if（!Math.abs(a-b)&gt;0）&#123;相等&#125;</span><br><span class="line"></span><br><span class="line">判断不等：</span><br><span class="line">if（Math.abs(a-b)&gt;0）&#123;不相等&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>2，用最快排序找到无序的数组里第K大的数</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">public class AlgCode &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">     // int [] nums=&#123;5, 7, 1, 8,3, 10&#125;;  //测试</span><br><span class="line">        int [] nums=  &#123;3,1,4,7,5,8,0&#125;;</span><br><span class="line">        int k=5;</span><br><span class="line">      int  res= findKth(nums,0,nums.length-1,k-1);</span><br><span class="line">      System.out.print(&quot;The Kth is: &quot;+res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static int findKth(int [] data ,int first , int last ,int k)&#123;</span><br><span class="line">        int kth;</span><br><span class="line">        if(first==last) kth=data[first];</span><br><span class="line">        else &#123;</span><br><span class="line">            int pivot = data[first];</span><br><span class="line">            int splitPoint = partition(data, first, last);</span><br><span class="line">            if (k &lt; splitPoint)</span><br><span class="line">                kth = findKth(data, first, splitPoint - 1, k);</span><br><span class="line">            else if(k&gt;splitPoint)</span><br><span class="line">                kth = findKth(data, splitPoint + 1, last, k);</span><br><span class="line">            else</span><br><span class="line">            kth = pivot;</span><br><span class="line">           &#125;</span><br><span class="line">           return kth;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private static int partition(int [] data ,int first , int last)&#123;</span><br><span class="line">            int pivot = data[first];</span><br><span class="line">            while(first&lt;last) &#123;</span><br><span class="line">                while (first &lt; last &amp;&amp; data[last] &gt; pivot)</span><br><span class="line">                    last--;</span><br><span class="line">                data[first] = data[last];</span><br><span class="line">                while (first &lt; last &amp;&amp; data[first] &lt; pivot)</span><br><span class="line">                    first++;</span><br><span class="line">                data[last] = data[first];</span><br><span class="line">            &#125;</span><br><span class="line">                data[first]=pivot;</span><br><span class="line">                return first;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>1.比较两个浮点数大小</code><br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">一般不会直接用“==”或者“!=”对两个浮点数进行比较。</span><br><span class="line">判断两个浮点数float a 与 float b 是否相等可以根据他们的差的绝对值是否大于<span class="number">0</span>来进行判断。</span><br><span class="line">判断相等：</span><br><span class="line"><span class="keyword">if</span>（Math.abs<span class="comment">(a-b)</span>&lt;=<span class="number">0</span>）&#123;相等&#125;</span><br><span class="line">或者</span><br><span class="line"><span class="keyword">if</span>（!Math.abs<span class="comment">(a-b)</span>&gt;<span class="number">0</span>）&#123;相等&#125;</span><br><span class="line"></span><br><span class="line">判断不等：</span><br><span class="line"><span class="keyword">if</span>（Math.abs<span class="comment">(a-b)</span>&gt;<span class="number">0</span>）&#123;不相等&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>2，用最快排序找到无序的数组里第K大的数</code><br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> AlgCode &#123;</span><br><span class="line">    <span class="keyword">public</span> static void main(String[] args) &#123;</span><br><span class="line">     // <span class="built_in">int</span> [] nums=&#123;<span class="number">5</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">8</span>,<span class="number">3</span>, <span class="number">10</span>&#125;;  //测试</span><br><span class="line">        <span class="built_in">int</span> [] nums=  &#123;<span class="number">3</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="built_in">int</span> k=<span class="number">5</span>;</span><br><span class="line">      <span class="built_in">int</span>  res= findKth(nums,<span class="number">0</span>,nums.length-<span class="number">1</span>,k-<span class="number">1</span>);</span><br><span class="line">      System.<span class="keyword">out</span>.<span class="built_in">print</span>(<span class="string">"The Kth is: "</span>+res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> static <span class="built_in">int</span> findKth(<span class="built_in">int</span> [] <span class="keyword">data</span> ,<span class="built_in">int</span> first , <span class="built_in">int</span> last ,<span class="built_in">int</span> k)&#123;</span><br><span class="line">        <span class="built_in">int</span> kth;</span><br><span class="line">        <span class="keyword">if</span>(first==last) kth=<span class="keyword">data</span>[first];</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">int</span> pivot = <span class="keyword">data</span>[first];</span><br><span class="line">            <span class="built_in">int</span> splitPoint = partition(<span class="keyword">data</span>, first, last);</span><br><span class="line">            <span class="keyword">if</span> (k &lt; splitPoint)</span><br><span class="line">                kth = findKth(<span class="keyword">data</span>, first, splitPoint - <span class="number">1</span>, k);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(k&gt;splitPoint)</span><br><span class="line">                kth = findKth(<span class="keyword">data</span>, splitPoint + <span class="number">1</span>, last, k);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            kth = pivot;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> kth;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> static <span class="built_in">int</span> partition(<span class="built_in">int</span> [] <span class="keyword">data</span> ,<span class="built_in">int</span> first , <span class="built_in">int</span> last)&#123;</span><br><span class="line">            <span class="built_in">int</span> pivot = <span class="keyword">data</span>[first];</span><br><span class="line">            <span class="keyword">while</span>(first&lt;last) &#123;</span><br><span class="line">                <span class="keyword">while</span> (first &lt; last &amp;&amp; <span class="keyword">data</span>[last] &gt; pivot)</span><br><span class="line">                    last--;</span><br><span class="line">                <span class="keyword">data</span>[first] = <span class="keyword">data</span>[last];</span><br><span class="line">                <span class="keyword">while</span> (first &lt; last &amp;&amp; <span class="keyword">data</span>[first] &lt; pivot)</span><br><span class="line">                    first++;</span><br><span class="line">                <span class="keyword">data</span>[last] = <span class="keyword">data</span>[first];</span><br><span class="line">            &#125;</span><br><span class="line">                <span class="keyword">data</span>[first]=pivot;</span><br><span class="line">                <span class="keyword">return</span> first;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>3，单链表是否有环并如何找到环入口</code><br>首先要了解什么叫环，如图，Join.next-&gt;Pos，Pos.next-&gt;Join，那么该链表有环<br><img src="http://images.cnitblog.com/i/466768/201404/162209501501814.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedLoop&#123;</span><br><span class="line">    //内部静态类定义结点类</span><br><span class="line">	static class Node&#123;</span><br><span class="line">	int val;</span><br><span class="line">	Node next;</span><br><span class="line">	public Node(int val)&#123;</span><br><span class="line">	this.val = val;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	//判断单链表是否有环</span><br><span class="line">	public static boolean hasLoop(Node head)&#123;</span><br><span class="line">	Node p1=head;  //指向头节点</span><br><span class="line">	Node p2=head.next;  //指向下一个节点</span><br><span class="line"></span><br><span class="line">	while(p2!=null &amp;&amp;p2.next!=null)&#123;</span><br><span class="line">		p1=p1.next;</span><br><span class="line">		p2=p2.next.next;</span><br><span class="line">		if(p2==null)&#123;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">		int val1=p1.val;</span><br><span class="line">		int val2=p2.val;</span><br><span class="line">		if(val1==val2)</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String [] args)&#123;</span><br><span class="line">		Node n1=new Node(1);</span><br><span class="line">		Node n2=new Node(3);</span><br><span class="line">		Node n3=new Node(6);</span><br><span class="line">		Node n4=new Node(4);</span><br><span class="line">		Node n5=new Node(5);</span><br><span class="line">		Node n6=new Node(10);</span><br><span class="line">		n1.next = n2;</span><br><span class="line">		n2.next = n3;</span><br><span class="line">		n3.next = n4;</span><br><span class="line">		n4.next = n5;</span><br><span class="line">		n5.next = n6;</span><br><span class="line">		n6.next = n5;</span><br><span class="line">		System.out.println(hasLoop(n1));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>4，快排第一次排列后的顺序</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int [] nums=  &#123;3,1,4,7,5,8,0&#125;;      </span><br><span class="line">如果基准为3；</span><br><span class="line">第一次快排后:</span><br><span class="line">nums=&#123;0,1,3,7,5,8,4&#125;;</span><br></pre></td></tr></table></figure></p>
-<p><code>5，Java 数据输入</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a =0;</span><br><span class="line">Scanner input = new Scanner(System.in);</span><br><span class="line">System.out.println(&quot;输入数字:&quot;);</span><br><span class="line">a = input.nextInt();</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedLoop&#123;</span><br><span class="line">    //内部静态类定义结点类</span><br><span class="line">	static class <span class="keyword">Node</span><span class="title">&#123;</span></span><br><span class="line"><span class="title">	int</span> val;</span><br><span class="line">	<span class="keyword">Node</span> <span class="title">next</span>;</span><br><span class="line">	public <span class="keyword">Node</span><span class="title">(int</span> val)&#123;</span><br><span class="line">	this.val = val;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	//判断单链表是否有环</span><br><span class="line">	public static boolean hasLoop(<span class="keyword">Node</span> <span class="title">head</span>)&#123;</span><br><span class="line">	<span class="keyword">Node</span> <span class="title">p1</span>=head;  //指向头节点</span><br><span class="line">	<span class="keyword">Node</span> <span class="title">p2</span>=head.next;  //指向下一个节点</span><br><span class="line"></span><br><span class="line">	while(p2!=null &amp;&amp;p2.next!=null)&#123;</span><br><span class="line">		<span class="attr">p1=</span>p1.next;</span><br><span class="line">		<span class="attr">p2=</span>p2.next.next;</span><br><span class="line">		if(<span class="attr">p2=</span>=null)&#123;</span><br><span class="line">			return <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		int <span class="attr">val1=</span>p1.val;</span><br><span class="line">		int <span class="attr">val2=</span>p2.val;</span><br><span class="line">		if(<span class="attr">val1=</span>=val2)</span><br><span class="line">		return <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	return <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(<span class="keyword">String</span> [] args)&#123;</span><br><span class="line">		<span class="keyword">Node</span> <span class="title">n1</span>=new <span class="keyword">Node</span><span class="title">(1</span>);</span><br><span class="line">		<span class="keyword">Node</span> <span class="title">n2</span>=new <span class="keyword">Node</span><span class="title">(3</span>);</span><br><span class="line">		<span class="keyword">Node</span> <span class="title">n3</span>=new <span class="keyword">Node</span><span class="title">(6</span>);</span><br><span class="line">		<span class="keyword">Node</span> <span class="title">n4</span>=new <span class="keyword">Node</span><span class="title">(4</span>);</span><br><span class="line">		<span class="keyword">Node</span> <span class="title">n5</span>=new <span class="keyword">Node</span><span class="title">(5</span>);</span><br><span class="line">		<span class="keyword">Node</span> <span class="title">n6</span>=new <span class="keyword">Node</span><span class="title">(10</span>);</span><br><span class="line">		n1.next = n2;</span><br><span class="line">		n2.next = n3;</span><br><span class="line">		n3.next = n4;</span><br><span class="line">		n4.next = n5;</span><br><span class="line">		n5.next = n6;</span><br><span class="line">		n6.next = n5;</span><br><span class="line">		System.out.println(hasLoop(n1));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>4，快排第一次排列后的顺序</code><br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int [] nums=  &#123;3,1,4,7,5,8,0&#125;;      </span><br><span class="line">如果基准为3；</span><br><span class="line"><span class="section">第一次快排后:</span></span><br><span class="line">nums=&#123;0,1,3,7,5,8,4&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>5，Java 数据输入</code><br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a =<span class="number">0</span><span class="comment">;</span></span><br><span class="line">Scanner input = new Scanner(System.in)<span class="comment">;</span></span><br><span class="line">System.out.println(<span class="string">"输入数字:"</span>)<span class="comment">;</span></span><br><span class="line"><span class="attribute">a</span> = input.nextInt()<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 <p><code>6，软件生命周期</code></p>
 <p>软件生命周期(SDLC，Systems Development Life Cycle,SDLC)是软件的产生直到报废或停止使用的生命周期。<br>软件生存周期包括：</p>
 <p>一，问题定义。要求系统分析员与用户进行交流，弄清“用户需要计算机解决什么问题”然后提出关于“系统目标与范围的说明”，提交用户审查和确认。</p>
@@ -468,7 +468,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,11 +480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,7 +492,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,23 +528,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,7 +540,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,15 +560,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,11 +572,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二维码</a>
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博主</a>
+                <a href="javascript:void(0)" class="js-tag color4">二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,11 +584,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">博主</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,10 +612,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网易</a>
               </li>
              
@@ -625,6 +621,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,11 +640,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">阿里</a>
+                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+                <a href="javascript:void(0)" class="js-tag color3">阿里</a>
               </li>
              
               <li class="article-tag-list-item">

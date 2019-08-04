@@ -183,12 +183,12 @@
 <h1 id="超级素数幂"><a href="#超级素数幂" class="headerlink" title="超级素数幂"></a>超级素数幂</h1><p>如果一个数字能表示为p^q(^表示幂运算)且p为一个素数,q为大于1的正整数就称这个数叫做超级素数幂。现在给出一个正整数n,如果n是一个超级素数幂需要找出对应的p,q。<br>输入描述:</p>
 <p>输入一个正整数n(2 ≤ n ≤ 10^18)</p>
 <p>输出描述:</p>
-<p>如果n是一个超级素数幂则输出p,q,以空格分隔,行末无空格。<br>如果n不是超级素数幂，则输出No<br>示例1<br>输入<br><code>27</code><br>输出<br><code>3 3</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">       Scanner scanner=new Scanner(System.in);</span><br><span class="line">       System.out.println(&quot;剩下数字个数 ：&quot;);</span><br><span class="line">       long n=scanner.nextLong();</span><br><span class="line">       boolean flag=false;</span><br><span class="line">       double p;</span><br><span class="line">       for(int q=2;q*q&lt;n;q++)&#123;</span><br><span class="line">           p=Math.pow((double) n,1d/q);</span><br><span class="line">           System.out.println(1d/q);</span><br><span class="line">           System.out.println(1/q);</span><br><span class="line">           if((long )p==p &amp;&amp; isPrimeNum((long)p))&#123;</span><br><span class="line">               System.out.println((long)p+&quot; &quot;+q);</span><br><span class="line">               flag=true;</span><br><span class="line">               break;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       if(!flag)&#123;</span><br><span class="line">           System.out.println(&quot;No&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static boolean isPrimeNum(long num)&#123;</span><br><span class="line">        if (num&lt;=1)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i=2;i*i&lt;=num;i++)&#123;</span><br><span class="line">            if(num%i==0)&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>用 1d 取double很关键！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">剩下数字个数 ：</span><br><span class="line">27</span><br><span class="line">0.5</span><br><span class="line">0</span><br><span class="line">0.3333333333333333</span><br><span class="line">0</span><br><span class="line">3 3</span><br></pre></td></tr></table></figure></p>
+<p>如果n是一个超级素数幂则输出p,q,以空格分隔,行末无空格。<br>如果n不是超级素数幂，则输出No<br>示例1<br>输入<br><code>27</code><br>输出<br><code>3 3</code><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Main</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span>&#123;</span><br><span class="line">       Scanner scanner=<span class="keyword">new</span> Scanner(System.<span class="keyword">in</span>);</span><br><span class="line">       System.<span class="keyword">out</span>.println(<span class="string">"剩下数字个数 ："</span>);</span><br><span class="line">       <span class="keyword">long</span> n=scanner.nextLong();</span><br><span class="line">       boolean flag=<span class="literal">false</span>;</span><br><span class="line">       <span class="keyword">double</span> p;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> q=<span class="number">2</span>;q*q&lt;n;q++)&#123;</span><br><span class="line">           p=Math.pow((<span class="keyword">double</span>) n,<span class="number">1</span>d/q);</span><br><span class="line">           System.<span class="keyword">out</span>.println(<span class="number">1</span>d/q);</span><br><span class="line">           System.<span class="keyword">out</span>.println(<span class="number">1</span>/q);</span><br><span class="line">           <span class="keyword">if</span>((<span class="keyword">long</span> )p==p &amp;&amp; isPrimeNum((<span class="keyword">long</span>)p))&#123;</span><br><span class="line">               System.<span class="keyword">out</span>.println((<span class="keyword">long</span>)p+<span class="string">" "</span>+q);</span><br><span class="line">               flag=<span class="literal">true</span>;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(!flag)&#123;</span><br><span class="line">           System.<span class="keyword">out</span>.println(<span class="string">"No"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> boolean <span class="title">isPrimeNum</span>(<span class="params"><span class="keyword">long</span> num</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;=num;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num%i==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>用 1d 取double很关键！<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">剩下数字个数 ：</span><br><span class="line"><span class="number">27</span></span><br><span class="line"><span class="number">0.5</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0.3333333333333333</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">3</span> <span class="number">3</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="找整除"><a href="#找整除" class="headerlink" title="找整除"></a>找整除</h1><p>牛牛想在[a, b]区间内找到一些数满足可以被一个整数c整除,现在你需要帮助牛牛统计区间内一共有多少个这样的数满足条件？<br>输入描述:</p>
 <p>首先输入两个整数a,b,（-5<em>10^8 ≤ a ≤ b ≤ 5</em>10^8)<br>接着是一个正整数c（1 &lt;= c &lt;= 1000）</p>
 <p>输出描述:</p>
-<p>输出一个整数表示个数。<br>示例1<br>输入<br><code>0 14 5</code><br>输出<br><code>3</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">       Scanner scanner=new Scanner(System.in);</span><br><span class="line">       System.out.println(&quot;整数a ：&quot;);</span><br><span class="line">       int a=scanner.nextInt();</span><br><span class="line">        System.out.println(&quot;整数b ：&quot;);</span><br><span class="line">        int b=scanner.nextInt();</span><br><span class="line">        System.out.println(&quot;正整数c ：&quot;);</span><br><span class="line">        int c=scanner.nextInt();</span><br><span class="line">        int count=0;</span><br><span class="line">        for(int n=a/c ; n*c&lt;=b;n++ )&#123;</span><br><span class="line">       if(c*n&gt;=a) &#123;</span><br><span class="line">           count++;</span><br><span class="line">       &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出一个整数表示个数。<br>示例1<br>输入<br><code>0 14 5</code><br>输出<br><code>3</code><br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void main(<span class="type">String</span>[] args)&#123;</span><br><span class="line">       <span class="type">Scanner</span> scanner=new <span class="type">Scanner</span>(<span class="type">System</span>.<span class="keyword">in</span>);</span><br><span class="line">       <span class="type">System</span>.out.<span class="built_in">println</span>(<span class="string">"整数a ："</span>);</span><br><span class="line">       int a=scanner.nextInt();</span><br><span class="line">        <span class="type">System</span>.out.<span class="built_in">println</span>(<span class="string">"整数b ："</span>);</span><br><span class="line">        int b=scanner.nextInt();</span><br><span class="line">        <span class="type">System</span>.out.<span class="built_in">println</span>(<span class="string">"正整数c ："</span>);</span><br><span class="line">        int <span class="built_in">c</span>=scanner.nextInt();</span><br><span class="line">        int <span class="built_in">count</span>=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(int n=a/<span class="built_in">c</span> ; n*<span class="built_in">c</span>&lt;=b;n++ )&#123;</span><br><span class="line">       <span class="keyword">if</span>(<span class="built_in">c</span>*n&gt;=a) &#123;</span><br><span class="line">           <span class="built_in">count</span>++;</span><br><span class="line">       &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">System</span>.out.<span class="built_in">println</span>(<span class="built_in">count</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="魔力手环"><a href="#魔力手环" class="headerlink" title="魔力手环"></a>魔力手环</h1><p>小易拥有一个拥有魔力的手环上面有n个数字(构成一个环),当这个魔力手环每次使用魔力的时候就会发生一种奇特的变化：每个数字会变成自己跟后面一个数字的和(最后一个数字的后面一个数字是第一个),一旦某个位置的数字大于等于100就马上对100取模(比如某个位置变为103,就会自动变为3).现在给出这个魔力手环的构成，请你计算出使用k次魔力之后魔力手环的状态。<br>输入描述:</p>
 <p>输入数据包括两行：<br>第一行为两个整数n(2 ≤ n ≤ 50)和k(1 ≤ k ≤ 2000000000),以空格分隔<br>第二行为魔力手环初始的n个数，以空格分隔。范围都在0至99.</p>
 <p>输出描述:</p>
@@ -427,7 +427,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -439,11 +439,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,7 +451,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,23 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,7 +499,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,15 +519,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,11 +531,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二维码</a>
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博主</a>
+                <a href="javascript:void(0)" class="js-tag color4">二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,11 +543,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">博主</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,10 +571,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网易</a>
               </li>
              
@@ -584,6 +580,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,11 +599,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">阿里</a>
+                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+                <a href="javascript:void(0)" class="js-tag color3">阿里</a>
               </li>
              
               <li class="article-tag-list-item">

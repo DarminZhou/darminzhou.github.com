@@ -184,16 +184,16 @@
       
         <p>一些常见的排序算法实现！<br><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/5/41939.jpg" alt=""><br><a id="more"></a></p>
 <h2 id="·查找算法"><a href="#·查找算法" class="headerlink" title="·查找算法"></a>·查找算法</h2><p>典型的二分查找<br>对于二分查找算法要求, 查找前的数据必须是已经排好序的, 然后得到数组的开始位置start和结束位置end, 取中间位置mid的数据a[mid]跟待查找数据key进行比较, 若 a[mid] &gt; key, 则取end = mid - 1; 若 a[mid] &lt; key, 则取start = mid + 1; 若 a[mid] = key 则直接返回当前mid为查找到的位置. 依次遍历直到找到数据或者最终没有该条数据. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public static int binarySearch(int [] nums , int key )&#123;</span><br><span class="line">	 int start =0;</span><br><span class="line">	 int end = nums.length-1;</span><br><span class="line">	 while(start&lt;end)&#123;</span><br><span class="line">	 int mid = (end+start)/2;</span><br><span class="line">	 if(nums[mid]&gt;key)&#123;</span><br><span class="line">	 end=mid-1;</span><br><span class="line">	&#125;else if(nums[mid]&lt;key)&#123;</span><br><span class="line">	start=mid+1;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">	return mid;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	 &#125;</span><br><span class="line">	 return -1;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> static <span class="built_in">int</span> binarySearch(<span class="built_in">int</span> [] nums , <span class="built_in">int</span> key )&#123;</span><br><span class="line">	 <span class="built_in">int</span> start =<span class="number">0</span>;</span><br><span class="line">	 <span class="built_in">int</span> <span class="keyword">end</span> = nums.length<span class="number">-1</span>;</span><br><span class="line">	 <span class="keyword">while</span>(start&lt;<span class="keyword">end</span>)&#123;</span><br><span class="line">	 <span class="built_in">int</span> <span class="built_in">mid</span> = (<span class="keyword">end</span>+start)/<span class="number">2</span>;</span><br><span class="line">	 <span class="keyword">if</span>(nums[<span class="built_in">mid</span>]&gt;key)&#123;</span><br><span class="line">	 <span class="keyword">end</span>=<span class="built_in">mid</span><span class="number">-1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[<span class="built_in">mid</span>]&lt;key)&#123;</span><br><span class="line">	start=<span class="built_in">mid</span>+<span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	return <span class="built_in">mid</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	 &#125;</span><br><span class="line">	 return <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="·插入排序"><a href="#·插入排序" class="headerlink" title="·插入排序"></a>·插入排序</h2><p>插入排序的基本思想是，经过i-1遍处理后,L[1..i-1]己排好序。第i遍处理仅将L[i]插入L[1..i-1]的适当位置，使得L[1..i] 又是排好序的序列。要达到这个目的，我们可以用顺序比较的方法。首先比较L[i]和L[i-1]，如果L[i-1]≤ L[i]，则L[1..i]已排好序，第i遍处理就结束了；否则交换L[i]与L[i-1]的位置，继续比较L[i-1]和L[i-2]，直到找到某一个位置j(1≤j≤i-1)，使得L[j] ≤L[j+1]时为止。图1演示了对4个元素进行插入排序的过程，共需要(a),(b),(c)三次插入稳定，时间复杂度 O(n^2)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void insertSort(int [] a)&#123;</span><br><span class="line">	for(int i=2 ; i&lt; a.length ;i++ )&#123;</span><br><span class="line">	 if(a[i]&lt;a[i-1])&#123;</span><br><span class="line">	 a[0]=a[i];</span><br><span class="line">	 a[i]=a[i-1];</span><br><span class="line">	 int j=0;</span><br><span class="line">	 for(j= i-2;a[j]&gt;a[0];j--)&#123;</span><br><span class="line">	 	a[j+1]=a[j];</span><br><span class="line">	&#125;</span><br><span class="line">	a[j+1]=a[0];</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static void insertSort(int <span class="string">[]</span> a)&#123;</span><br><span class="line">	for(int i=<span class="number">2</span> ; i&lt; a.length ;i++ )&#123;</span><br><span class="line">	 if(a<span class="string">[i]</span>&lt;a<span class="string">[i-1]</span>)&#123;</span><br><span class="line">	 a<span class="string">[0]</span>=a<span class="string">[i]</span>;</span><br><span class="line">	 a<span class="string">[i]</span>=a<span class="string">[i-1]</span>;</span><br><span class="line">	 int j=<span class="number">0</span>;</span><br><span class="line">	 for(j= i-<span class="number">2</span>;a<span class="string">[j]</span>&gt;a<span class="string">[0]</span>;j--)&#123;</span><br><span class="line">	 	a<span class="string">[j+1]</span>=a<span class="string">[j]</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	a<span class="string">[j+1]</span>=a<span class="string">[0]</span>;</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="·选择排序"><a href="#·选择排序" class="headerlink" title="·选择排序"></a>·选择排序</h2><p>选择排序的基本思想是对待排序的记录序列进行n-1遍的处理，第i遍处理是将L[i..n]中最小者与L[i]交换位置。这样，经过i遍处理之后，前i个记录的位置已经是正确的了。</p>
-<p>不稳定, 时间复杂度 O(n^2)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void selectSort(int [] a)&#123;</span><br><span class="line">	for(int i=1 ; i&lt;a.length ;i++)&#123;</span><br><span class="line">		int j=selectMinKey(a,i);</span><br><span class="line">		if(i!=j)&#123;</span><br><span class="line">			swap(a,i,j);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private static int selectMinKey(int [] a, int i)&#123;</span><br><span class="line">	int key=i;</span><br><span class="line">	for(int j=i+1;j&lt;a.length;j++)&#123;</span><br><span class="line">		if(a[j]&lt;a[key])&#123;</span><br><span class="line">		key=j;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return key;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不稳定, 时间复杂度 O(n^2)<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> selectSort(<span class="built_in">int</span> [] a)&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">1</span> ; i&lt;a.length ;i++)&#123;</span><br><span class="line">		<span class="built_in">int</span> j=selectMinKey(a,i);</span><br><span class="line">		<span class="keyword">if</span>(i!=j)&#123;</span><br><span class="line">			swap(a,i,j);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="built_in">int</span> selectMinKey(<span class="built_in">int</span> [] a, <span class="built_in">int</span> i)&#123;</span><br><span class="line">	<span class="built_in">int</span> <span class="built_in">key</span>=i;</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> j=i+<span class="number">1</span>;j&lt;a.length;j++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[j]&lt;a[<span class="built_in">key</span>])&#123;</span><br><span class="line">		<span class="built_in">key</span>=j;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">key</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="·冒泡排序"><a href="#·冒泡排序" class="headerlink" title="·冒泡排序"></a>·冒泡排序</h2><p>冒泡排序方法是最简单的排序方法。这种方法的基本思想是，将待排序的元素看作是竖着排列的“气泡”，较小的元素比较轻，从而要往上浮。在冒泡排序算法中我们要对这个“气泡”序列处理若干遍。所谓一遍处理，就是自底向上检查一遍这个序列，并时刻注意两个相邻的元素的顺序是否正确。如果发现两个相邻元素的顺序不对，即“轻”的元素在下面，就交换它们的位置。显然，处理一遍之后，“最轻”的元素就浮到了最高位置；处理二遍之后，“次轻”的元素就浮到了次高位置。在作第二遍处理时，由于最高位置上的元素已是“最轻”元素，所以不必检查。一般地，第i遍处理时，不必检查第i高位置以上的元素，因为经过前面i-1遍的处理，它们已正确地排好序。</p>
-<p>稳定，时间复杂度 O(n^2)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void bubbleSort(int [] a)&#123;</span><br><span class="line">	for(int i=0;i&lt;a.length-1;i++)&#123;</span><br><span class="line">		for(int j=i;j&lt;a.length;j++)&#123;</span><br><span class="line">			if(a[j+1]&lt;a[j])&#123;</span><br><span class="line">				swap(a,j+1,j);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>稳定，时间复杂度 O(n^2)<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void bubbleSort<span class="comment">(int [] a)</span>&#123;</span><br><span class="line">	for<span class="comment">(int i=0;i&lt;a.length-1;i++)</span>&#123;</span><br><span class="line">		for<span class="comment">(int j=i;j&lt;a.length;j++)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span><span class="comment">(a[j+1]&lt;a[j])</span>&#123;</span><br><span class="line">				swap<span class="comment">(a,j+1,j)</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="·快速排序"><a href="#·快速排序" class="headerlink" title="·快速排序"></a>·快速排序</h2><p>不稳定，时间复杂度 最理想 O(nlogn) 最差时间O(n^2)</p>
 <p>快速排序是对冒泡排序的一种本质改进。它的基本思想是通过一趟扫描后，使得排序序列的长度能大幅度地减少。在冒泡排序中，一次扫描只能确保最大数值的数移到正确位置，而待排序序列的长度可能只减少1。快速排序通过一趟扫描，就能确保某个数（以它为基准点吧）的左边各数都比它小，右边各数都比它大。然后又用同样的方法处理它左右两边的数，直到基准点的左右只有一个元素为止。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public static void quickSort(int [] a,int low ,int high)&#123;</span><br><span class="line">	int pivotLoc=0;//中心点</span><br><span class="line">	if(low&lt;high)&#123;</span><br><span class="line">		pivotLoc=partitionLoc(a,low,high);</span><br><span class="line">		quickSort(a,low,pivotLoc-1);</span><br><span class="line">		quickSort(a,pivotLoc+1,high);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//获取到a的下标 low ~ high 中, a[low]的应该放的位置, 即左边的数 &lt; a[low] 右边的数 &gt; a[low]</span><br><span class="line">private static int partitionLoc(int [] a,int low ,int high)&#123;</span><br><span class="line">	a[0]=a[low];</span><br><span class="line">	while(low&lt;high)&#123;</span><br><span class="line">		while(low&lt;high &amp;&amp; a[high]&gt;a[0])&#123;</span><br><span class="line">			high--;</span><br><span class="line">		&#125;</span><br><span class="line">		a[low]=a[high];</span><br><span class="line">		while( low &lt; high &amp;&amp; a[low]&lt;=a[0])&#123;</span><br><span class="line">			low++;</span><br><span class="line">		&#125;</span><br><span class="line">		a[high] = a[low];</span><br><span class="line">	&#125;</span><br><span class="line">	a[low]=a[0];</span><br><span class="line">	return low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> [] a,<span class="keyword">int</span> low ,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> pivotLoc=<span class="number">0</span>;<span class="comment">//中心点</span></span><br><span class="line">	<span class="keyword">if</span>(low&lt;high)&#123;</span><br><span class="line">		pivotLoc=partitionLoc(a,low,high);</span><br><span class="line">		quickSort(a,low,pivotLoc<span class="number">-1</span>);</span><br><span class="line">		quickSort(a,pivotLoc+<span class="number">1</span>,high);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取到a的下标 low ~ high 中, a[low]的应该放的位置, 即左边的数 &lt; a[low] 右边的数 &gt; a[low]</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partitionLoc</span><span class="params">(<span class="keyword">int</span> [] a,<span class="keyword">int</span> low ,<span class="keyword">int</span> high)</span></span>&#123;</span><br><span class="line">	a[<span class="number">0</span>]=a[low];</span><br><span class="line">	<span class="keyword">while</span>(low&lt;high)&#123;</span><br><span class="line">		<span class="keyword">while</span>(low&lt;high &amp;&amp; a[high]&gt;a[<span class="number">0</span>])&#123;</span><br><span class="line">			high--;</span><br><span class="line">		&#125;</span><br><span class="line">		a[low]=a[high];</span><br><span class="line">		<span class="keyword">while</span>( low &lt; high &amp;&amp; a[low]&lt;=a[<span class="number">0</span>])&#123;</span><br><span class="line">			low++;</span><br><span class="line">		&#125;</span><br><span class="line">		a[high] = a[low];</span><br><span class="line">	&#125;</span><br><span class="line">	a[low]=a[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">return</span> low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/5/41120.jpg" alt=""></p>
 
       
@@ -447,7 +447,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,11 +459,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,7 +471,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,23 +507,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">书籍</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,7 +519,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,15 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +551,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二维码</a>
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博主</a>
+                <a href="javascript:void(0)" class="js-tag color4">二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,11 +563,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">博主</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,10 +591,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网易</a>
               </li>
              
@@ -604,6 +600,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,11 +619,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">阿里</a>
+                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+                <a href="javascript:void(0)" class="js-tag color3">阿里</a>
               </li>
              
               <li class="article-tag-list-item">
