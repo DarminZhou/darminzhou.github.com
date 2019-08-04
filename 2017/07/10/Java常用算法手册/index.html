@@ -185,7 +185,7 @@
         <p>本书于黄埔图书馆（香雪馆）偶读之，算法不错！</p>
 <p><img src="http://image54.360doc.com/DownloadImg/2012/08/2512/26415405_22.gif" alt=""><br><a id="more"></a></p>
 <h1 id="简单约瑟夫环算法"><a href="#简单约瑟夫环算法" class="headerlink" title="简单约瑟夫环算法"></a>简单约瑟夫环算法</h1><p>1.算法背景:<br>罗马人攻占了乔塔帕特，41人藏在一个山洞中躲过了这场浩劫。这41个人中，包括历史学家josephus和他的一个朋友。剩余的39个人为了表示不向罗马人屈服<br>，决定集体自杀。大家决定了一个自杀方案，所有这41人围城一个圆圈，由第一个人开始顺时针报数，没报数为3的人就立刻自杀，然后由下一个人重新开始报数<br>任然是每报数为3的人就立刻自杀,……,知道所有人都自杀死亡为止.<br>约瑟夫和他的朋友并不像自杀，于是约瑟夫想到了一个计策，他们两个同样参数到自杀方案中，但是最后却躲过了自杀。请问是怎么做到的</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Main&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> nums=<span class="number">41</span>;<span class="comment">//总人数</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> killMan = <span class="number">3</span>; <span class="comment">//数到3则杀</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args)&#123;</span><br><span class="line">        Joseph(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> Joseph(<span class="keyword">int</span> alive)&#123;</span><br><span class="line">        <span class="keyword">int</span> []man =<span class="keyword">new</span> <span class="keyword">int</span> [nums]; <span class="comment">// 存活者为0</span></span><br><span class="line">        <span class="keyword">int</span> pos=-<span class="number">1</span>;  <span class="comment">//数组角标</span></span><br><span class="line">        <span class="keyword">int</span>  i=<span class="number">0</span>;  <span class="comment">//循环，与3比较</span></span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">count</span>=<span class="number">1</span>;  <span class="comment">//杀到第几个计数</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">count</span>&lt;=nums)&#123;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                pos=(pos+<span class="number">1</span>)%nums;   <span class="comment">//环状处理</span></span><br><span class="line">                <span class="keyword">if</span>(man[pos]==<span class="number">0</span>)</span><br><span class="line">                    i++;</span><br><span class="line">                <span class="keyword">if</span>(i==killMan)&#123;</span><br><span class="line">                    i=<span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">while</span> (<span class="keyword">true</span>);</span><br><span class="line">                man[pos]=<span class="keyword">count</span>;      <span class="comment">//记录pos+1位置的是第几个挂</span></span><br><span class="line">            <span class="keyword">count</span>++;</span><br><span class="line">        &#125;</span><br><span class="line">        alive=nums-alive;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;nums;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(man[j]&gt;alive)&#123;</span><br><span class="line">                System.out.<span class="keyword">println</span>(<span class="string">"不被杀的位置是："</span>+(j+<span class="number">1</span>)); <span class="comment">//数组从0开始，所以位置是j+1</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public class Main&#123;</span><br><span class="line">    static final int nums=41;//总人数</span><br><span class="line">    static final int killMan = 3; //数到3则杀</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Joseph(2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void Joseph(int alive)&#123;</span><br><span class="line">        int []man =new int [nums]; // 存活者为0</span><br><span class="line">        int pos=-1;  //数组角标</span><br><span class="line">        int  i=0;  //循环，与3比较</span><br><span class="line">        int count=1;  //杀到第几个计数</span><br><span class="line">        while(count&lt;=nums)&#123;</span><br><span class="line">            do &#123;</span><br><span class="line">                pos=(pos+1)%nums;   //环状处理</span><br><span class="line">                if(man[pos]==0)</span><br><span class="line">                    i++;</span><br><span class="line">                if(i==killMan)&#123;</span><br><span class="line">                    i=0;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;while (true);</span><br><span class="line">                man[pos]=count;      //记录pos+1位置的是第几个挂</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        alive=nums-alive;</span><br><span class="line">        for(int j=0;j&lt;nums;j++)&#123;</span><br><span class="line">            if(man[j]&gt;alive)&#123;</span><br><span class="line">                System.out.println(&quot;不被杀的位置是：&quot;+(j+1)); //数组从0开始，所以位置是j+1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>0 = 14
 1 = 36
 2 = 1
@@ -481,7 +481,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,11 +493,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,11 +501,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">框架 JSP</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">框架 JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,15 +525,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,11 +533,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,11 +545,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,11 +557,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,11 +577,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,11 +601,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,7 +625,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,11 +633,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,7 +649,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+                <a href="javascript:void(0)" class="js-tag color3">腾讯</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -657,7 +657,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">腾讯</a>
+                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -9,7 +9,7 @@
   <title>常考面试算法题之贪心算法 | Litten的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="贪心算法（又称贪婪算法）是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，他所做出的仅是在某种意义上的局部最优解。贪心算法不是对所有问题都能得到整体最优解，但对范围相当广泛的许多问题他能产生整体最优解或者是整体最优解的近似解。">
-<meta name="keywords" content="Java,算法,贪心">
+<meta name="keywords" content="算法,Java,贪心">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常考面试算法题之贪心算法">
 <meta property="og:url" content="http://zhoudamin.github.io/2017/07/22/常考面试算法题之贪心算法/index.html">
@@ -184,7 +184,7 @@
       
         <p>贪心算法（又称贪婪算法）是指，在对问题求解时，总是做出在当前看来是最好的选择。<br>也就是说，不从整体最优上加以考虑，他所做出的仅是在某种意义上的局部最优解。<br>贪心算法不是对所有问题都能得到整体最优解，但对范围相当广泛的许多问题他能产生整体最优解或者是整体最优解的近似解。<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=552733121,4021494863&amp;fm=26&amp;gp=0.jpg" alt=""><br><a id="more"></a></p>
 <h1 id="贪心算法基本思路"><a href="#贪心算法基本思路" class="headerlink" title="贪心算法基本思路"></a>贪心算法基本思路</h1><p>1.建立数学模型来描述问题。　　<br>2.把求解的问题分成若干个子问题。　　<br>3.对每一子问题求解，得到子问题的局部最优解。　　<br>4.把子问题的解局部最优解合成原来解问题的一个解。　　<br>实现该算法的过程：　　<br>从问题的某一初始解出发；　　<br>while 能朝给定总目标前进一步<br>do　　求出可行解的一个解元素；　　<br>由所有解元素组合成问题的一个可行解。</p>
-<h1 id="排序子序列"><a href="#排序子序列" class="headerlink" title="排序子序列"></a>排序子序列</h1><p>牛牛定义排序子序列为一个数组中一段连续的子序列,并且这段子序列是非递增或者非递减排序的。牛牛有一个长度为n的整数数组A,他现在有一个任务是把数组A分为若干段排序子序列,牛牛想知道他最少可以把这个数组分为几段排序子序列.<br>如样例所示,牛牛可以把数组A划分为[1,2,3]和[2,2,1]两个排序子序列,至少需要划分为2个排序子序列,所以输出2<br>输入描述:<br>输入的第一行为一个正整数n(1 ≤ n ≤ 10^5)<br>第二行包括n个整数A_i(1 ≤ A_i ≤ 10^9),表示数组A的每个数字。<br>输出描述:<br>输出一个整数表示牛牛可以将A最少划分为多少段排序子序列<br>示例1<br>输入<br><code>6</code><br><code>1 2 3 2 2 1</code><br>输出<br><code>2</code><br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    public <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="built_in">String</span>[] args) &#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.<span class="keyword">in</span>);</span><br><span class="line">        <span class="built_in">int</span> m = scanner.nextInt();</span><br><span class="line">        <span class="built_in">int</span>[] <span class="built_in">num</span> = <span class="keyword">new</span> <span class="built_in">int</span>[m];</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="built_in">num</span>[i] = scanner.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(NewSort(m, <span class="built_in">num</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="keyword">static</span> <span class="built_in">int</span> NewSort(<span class="built_in">int</span> m, <span class="built_in">int</span>[] <span class="built_in">num</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (m &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">int</span> count = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">int</span> flags = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">num</span>[i] &gt; <span class="built_in">num</span>[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">if</span>(flags==<span class="number">0</span>)&#123;</span><br><span class="line">                    flags=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(flags==<span class="number">-1</span>)&#123;</span><br><span class="line">                    flags=<span class="number">0</span>;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">num</span>[i] &lt; <span class="built_in">num</span>[i - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">if</span>(flags==<span class="number">0</span>)&#123;</span><br><span class="line">                    flags=<span class="number">-1</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(flags==<span class="number">1</span>)&#123;</span><br><span class="line">                    count++;</span><br><span class="line">                    flags=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="排序子序列"><a href="#排序子序列" class="headerlink" title="排序子序列"></a>排序子序列</h1><p>牛牛定义排序子序列为一个数组中一段连续的子序列,并且这段子序列是非递增或者非递减排序的。牛牛有一个长度为n的整数数组A,他现在有一个任务是把数组A分为若干段排序子序列,牛牛想知道他最少可以把这个数组分为几段排序子序列.<br>如样例所示,牛牛可以把数组A划分为[1,2,3]和[2,2,1]两个排序子序列,至少需要划分为2个排序子序列,所以输出2<br>输入描述:<br>输入的第一行为一个正整数n(1 ≤ n ≤ 10^5)<br>第二行包括n个整数A_i(1 ≤ A_i ≤ 10^9),表示数组A的每个数字。<br>输出描述:<br>输出一个整数表示牛牛可以将A最少划分为多少段排序子序列<br>示例1<br>输入<br><code>6</code><br><code>1 2 3 2 2 1</code><br>输出<br><code>2</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner scanner = new Scanner(System.in);</span><br><span class="line">        int m = scanner.nextInt();</span><br><span class="line">        int[] num = new int[m];</span><br><span class="line">        for (int i = 0; i &lt; m; i++) &#123;</span><br><span class="line">            num[i] = scanner.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(NewSort(m, num));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static int NewSort(int m, int[] num) &#123;</span><br><span class="line">        if (m &lt;= 0) &#123;</span><br><span class="line">            return -1;</span><br><span class="line">        &#125;</span><br><span class="line">        int count = 1;</span><br><span class="line"></span><br><span class="line">        int flags = 0;</span><br><span class="line">        for (int i = 1; i &lt; m; i++) &#123;</span><br><span class="line">            if (num[i] &gt; num[i - 1]) &#123;</span><br><span class="line">                if(flags==0)&#123;</span><br><span class="line">                    flags=1;</span><br><span class="line">                &#125;</span><br><span class="line">                if(flags==-1)&#123;</span><br><span class="line">                    flags=0;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else if (num[i] &lt; num[i - 1]) &#123;</span><br><span class="line">                if(flags==0)&#123;</span><br><span class="line">                    flags=-1;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if(flags==1)&#123;</span><br><span class="line">                    count++;</span><br><span class="line">                    flags=0;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="组队竞赛"><a href="#组队竞赛" class="headerlink" title="组队竞赛"></a>组队竞赛</h1><h1 id="训练部队"><a href="#训练部队" class="headerlink" title="训练部队"></a>训练部队</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p><img src="http://image54.360doc.com/DownloadImg/2012/08/2512/26388884_5.gif" alt=""></p>
@@ -222,11 +222,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -448,7 +448,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,11 +460,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,11 +468,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">框架 JSP</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">框架 JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,15 +492,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,11 +500,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,11 +512,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,11 +524,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,11 +544,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,11 +568,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,7 +592,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,11 +600,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,7 +616,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+                <a href="javascript:void(0)" class="js-tag color3">腾讯</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,7 +624,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">腾讯</a>
+                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -185,15 +185,15 @@
         <p>结合2017春招和秋招真题，以下几类算法题最常考，汇总了一下：<br><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1369706733,3081407434&amp;fm=26&amp;gp=0.jpg" alt=""><br><a id="more"></a></p>
 <h1 id="好多鱼！"><a href="#好多鱼！" class="headerlink" title="好多鱼！"></a>好多鱼！</h1><p>牛牛有一个鱼缸。鱼缸里面已经有n条鱼，每条鱼的大小为fishSize[i] (1 ≤ i ≤ n,均为正整数)，牛牛现在想把新捕捉的鱼放入鱼缸。鱼缸内存在着大鱼吃小鱼的定律。经过观察，牛牛发现一条鱼A的大小为另外一条鱼B大小的2倍到10倍(包括2倍大小和10倍大小)，鱼A会吃掉鱼B。考虑到这个，牛牛要放入的鱼就需要保证：<br>1、放进去的鱼是安全的，不会被其他鱼吃掉<br>2、这条鱼放进去也不能吃掉其他鱼<br>鱼缸里面已经存在的鱼已经相处了很久，不考虑他们互相捕食。现在知道新放入鱼的大小范围<a href="考虑鱼的大小都是整数表示">minSize,maxSize</a>,牛牛想知道有多少种大小的鱼可以放入这个鱼缸。</p>
 <p>输入描述:<br>输入数据包括3行.<br>第一行为新放入鱼的尺寸范围minSize,maxSize(1 ≤ minSize,maxSize ≤ 1000)，以空格分隔。<br>第二行为鱼缸里面已经有鱼的数量n(1 ≤ n ≤ 50)<br>第三行为已经有的鱼的大小fishSize<a href="1 ≤ fishSize[i] ≤ 1000">i</a>，以空格分隔。</p>
-<p>输出描述:<br>输出有多少种大小的鱼可以放入这个鱼缸。考虑鱼的大小都是整数表示<br>示例1<br>输入<br><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">1 </span><span class="number">12</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<p>输出<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Main&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args)&#123;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.<span class="keyword">println</span>(<span class="string">"minSize :"</span>);</span><br><span class="line">        <span class="keyword">int</span> minSize = scanner.nextInt();</span><br><span class="line">        System.out.<span class="keyword">println</span>(<span class="string">"maxSize :"</span>);</span><br><span class="line">        <span class="keyword">int</span> maxSize = scanner.nextInt();</span><br><span class="line">        System.out.<span class="keyword">println</span>(<span class="string">"inNumber :"</span>);</span><br><span class="line">        <span class="keyword">int</span> inNumber = scanner.nextInt();</span><br><span class="line"></span><br><span class="line">        System.out.<span class="keyword">println</span>(<span class="string">"inFishSize[ ] :"</span>);</span><br><span class="line">        <span class="keyword">int</span> [] inFishSize = <span class="keyword">new</span> <span class="keyword">int</span>[inNumber];</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;inNumber;i++) &#123;</span><br><span class="line">           inFishSize[i]=scanner.nextInt();</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">int</span> <span class="keyword">count</span> =<span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=minSize;i&lt;=maxSize ;i++)&#123;</span><br><span class="line">           <span class="keyword">boolean</span> flag=<span class="keyword">false</span>;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;inNumber ;j++)&#123;</span><br><span class="line">               <span class="keyword">if</span>(( i*<span class="number">2</span>&lt;=inFishSize[j]&amp;&amp;inFishSize[j]&lt;=i*<span class="number">10</span> )||( inFishSize[j]*<span class="number">2</span>&lt;=i &amp;&amp; inFishSize[j]*<span class="number">10</span>&gt;=i ))&#123;</span><br><span class="line">                   flag=<span class="keyword">true</span>;</span><br><span class="line">                   <span class="keyword">break</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span>(!flag)&#123;</span><br><span class="line">               <span class="keyword">count</span>++;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">      System.out.<span class="keyword">println</span>(<span class="keyword">count</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="DNA合成"><a href="#DNA合成" class="headerlink" title="DNA合成"></a>DNA合成</h1><p>DNA分子是以4种脱氧核苷酸为单位连接而成的长链，这4种脱氧核苷酸分别含有A,T,C,G四种碱基。碱基互补配对原则：A和T是配对的，C和G是配对的。如果两条碱基链长度是相同的并且每个位置的碱基是配对的，那么他们就可以配对合成为DNA的双螺旋结构。现在给出两条碱基链，允许在其中一条上做替换操作：把序列上的某个位置的碱基更换为另外一种碱基。问最少需要多少次让两条碱基链配对成功<br>输入描述:<br>输入包括一行：<br>包括两个字符串,分别表示两条链,两个字符串长度相同且长度均小于等于50。<br>输出描述:<br>输出一个整数，即最少需要多少次让两条碱基链配对成功<br>示例1<br>输入<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ACGT</span></span><br><span class="line"><span class="attribute">TGCA</span></span><br></pre></td></tr></table></figure></p>
-<p>输出<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import <span class="keyword">java.util.Scanner;</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">public </span>class Main&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        <span class="keyword">Scanner </span><span class="keyword">scanner </span>= new <span class="keyword">Scanner(System.in);</span></span><br><span class="line"><span class="keyword"> </span>       System.out.println(<span class="string">"输入碱基s1 :"</span>)<span class="comment">;</span></span><br><span class="line">        String <span class="built_in">s1</span>=<span class="keyword">scanner.nextLine();</span></span><br><span class="line"><span class="keyword"> </span>       System.out.println(<span class="string">"输入碱基s2 :"</span>)<span class="comment">;</span></span><br><span class="line">        String <span class="built_in">s2</span>= <span class="keyword">scanner.nextLine();</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword"> </span>   if(<span class="built_in">s1</span>.length()!=<span class="built_in">s2</span>.length()<span class="title">||</span><span class="built_in">s1</span>.isEmpty()<span class="title">||</span><span class="built_in">s2</span>.isEmpty())&#123;</span><br><span class="line">    return<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">    int <span class="built_in">count</span> =<span class="number">0</span><span class="comment">;</span></span><br><span class="line">    for(int i=<span class="number">0</span><span class="comment">;i&lt;s1.length();i++)&#123;</span></span><br><span class="line">        if(!( (<span class="built_in">s1</span>.charAt(i)==<span class="string">'A'</span> &amp;&amp; <span class="built_in">s2</span>.charAt(i)==<span class="string">'T'</span>) <span class="title">||</span></span><br><span class="line">            (<span class="built_in">s2</span>.charAt(i)==<span class="string">'A'</span> &amp;&amp; <span class="built_in">s1</span>.charAt(i)==<span class="string">'T'</span>) <span class="title">||</span></span><br><span class="line">            (<span class="built_in">s1</span>.charAt(i)==<span class="string">'C'</span> &amp;&amp; <span class="built_in">s2</span>.charAt(i)==<span class="string">'G'</span>) <span class="title">||</span></span><br><span class="line">            (<span class="built_in">s2</span>.charAt(i)==<span class="string">'C'</span> &amp;&amp; <span class="built_in">s1</span>.charAt(i)==<span class="string">'G'</span>) ))&#123;</span><br><span class="line">            <span class="built_in">count</span>++<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="built_in">count</span>)<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="连续整数"><a href="#连续整数" class="headerlink" title="连续整数"></a>连续整数</h1><p>牛牛的好朋友羊羊在纸上写了n+1个整数，羊羊接着抹除掉了一个整数，给牛牛猜他抹除掉的数字是什么。牛牛知道羊羊写的整数神排序之后是一串连续的正整数，牛牛现在要猜出所有可能是抹除掉的整数。例如：<br>10 7 12 8 11 那么抹除掉的整数只可能是9<br>5 6 7 8 那么抹除掉的整数可能是4也可能是9<br>输入描述:<br>输入包括2行：<br>第一行为整数n(1 &lt;= n &lt;= 50)，即抹除一个数之后剩下的数字个数<br>第二行为n个整数num[i] (1 &lt;= num[i] &lt;= 1000000000)<br>输出描述:<br>在一行中输出所有可能是抹除掉的数,从小到大输出,用空格分割,行末无空格。如果没有可能的数，则输出mistake<br>示例1<br>输入<br><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">6</span></span><br></pre></td></tr></table></figure></p>
-<p>输出<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mistake</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> class Main&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args)&#123;</span><br><span class="line">       Scanner scanner=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">       System.out.<span class="built_in">println</span>(<span class="string">"剩下数字个数 ："</span>);</span><br><span class="line">       <span class="keyword">int</span> n=scanner.nextInt();</span><br><span class="line">       <span class="keyword">int</span> [] num=<span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">       System.out.<span class="built_in">println</span>(<span class="string">"输入剩下数字 :"</span>);</span><br><span class="line">       <span class="keyword">int</span> <span class="built_in">max</span>=Integer.MIN_VALUE;</span><br><span class="line">       <span class="keyword">int</span> <span class="built_in">min</span>=Integer.MAX_VALUE;</span><br><span class="line">       <span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">       <span class="built_in">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">       num[i]=scanner.nextInt();</span><br><span class="line">       s+=num[i];</span><br><span class="line">       <span class="built_in">if</span>(num[i]&lt;<span class="built_in">min</span>) <span class="built_in">min</span>=num[i];</span><br><span class="line">       <span class="built_in">if</span>(num[i]&gt;<span class="built_in">max</span>) <span class="built_in">max</span>=num[i];</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="built_in">if</span>(<span class="built_in">max</span>-<span class="built_in">min</span>+<span class="number">1</span> == n)&#123;</span><br><span class="line">           <span class="built_in">if</span>(s==(<span class="built_in">max</span>+<span class="built_in">min</span>)*n/<span class="number">2</span>)&#123;</span><br><span class="line">               <span class="built_in">if</span>(<span class="built_in">min</span>&gt;<span class="number">1</span>)&#123;</span><br><span class="line">                   System.out.<span class="built_in">println</span>((<span class="built_in">min</span><span class="number">-1</span>)+<span class="string">" "</span>+ (<span class="built_in">max</span>+<span class="number">1</span>));</span><br><span class="line">               &#125;<span class="built_in">else</span> &#123;</span><br><span class="line">                   System.out.<span class="built_in">println</span>(<span class="built_in">max</span>+<span class="number">1</span>);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;<span class="built_in">else</span> &#123;</span><br><span class="line">               System.out.<span class="built_in">println</span>(<span class="string">"mistake!"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;<span class="built_in">else</span> &#123;</span><br><span class="line">           <span class="built_in">if</span>(<span class="built_in">max</span>-<span class="built_in">min</span>==n)&#123;</span><br><span class="line">           <span class="built_in">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">               <span class="built_in">if</span>(num[j]==num[j<span class="number">-1</span>])&#123;</span><br><span class="line">                   System.out.<span class="built_in">println</span>(<span class="string">"mistake!"</span>);</span><br><span class="line">               &#125;<span class="built_in">else</span> <span class="built_in">if</span> (num[j]==num[j<span class="number">-1</span>]+<span class="number">2</span>)&#123;</span><br><span class="line">                   System.out.<span class="built_in">println</span>(num[j]<span class="number">-1</span>);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;<span class="built_in">else</span> &#123;</span><br><span class="line">           System.out.<span class="built_in">println</span>(<span class="string">"mistake!"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出描述:<br>输出有多少种大小的鱼可以放入这个鱼缸。考虑鱼的大小都是整数表示<br>示例1<br>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 12</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Random;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Scanner scanner = new Scanner(System.in);</span><br><span class="line">        System.out.println(&quot;minSize :&quot;);</span><br><span class="line">        int minSize = scanner.nextInt();</span><br><span class="line">        System.out.println(&quot;maxSize :&quot;);</span><br><span class="line">        int maxSize = scanner.nextInt();</span><br><span class="line">        System.out.println(&quot;inNumber :&quot;);</span><br><span class="line">        int inNumber = scanner.nextInt();</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;inFishSize[ ] :&quot;);</span><br><span class="line">        int [] inFishSize = new int[inNumber];</span><br><span class="line">       for(int i=0;i&lt;inNumber;i++) &#123;</span><br><span class="line">           inFishSize[i]=scanner.nextInt();</span><br><span class="line">       &#125;</span><br><span class="line">       int count =0;</span><br><span class="line">       for(int i=minSize;i&lt;=maxSize ;i++)&#123;</span><br><span class="line">           boolean flag=false;</span><br><span class="line">           for(int j=0;j&lt;inNumber ;j++)&#123;</span><br><span class="line">               if(( i*2&lt;=inFishSize[j]&amp;&amp;inFishSize[j]&lt;=i*10 )||( inFishSize[j]*2&lt;=i &amp;&amp; inFishSize[j]*10&gt;=i ))&#123;</span><br><span class="line">                   flag=true;</span><br><span class="line">                   break;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           if(!flag)&#123;</span><br><span class="line">               count++;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">      System.out.println(count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="DNA合成"><a href="#DNA合成" class="headerlink" title="DNA合成"></a>DNA合成</h1><p>DNA分子是以4种脱氧核苷酸为单位连接而成的长链，这4种脱氧核苷酸分别含有A,T,C,G四种碱基。碱基互补配对原则：A和T是配对的，C和G是配对的。如果两条碱基链长度是相同的并且每个位置的碱基是配对的，那么他们就可以配对合成为DNA的双螺旋结构。现在给出两条碱基链，允许在其中一条上做替换操作：把序列上的某个位置的碱基更换为另外一种碱基。问最少需要多少次让两条碱基链配对成功<br>输入描述:<br>输入包括一行：<br>包括两个字符串,分别表示两条链,两个字符串长度相同且长度均小于等于50。<br>输出描述:<br>输出一个整数，即最少需要多少次让两条碱基链配对成功<br>示例1<br>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ACGT</span><br><span class="line">TGCA</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Scanner scanner = new Scanner(System.in);</span><br><span class="line">        System.out.println(&quot;输入碱基s1 :&quot;);</span><br><span class="line">        String s1=scanner.nextLine();</span><br><span class="line">        System.out.println(&quot;输入碱基s2 :&quot;);</span><br><span class="line">        String s2= scanner.nextLine();</span><br><span class="line"></span><br><span class="line">    if(s1.length()!=s2.length()||s1.isEmpty()||s2.isEmpty())&#123;</span><br><span class="line">    return;</span><br><span class="line">    &#125;</span><br><span class="line">    int count =0;</span><br><span class="line">    for(int i=0;i&lt;s1.length();i++)&#123;</span><br><span class="line">        if(!( (s1.charAt(i)==&apos;A&apos; &amp;&amp; s2.charAt(i)==&apos;T&apos;) ||</span><br><span class="line">            (s2.charAt(i)==&apos;A&apos; &amp;&amp; s1.charAt(i)==&apos;T&apos;) ||</span><br><span class="line">            (s1.charAt(i)==&apos;C&apos; &amp;&amp; s2.charAt(i)==&apos;G&apos;) ||</span><br><span class="line">            (s2.charAt(i)==&apos;C&apos; &amp;&amp; s1.charAt(i)==&apos;G&apos;) ))&#123;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="连续整数"><a href="#连续整数" class="headerlink" title="连续整数"></a>连续整数</h1><p>牛牛的好朋友羊羊在纸上写了n+1个整数，羊羊接着抹除掉了一个整数，给牛牛猜他抹除掉的数字是什么。牛牛知道羊羊写的整数神排序之后是一串连续的正整数，牛牛现在要猜出所有可能是抹除掉的整数。例如：<br>10 7 12 8 11 那么抹除掉的整数只可能是9<br>5 6 7 8 那么抹除掉的整数可能是4也可能是9<br>输入描述:<br>输入包括2行：<br>第一行为整数n(1 &lt;= n &lt;= 50)，即抹除一个数之后剩下的数字个数<br>第二行为n个整数num[i] (1 &lt;= num[i] &lt;= 1000000000)<br>输出描述:<br>在一行中输出所有可能是抹除掉的数,从小到大输出,用空格分割,行末无空格。如果没有可能的数，则输出mistake<br>示例1<br>输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3 6</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mistake</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">       Scanner scanner=new Scanner(System.in);</span><br><span class="line">       System.out.println(&quot;剩下数字个数 ：&quot;);</span><br><span class="line">       int n=scanner.nextInt();</span><br><span class="line">       int [] num=new int[n];</span><br><span class="line">       System.out.println(&quot;输入剩下数字 :&quot;);</span><br><span class="line">       int max=Integer.MIN_VALUE;</span><br><span class="line">       int min=Integer.MAX_VALUE;</span><br><span class="line">       int s=0;</span><br><span class="line">       for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">       num[i]=scanner.nextInt();</span><br><span class="line">       s+=num[i];</span><br><span class="line">       if(num[i]&lt;min) min=num[i];</span><br><span class="line">       if(num[i]&gt;max) max=num[i];</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       if(max-min+1 == n)&#123;</span><br><span class="line">           if(s==(max+min)*n/2)&#123;</span><br><span class="line">               if(min&gt;1)&#123;</span><br><span class="line">                   System.out.println((min-1)+&quot; &quot;+ (max+1));</span><br><span class="line">               &#125;else &#123;</span><br><span class="line">                   System.out.println(max+1);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;else &#123;</span><br><span class="line">               System.out.println(&quot;mistake!&quot;);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;else &#123;</span><br><span class="line">           if(max-min==n)&#123;</span><br><span class="line">           for(int j=1;j&lt;n;j++)&#123;</span><br><span class="line">               if(num[j]==num[j-1])&#123;</span><br><span class="line">                   System.out.println(&quot;mistake!&quot;);</span><br><span class="line">               &#125;else if (num[j]==num[j-1]+2)&#123;</span><br><span class="line">                   System.out.println(num[j]-1);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;else &#123;</span><br><span class="line">           System.out.println(&quot;mistake!&quot;);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="序列和"><a href="#序列和" class="headerlink" title="序列和"></a>序列和</h2><h2 id="01翻转"><a href="#01翻转" class="headerlink" title="01翻转"></a>01翻转</h2><p>最长公共连续子串</p>
 <p>组装三角形</p>
 <p>最小的矩形</p>
@@ -466,7 +466,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,11 +478,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,11 +486,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">框架 JSP</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">框架 JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,15 +510,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,11 +518,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,11 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,11 +542,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,11 +562,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,11 +586,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,7 +610,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,11 +618,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,7 +634,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+                <a href="javascript:void(0)" class="js-tag color3">腾讯</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,7 +642,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">腾讯</a>
+                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">

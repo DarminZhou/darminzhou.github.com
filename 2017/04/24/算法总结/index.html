@@ -182,8 +182,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一些常用算法分类总结<br><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/5/41532.jpg" alt=""><br><a id="more"></a><br><code>1.字符串</code><br><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">·字符串(<span class="keyword">String</span>)</span><br><span class="line">	通常把它作为字符数组</span><br><span class="line">	java : <span class="keyword">String</span>内置类型，不可更改，要更改的话可考虑转StringBuffer, StringBuilder, char []之类</span><br><span class="line">	Java:   ［<span class="number">0.</span><span class="number">.65535</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">·和数组相关，内容广泛</span><br><span class="line">	概念理解：字典序</span><br><span class="line">	简单操作：插入、删除字符，旋转</span><br><span class="line">	规则判断 （罗马数字转换 是否是合法的整数、浮点数）</span><br><span class="line">	数字运算（ 大数加法、二进制加法）</span><br><span class="line">	排序、交换 （partition过程）</span><br><span class="line">	字符计数（hash)：变位词</span><br><span class="line">	匹配 （正则表达式、全串匹配、KMP、周期判断）</span><br><span class="line">	动态规划 (LCS、编辑距离、最长回文子串）</span><br><span class="line">	搜索 （单词变换、排列组合）</span><br><span class="line"></span><br><span class="line">总结：</span><br><span class="line">·我理解的in-place (原地）</span><br><span class="line">	本身<span class="keyword">O</span>(<span class="number">1</span>)空间</span><br><span class="line">	递归，堆栈空间可以不考虑</span><br><span class="line">·原地相关的问题</span><br><span class="line">	字符串循环左移、右移动</span><br><span class="line">	快排partition相关</span><br><span class="line">·滑动窗口</span><br><span class="line">	能达到<span class="keyword">O</span>(n)的的时间复杂度</span><br><span class="line">	<span class="keyword">O</span>(<span class="number">1</span>)的空间复杂度</span><br><span class="line">·规则相关——细致</span><br><span class="line">·匹配 （暴力）：KMP比较少见</span><br><span class="line">·Manacher——要求比较高的笔试</span><br></pre></td></tr></table></figure></p>
-<p><code>2.数组</code><br><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">·数组(array)</span><br><span class="line">	java : <span class="string">[]</span>, ArrayList </span><br><span class="line">	数组下标是一种特殊的hash…做计数</span><br><span class="line">	理解数组与map</span><br><span class="line">	给数组“顺序”</span><br><span class="line"></span><br><span class="line">·查找和排序</span><br><span class="line">	二分查找</span><br><span class="line">	元素交换</span><br><span class="line">	排序，中位数</span><br><span class="line">	归并</span><br><span class="line">	位运算</span><br><span class="line">	前缀和的应用</span><br><span class="line">·动态规划</span><br><span class="line">·排列组合</span><br><span class="line"></span><br><span class="line">总结：</span><br><span class="line">·利用序</span><br><span class="line">	理解二分查找</span><br><span class="line">·利用前缀和</span><br><span class="line">	查找、计算、排序</span><br><span class="line">·理解数组</span><br><span class="line">	map</span><br><span class="line">·用数组实现高级数据结构</span><br><span class="line">	一般树： 存每个节点的父亲  （并查集）</span><br><span class="line">	二叉树： 下标从<span class="number">1</span>开始a<span class="string">[i]</span>的儿子是a<span class="string">[i * 2]</span>和a<span class="string">[i * 2 + 1]</span> (堆）</span><br><span class="line">·抓住简单题</span><br><span class="line">	分治法求逆序对数</span><br><span class="line">	有序数组归并</span><br><span class="line">	两个有序数组的中位数</span><br><span class="line">	两头扫的方法 （<span class="number">2</span>-SUM, <span class="number">3</span>-SUM)</span><br></pre></td></tr></table></figure></p>
+        <p>一些常用算法分类总结<br><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/5/41532.jpg" alt=""><br><a id="more"></a><br><code>1.字符串</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">·字符串(String)</span><br><span class="line">	通常把它作为字符数组</span><br><span class="line">	java : String内置类型，不可更改，要更改的话可考虑转StringBuffer, StringBuilder, char []之类</span><br><span class="line">	Java:   ［0..65535]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">·和数组相关，内容广泛</span><br><span class="line">	概念理解：字典序</span><br><span class="line">	简单操作：插入、删除字符，旋转</span><br><span class="line">	规则判断 （罗马数字转换 是否是合法的整数、浮点数）</span><br><span class="line">	数字运算（ 大数加法、二进制加法）</span><br><span class="line">	排序、交换 （partition过程）</span><br><span class="line">	字符计数（hash)：变位词</span><br><span class="line">	匹配 （正则表达式、全串匹配、KMP、周期判断）</span><br><span class="line">	动态规划 (LCS、编辑距离、最长回文子串）</span><br><span class="line">	搜索 （单词变换、排列组合）</span><br><span class="line"></span><br><span class="line">总结：</span><br><span class="line">·我理解的in-place (原地）</span><br><span class="line">	本身O(1)空间</span><br><span class="line">	递归，堆栈空间可以不考虑</span><br><span class="line">·原地相关的问题</span><br><span class="line">	字符串循环左移、右移动</span><br><span class="line">	快排partition相关</span><br><span class="line">·滑动窗口</span><br><span class="line">	能达到O(n)的的时间复杂度</span><br><span class="line">	O(1)的空间复杂度</span><br><span class="line">·规则相关——细致</span><br><span class="line">·匹配 （暴力）：KMP比较少见</span><br><span class="line">·Manacher——要求比较高的笔试</span><br></pre></td></tr></table></figure></p>
+<p><code>2.数组</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">·数组(array)</span><br><span class="line">	java : [], ArrayList </span><br><span class="line">	数组下标是一种特殊的hash…做计数</span><br><span class="line">	理解数组与map</span><br><span class="line">	给数组“顺序”</span><br><span class="line"></span><br><span class="line">·查找和排序</span><br><span class="line">	二分查找</span><br><span class="line">	元素交换</span><br><span class="line">	排序，中位数</span><br><span class="line">	归并</span><br><span class="line">	位运算</span><br><span class="line">	前缀和的应用</span><br><span class="line">·动态规划</span><br><span class="line">·排列组合</span><br><span class="line"></span><br><span class="line">总结：</span><br><span class="line">·利用序</span><br><span class="line">	理解二分查找</span><br><span class="line">·利用前缀和</span><br><span class="line">	查找、计算、排序</span><br><span class="line">·理解数组</span><br><span class="line">	map</span><br><span class="line">·用数组实现高级数据结构</span><br><span class="line">	一般树： 存每个节点的父亲  （并查集）</span><br><span class="line">	二叉树： 下标从1开始a[i]的儿子是a[i * 2]和a[i * 2 + 1] (堆）</span><br><span class="line">·抓住简单题</span><br><span class="line">	分治法求逆序对数</span><br><span class="line">	有序数组归并</span><br><span class="line">	两个有序数组的中位数</span><br><span class="line">	两头扫的方法 （2-SUM, 3-SUM)</span><br></pre></td></tr></table></figure></p>
 <p><code>3.栈和队列</code><br>简介：<br>  堆栈和队列统称线性表<br>    简单的线性结构<br>    数组和链表可以实现这两种数据结构<br>  堆栈<br>    后进先出 (Last In First Out)<br>  队列<br>    先进先出 (First In First Out)</p>
 <p>面试题总体分析：<br>  堆栈<br>    基本理解<br>    DFS<br>      深度优先——按深度遍历<br>      递归转非递归<br>  队列<br>    基本理解<br>    BFS<br>         广度优先——按层序遍历</p>
 <p><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/4/38832.jpg" alt=""></p>
@@ -439,7 +439,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,11 +451,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -463,11 +459,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">框架 JSP</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">框架 JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,15 +483,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,11 +491,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,11 +503,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,11 +515,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,11 +535,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,11 +559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,7 +583,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,11 +591,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,7 +607,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+                <a href="javascript:void(0)" class="js-tag color3">腾讯</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,7 +615,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">腾讯</a>
+                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -184,8 +184,8 @@
       
         <p>用Java实现一些基本查找算法。</p>
 <p><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/3/20606.jpg" alt=""><br><a id="more"></a></p>
-<h2 id="Search-for-a-Range"><a href="#Search-for-a-Range" class="headerlink" title="Search for a Range"></a>Search for a Range</h2><p>描述<br>Given a sorted array of integers, find the starting and ending position of a given target value.<br>Your algorithm’s runtime complexity must be in the order of O(log n) .<br>If the target is not found in the array, return [-1, -1] .<br>For example, Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4] .<br>分析<br>已经排好了序，用二分查找。<br>重新实现 lower_bound 和 upper_bound<br>Search for a Range<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Search for a Range</span></span><br><span class="line"><span class="comment">// 重新实现 lower_bound 和 upper_bound</span></span><br><span class="line"><span class="comment">// 时间复杂度O(logn)，空间复杂度O(1)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] searchRange(<span class="keyword">int</span> [] nums,<span class="keyword">int</span> <span class="keyword">target</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> lower=lower_bound(nums,<span class="number">0</span>,nums.length,<span class="keyword">target</span>);</span><br><span class="line">        <span class="keyword">int</span> high=upper_bound(nums,<span class="number">0</span>,nums.length,<span class="keyword">target</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(lower == nums.length || nums[lower]!=<span class="keyword">target</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">-1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;lower,high<span class="number">-1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span>   <span class="function"><span class="keyword">int</span> <span class="title">lower_bound</span><span class="params">(<span class="keyword">int</span> [] A , <span class="keyword">int</span> first ,<span class="keyword">int</span> last ,<span class="keyword">int</span> <span class="keyword">target</span>)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(first!=last)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(first+last)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">target</span>&gt;A[mid])   first=++mid;</span><br><span class="line">            <span class="keyword">else</span>	last=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> first;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span>   <span class="function"><span class="keyword">int</span> <span class="title">upper_bound</span><span class="params">(<span class="keyword">int</span> [] A , <span class="keyword">int</span> first ,<span class="keyword">int</span> last ,<span class="keyword">int</span> <span class="keyword">target</span>)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(first!=last)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(first+last)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">target</span>&gt;=A[mid])   first=++mid; <span class="comment">//找到最远边界</span></span><br><span class="line">            <span class="keyword">else</span>	last=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> first;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Search-Insert-Position"><a href="#Search-Insert-Position" class="headerlink" title="Search Insert Position"></a>Search Insert Position</h2><p>描述<br>Given a sorted array and a target value, return the index if the target is found. If not, return the index<br>where it would be if it were inserted in order.<br>You may assume no duplicates in the array.<br>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0<br>分析<br>即 std::lower_bound() 。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span> [] nums , <span class="keyword">int</span> <span class="keyword">target</span>)</span></span>&#123;</span><br><span class="line">          <span class="keyword">int</span> first=<span class="number">0</span>;</span><br><span class="line">          <span class="keyword">int</span> last=nums.length;</span><br><span class="line">          <span class="keyword">while</span>(first!=last)&#123;</span><br><span class="line">              <span class="keyword">int</span> mid=(first+last)/<span class="number">2</span>;</span><br><span class="line">              <span class="keyword">if</span>(<span class="keyword">target</span>&gt;nums[mid])</span><br><span class="line">                  first=mid+<span class="number">1</span>;</span><br><span class="line">              <span class="keyword">else</span> last=mid;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> first;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Search-for-a-Range"><a href="#Search-for-a-Range" class="headerlink" title="Search for a Range"></a>Search for a Range</h2><p>描述<br>Given a sorted array of integers, find the starting and ending position of a given target value.<br>Your algorithm’s runtime complexity must be in the order of O(log n) .<br>If the target is not found in the array, return [-1, -1] .<br>For example, Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4] .<br>分析<br>已经排好了序，用二分查找。<br>重新实现 lower_bound 和 upper_bound<br>Search for a Range<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// Search for a Range</span><br><span class="line">// 重新实现 lower_bound 和 upper_bound</span><br><span class="line">// 时间复杂度O(logn)，空间复杂度O(1)</span><br><span class="line">public class Solution&#123;</span><br><span class="line">	private static int[] searchRange(int [] nums,int target)&#123;</span><br><span class="line">        int lower=lower_bound(nums,0,nums.length,target);</span><br><span class="line">        int high=upper_bound(nums,0,nums.length,target);</span><br><span class="line"></span><br><span class="line">        if(lower == nums.length || nums[lower]!=target)</span><br><span class="line">            return new int[]&#123;-1,-1&#125;;</span><br><span class="line">        else</span><br><span class="line">            return new int[]&#123;lower,high-1&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  private static   int lower_bound(int [] A , int first ,int last ,int target)&#123;</span><br><span class="line">        while(first!=last)&#123;</span><br><span class="line">            int mid=(first+last)/2;</span><br><span class="line">            if(target&gt;A[mid])   first=++mid;</span><br><span class="line">            else	last=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        return first;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  private static   int upper_bound(int [] A , int first ,int last ,int target)&#123;</span><br><span class="line">        while(first!=last)&#123;</span><br><span class="line">            int mid=(first+last)/2;</span><br><span class="line">            if(target&gt;=A[mid])   first=++mid; //找到最远边界</span><br><span class="line">            else	last=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        return first;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Search-Insert-Position"><a href="#Search-Insert-Position" class="headerlink" title="Search Insert Position"></a>Search Insert Position</h2><p>描述<br>Given a sorted array and a target value, return the index if the target is found. If not, return the index<br>where it would be if it were inserted in order.<br>You may assume no duplicates in the array.<br>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0<br>分析<br>即 std::lower_bound() 。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static int searchInsert(int [] nums , int target)&#123;</span><br><span class="line">          int first=0;</span><br><span class="line">          int last=nums.length;</span><br><span class="line">          while(first!=last)&#123;</span><br><span class="line">              int mid=(first+last)/2;</span><br><span class="line">              if(target&gt;nums[mid])</span><br><span class="line">                  first=mid+1;</span><br><span class="line">              else last=mid;</span><br><span class="line">          &#125;</span><br><span class="line">          return first;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/2/19124.jpg" alt=""></p>
 
       
@@ -439,7 +439,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,11 +451,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -463,11 +459,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">框架 JSP</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">观点与感想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">框架 JSP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,15 +483,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,11 +491,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java 二维码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,11 +503,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,11 +515,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工作</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工作</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,11 +535,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
+                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">云计算</a>
+                <a href="javascript:void(0)" class="js-tag color5">编程语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,11 +559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指Offer</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,7 +583,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,11 +591,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">开发者手册</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,7 +607,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
+                <a href="javascript:void(0)" class="js-tag color3">腾讯</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,7 +615,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">腾讯</a>
+                <a href="javascript:void(0)" class="js-tag color4">公开课</a>
               </li>
              
               <li class="article-tag-list-item">
