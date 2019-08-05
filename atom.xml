@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Litten的博客</title>
-  <icon>https://www.gravatar.com/avatar/1b1060c5a2544f4ae03788a00f7c2c93</icon>
-  <subtitle>胆小认生，不易相处</subtitle>
+  <title>Damin&#39;s Notes</title>
+  <icon>https://www.gravatar.com/avatar/4e309f9daecaa07d319ca860d650305f</icon>
+  <subtitle>持续改进 !</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhoudamin.github.io/"/>
@@ -10,8 +10,8 @@
   <id>http://zhoudamin.github.io/</id>
   
   <author>
-    <name>Litten</name>
-    <email>litten225@qq.com</email>
+    <name>Damin</name>
+    <email>daminzhou@foxmail.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
