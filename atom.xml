@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhoudamin.github.io/"/>
-  <updated>2019-08-07T12:45:22.090Z</updated>
+  <updated>2019-08-07T12:46:11.553Z</updated>
   <id>http://zhoudamin.github.io/</id>
   
   <author>
@@ -21,24 +21,13 @@
     <link href="http://zhoudamin.github.io/2019/08/07/Java%E7%9F%A5%E8%AF%86%E5%A2%9E%E5%BC%BA/"/>
     <id>http://zhoudamin.github.io/2019/08/07/Java知识增强/</id>
     <published>2019-08-07T12:39:12.000Z</published>
-    <updated>2019-08-07T12:45:22.090Z</updated>
+    <updated>2019-08-07T12:46:11.553Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><ol><li><p>倒排索引</p></li><li><p>讲讲redis里面的哈希表？</p></li><li><p>happen-before的规则？</p></li><li><p>volatile修饰符，synchronize锁</p></li><li><p>java单例模式的实现，懒汉、饿汉？</p></li><li><p>进程与线程的区别，多进程和多线程的区别？</p></li><li><p>HashMap原理，为什么用红黑树，红黑树的特点？</p></li><li><p>快排时间空间复杂度，最好最坏的情况，优化方案？</p></li><li><p>TCP的拥塞控制，具体过程是怎么样的？UDP有拥塞控制吗？如何解决？</p></li><li><p>讲讲了解的垃圾回收算法和回收器，什么时候执行STOP THE WORLD？</p></li></ol><ol start="5"><li>讲一下最大堆和最小堆</li></ol><ol><li><p>LRU算法实现（伪代码）</p></li><li><p>链表倒数第K个数（讲思路）</p></li><li><p>一堆螺丝和螺母用最短时间匹配（代码实现）</p></li><li><p>求每天浏览页面的新用户（Hive QL实现）</p></li><li><p>求抖音小视频每日点击量最高的10个（Hash + 最小堆）</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>每日一考！<br><a id="more"></a></p><ol><li><p>倒排索引</p></li><li><p>讲讲redis里面的哈希表？</p></li><li><p>happen-before的规则？</p></li><li><p>volatile修饰符，synchronize锁</p></li><li><p>java单例模式的实现，懒汉、饿汉？</p></li><li><p>进程与线程的区别，多进程和多线程的区别？</p></li><li><p>HashMap原理，为什么用红黑树，红黑树的特点？</p></li><li><p>快排时间空间复杂度，最好最坏的情况，优化方案？</p></li><li><p>TCP的拥塞控制，具体过程是怎么样的？UDP有拥塞控制吗？如何解决？</p></li><li><p>讲讲了解的垃圾回收算法和回收器，什么时候执行STOP THE WORLD？</p></li></ol><ol start="5"><li>讲一下最大堆和最小堆</li></ol><ol><li><p>LRU算法实现（伪代码）</p></li><li><p>链表倒数第K个数（讲思路）</p></li><li><p>一堆螺丝和螺母用最短时间匹配（代码实现）</p></li><li><p>求每天浏览页面的新用户（Hive QL实现）</p></li><li><p>求抖音小视频每日点击量最高的10个（Hash + 最小堆）</p></li></ol>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;倒排索引&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;讲讲redis里面的哈希表？&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;happen-before的规则？&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;volatile修饰符，synchroni
-      
+      &lt;p&gt;每日一考！&lt;br&gt;
     
     </summary>
     
