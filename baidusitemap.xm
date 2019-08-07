@@ -5,26 +5,19 @@
     
   <url>
     <loc>http://zhoudamin.github.io/2019/08/07/Java%E7%9F%A5%E8%AF%86%E5%A2%9E%E5%BC%BA/</loc>
-    <lastmod>2019-08-07T12:44:35.880Z</lastmod>
+    <lastmod>2019-08-07T12:45:22.090Z</lastmod>
     <data>
         <display>
         <title>Java知识增强</title>
         <pubTime>2019-08-07T12:39:12.000Z</pubTime>
         
+        <tag>Java</tag>
+         
          
            
              
-              <breadCrumb title="理解计算机" url="http://zhoudamin.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+              <breadCrumb title="编程语言" url="http://zhoudamin.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
           
-             
-              <breadCrumb title="算法与数学" url="http://zhoudamin.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
-          
-             
-              <breadCrumb title="观点与感想" url="http://zhoudamin.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/"/>
-          
-             
-             
-             
         </display>
     </data>
     </url>
