@@ -44,26 +44,6 @@
 
     
   <url>
-    <loc>http://zhoudamin.github.io/2019/05/14/My%E8%8F%8A%E5%8E%82%E7%94%9F%E6%B6%AF/</loc>
-    <lastmod>2019-05-14T14:22:13.266Z</lastmod>
-    <data>
-        <display>
-        <title>My菊厂生涯</title>
-        <pubTime>2019-05-14T14:18:17.000Z</pubTime>
-        
-        <tag>工作</tag>
-         
-         
-           
-             
-              <breadCrumb title="观点与感想" url="http://zhoudamin.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://zhoudamin.github.io/2018/07/08/%E3%80%8AHadoop%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%8B-Notes/</loc>
     <lastmod>2019-05-12T15:21:17.488Z</lastmod>
     <data>
@@ -77,26 +57,6 @@
            
              
               <breadCrumb title="读书笔记" url="http://zhoudamin.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhoudamin.github.io/2019/04/17/4%E6%9C%88%E7%9A%84%E6%8C%81%E7%BB%AD%E6%94%B9%E8%BF%9B/</loc>
-    <lastmod>2019-04-17T14:23:51.142Z</lastmod>
-    <data>
-        <display>
-        <title>4月的持续改进</title>
-        <pubTime>2019-04-17T14:05:01.000Z</pubTime>
-        
-        <tag>生活</tag>
-         
-         
-           
-             
-              <breadCrumb title="观点与感想" url="http://zhoudamin.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/"/>
           
         </display>
     </data>
