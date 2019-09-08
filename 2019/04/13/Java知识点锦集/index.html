@@ -103,10 +103,12 @@
 <meta property="og:site_name" content="Damin&#39;s Notes">
 <meta property="og:description" content="知识锦集">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://zhoudamin.github.io/2019/04/13/Java知识点锦集/111.jpg">
 <meta property="og:updated_time" content="2019-04-13T10:21:42.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java知识点锦集">
 <meta name="twitter:description" content="知识锦集">
+<meta name="twitter:image" content="http://zhoudamin.github.io/2019/04/13/Java知识点锦集/111.jpg">
 
 
 
@@ -423,7 +425,7 @@
         <p>知识锦集<br><a id="more"></a></p>
 <h2 id="hashMap原理，java8做的改变"><a href="#hashMap原理，java8做的改变" class="headerlink" title="hashMap原理，java8做的改变"></a>hashMap原理，java8做的改变</h2><p>从结构实现来讲，HashMap是数组+链表+红黑树（JDK1.8增加了红黑树部分）实现的。HashMap最多只允许一条记录的键为null，允许多条记录的值为null。HashMap非线程安全。ConcurrentHashMap线程安全。解决碰撞：当出现冲突时，运用拉链法，将关键词为同义词的结点链接在一个单链表中，散列表长m，则定义一个由m个头指针组成的指针数组T，地址为i的结点插入以T(i)为头指针的单链表中。Java8中，冲突的元素超过限制（8），用红黑树替换链表。</p>
 <h2 id="String-和-StringBuilder-的区别"><a href="#String-和-StringBuilder-的区别" class="headerlink" title="String 和 StringBuilder 的区别"></a>String 和 StringBuilder 的区别</h2><p>1）可变与不可变：String不可变，每一次执行“+”都会新生成一个新对象，所以频繁改变字符串的情况中不用String，以节省内存。<br>2）是否多线程安全：StringBuilder并没有对方法进行加同步锁，所以是非线程安全的。StringBuffer和String均线程安全。</p>
-
+<img src="/2019/04/13/Java知识点锦集/111.jpg" title="Vha">
 
       
     </div>
@@ -563,7 +565,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">85</span>
+                <span class="site-state-item-count">86</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -574,7 +576,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -585,7 +587,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
