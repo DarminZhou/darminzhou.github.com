@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.3'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>剑指Offer(1-10) - Damin&#39;s Notes</title>
+  
+    <meta name="keywords" content="算法与数学">
+  
+  
+    <meta name="description" content="剑指Offer题目解析！
+">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Damin's Notes">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.3</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  
+    <h1 class="title">
+      <a href="/2017/06/28/%E5%89%91%E6%8C%87Offer(1-10)/">
+        剑指Offer(1-10)
+      </a>
+    </h1>
+  
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="http://idamin.com/" target="_blank" rel="nofollow noopener">
+    <img src="/favicon.ico">
+    <p>Damin</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>算法与数学</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 28, 2017</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>剑指Offer题目解析！</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498648976510&di=bffe34c0fbc10ab7a8a562901fd66243&imgtype=0&src=http%3A%2F%2Fimg2.a0bi.com%2Fupload%2Fttq%2F20140711%2F1405077864900.gif" alt=""></p>
+<a id="more"></a>
+<h1 id="题1：赋值运算符函数"><a href="#题1：赋值运算符函数" class="headerlink" title="题1：赋值运算符函数"></a>题1：赋值运算符函数</h1><br/>
+# 题2：实现单例模式
+
+<br/>
+# 题3：二维数组中的查找
+题目：在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">      int arr[][] &#x3D;&#123;&#123;1,3,5,7,9&#125;,</span><br><span class="line">            &#123;2,4,6,8,10&#125;,</span><br><span class="line">            &#123;3,5,7,9,12&#125;,</span><br><span class="line">            &#123;5,7,9,10,15&#125;&#125;;</span><br><span class="line">      int key&#x3D;5;</span><br><span class="line">      System.out.print(&quot;Key has in arr :&quot; + find(arr,key));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static boolean find(int [][] array,int key)&#123;</span><br><span class="line">        if(array&#x3D;&#x3D;null) return false;</span><br><span class="line">        int clo&#x3D;array[0].length-1;</span><br><span class="line">        int row&#x3D;0;</span><br><span class="line">        while (clo&gt;&#x3D;0&amp;&amp;row&lt;array.length)&#123;      </span><br><span class="line">                if(array[row][clo]&gt;key)&#123;</span><br><span class="line">                    clo--;</span><br><span class="line">                &#125;else if (array[row][clo]&lt;key)&#123;</span><br><span class="line">                    row++;</span><br><span class="line">                &#125;else &#123;</span><br><span class="line">                    return true;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+# 题4：替换空格
+`方法1：时间复杂度为 O(n) 的解法，思路是先数空格，再倒序插值!`
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        String str&#x3D; &quot;we are happy.&quot;;</span><br><span class="line">        String res&#x3D;ResplaceBlank(str);</span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static String ResplaceBlank(String str)&#123;</span><br><span class="line">        if(str&#x3D;&#x3D;null) return str;</span><br><span class="line">        int len&#x3D;str.length();</span><br><span class="line">        int k&#x3D;0;</span><br><span class="line">        for(int i&#x3D;0;i&lt;len;i++)&#123;</span><br><span class="line">            if(str.charAt(i)&#x3D;&#x3D;&#39; &#39;)</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        char [] strnew &#x3D; new char[len+k*3];</span><br><span class="line">        for(int i&#x3D;len+k*2-1,j&#x3D;len-1;i&gt;&#x3D;0;i--,j--)&#123;</span><br><span class="line">            if(str.charAt(j)!&#x3D;&#39; &#39;)&#123;</span><br><span class="line">                strnew[i]&#x3D;str.charAt(j);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                strnew[i--]&#x3D;&#39;0&#39;;</span><br><span class="line">                strnew[i--]&#x3D;&#39;2&#39;;</span><br><span class="line">                strnew[i]&#x3D;&#39;%&#39;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return new String(strnew);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+`方法2：新数组，直接append`
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">            String str&#x3D; &quot;we are happy.&quot;;</span><br><span class="line">            String res&#x3D;ResplaceBlank(str);</span><br><span class="line">            System.out.println(res);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    public static String ResplaceBlank(String str)&#123;</span><br><span class="line">        if(str&#x3D;&#x3D;null) return str;</span><br><span class="line">        StringBuilder outputbuffer&#x3D;new StringBuilder();</span><br><span class="line">        for(int i&#x3D;0;i&lt;str.length();i++)&#123;</span><br><span class="line">            if(str.charAt(i)!&#x3D;&#39; &#39;)&#123;</span><br><span class="line">                outputbuffer.append(str.charAt(i));</span><br><span class="line"></span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                outputbuffer.append(&#39;%&#39;);</span><br><span class="line">                outputbuffer.append(&#39;2&#39;);</span><br><span class="line">                outputbuffer.append(&#39;0&#39;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return new String(outputbuffer);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+# 题5：从尾到头打印链表
+`学会Stack的使用，Stack是一种先进后出的数据结构，pop出和push存`
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Stack;</span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       ListNode node1&#x3D;new ListNode(1);</span><br><span class="line">       ListNode node2&#x3D;new ListNode(2);</span><br><span class="line">       ListNode node3&#x3D;new ListNode(3);</span><br><span class="line">       node1.next&#x3D;node2;</span><br><span class="line">       node2.next&#x3D;node3;</span><br><span class="line">       printReverseList(node1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static class ListNode&#123;</span><br><span class="line">        int val;</span><br><span class="line">        ListNode next;</span><br><span class="line">        ListNode(int val)&#123;</span><br><span class="line">            this.val&#x3D;val;</span><br><span class="line">            this.next&#x3D;null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void printReverseList(ListNode root)&#123;</span><br><span class="line">        if(root&#x3D;&#x3D;null ) return ;</span><br><span class="line">        ListNode node&#x3D;root;</span><br><span class="line">        Stack&lt;ListNode&gt; stack &#x3D; new Stack&lt;ListNode&gt;();</span><br><span class="line">        while(node!&#x3D;null)&#123;</span><br><span class="line">            stack.push(node);</span><br><span class="line">            node&#x3D;node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        while(!stack.isEmpty())&#123;</span><br><span class="line">            int val&#x3D;stack.pop().val;</span><br><span class="line">            System.out.print(val+&quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+递归实现方法：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ListNode node1&#x3D;new ListNode(1);</span><br><span class="line">        ListNode node2&#x3D;new ListNode(2);</span><br><span class="line">        ListNode node3&#x3D;new ListNode(3);</span><br><span class="line">        node1.next&#x3D;node2;</span><br><span class="line">        node2.next&#x3D;node3;</span><br><span class="line">        printReverseList(node1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static class ListNode&#123;</span><br><span class="line">        int val;</span><br><span class="line">        ListNode next;</span><br><span class="line">        ListNode(int val)&#123;</span><br><span class="line">            this.val&#x3D;val;</span><br><span class="line">            this.next&#x3D;null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void printReverseList(ListNode root)&#123;</span><br><span class="line">      if(root!&#x3D;null)&#123;</span><br><span class="line">          if(root.next!&#x3D;null)&#123;</span><br><span class="line">              printReverseList(root.next);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(root.val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+# 题6：重建二叉树
+题目：输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如：前序遍历序列｛ 1, 2, 4, 7, 3, 5, 6, 8｝和中序遍历序列｛4, 7, 2, 1, 5, 3, 8,6}，重建出下图所示的二叉树并输出它的头结点。
+![](http://upload-images.jianshu.io/upload_images/1361867-8773c0a120d3cb88.png?imageMogr2/auto-orient/strip " 根据前序和后序重建的二叉树")
+`函数使用：Arrays.copyOfRange(preSort, 1, i + 1)`
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">class BinaryTreeNode&#123;</span><br><span class="line">    public  int value&#x3D;0;</span><br><span class="line">    public BinaryTreeNode leftNode;</span><br><span class="line">    public BinaryTreeNode rightNode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) throws Exception&#123;</span><br><span class="line">        int[] preSort &#x3D; &#123;1, 2, 4, 7, 3, 5, 6, 8&#125;;</span><br><span class="line">        int[] inSort &#x3D; &#123;4, 7, 2, 1, 5, 3, 8, 6&#125;;</span><br><span class="line">        BinaryTreeNode root &#x3D; constructCore(preSort, inSort);</span><br><span class="line">        System.out.print(root.value+&quot; &quot;+root.leftNode.value+&quot; &quot;+root.rightNode.value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static BinaryTreeNode constructCore(int[] preSort, int[] inSort) throws Exception &#123;</span><br><span class="line">        if(preSort&#x3D;&#x3D;null||inSort&#x3D;&#x3D;null)&#123;</span><br><span class="line">          return null;</span><br><span class="line">        &#125;</span><br><span class="line">        if(preSort.length!&#x3D;inSort.length)&#123;</span><br><span class="line">              throw new  Exception(&quot;长度不一样，非法的输入！&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        BinaryTreeNode root &#x3D; new BinaryTreeNode();</span><br><span class="line">        for (int i &#x3D; 0; i &lt; preSort.length; i++) &#123;</span><br><span class="line">            if (preSort[0] &#x3D;&#x3D; inSort[i]) &#123;</span><br><span class="line">                root.value &#x3D; preSort[0];</span><br><span class="line">                root.leftNode &#x3D; constructCore(Arrays.copyOfRange(preSort, 1, i + 1), Arrays.copyOfRange(inSort, 0, i));</span><br><span class="line">                root.rightNode &#x3D; constructCore(Arrays.copyOfRange(preSort, i + 1, preSort.length), Arrays.copyOfRange(inSort, i + 1, inSort.length));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+# 题7：两个栈实现队列
+题目：用两个栈实现一个队列。队列的生命如下，请实现它的两个函数appendTail和deleteHead，分别完成在队列尾部插入结点和在队列头部删除结点的功能。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Stack;</span><br><span class="line"></span><br><span class="line">public class Main&lt;T&gt; &#123;</span><br><span class="line">    private Stack&lt;T&gt; stack1&#x3D;new Stack&lt;T&gt;();</span><br><span class="line">    private Stack&lt;T&gt; stack2&#x3D;new Stack&lt;T&gt;();</span><br><span class="line">    public void appendTail(T t)&#123;</span><br><span class="line">        stack1.push(t);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public T deleteHead() throws Exception&#123;</span><br><span class="line">        if(stack2.isEmpty())&#123;</span><br><span class="line">            if(!stack1.isEmpty())&#123;</span><br><span class="line">                stack2.push(stack1.pop());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(stack2.isEmpty())&#123;</span><br><span class="line">            throw new Exception(&quot;队列为空，不能删除！&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return stack2.pop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception&#123;</span><br><span class="line">    Main&lt;String&gt; p7&#x3D;new Main&lt;&gt;();</span><br><span class="line">    p7.appendTail(&quot;1&quot;);</span><br><span class="line">    p7.appendTail(&quot;2&quot;);</span><br><span class="line">    p7.appendTail(&quot;3&quot;);</span><br><span class="line">    System.out.println(p7.stack1);  &#x2F;&#x2F;[1, 2, 3]</span><br><span class="line">    p7.deleteHead();     </span><br><span class="line">    System.out.println(p7.stack1);   &#x2F;&#x2F;   [1, 2]</span><br><span class="line">    System.out.println(p7.deleteHead()); &#x2F;&#x2F; 2</span><br><span class="line">    System.out.println(p7.stack1); &#x2F;&#x2F;  [1]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+# 题8：旋转数组的最小数字
+题目： 把一个数组最开始的若干个元素搬到数组的末尾，我们称之数组的旋转。输入一个递增排序的数组的一个旋转， 输出旋转数组的最小元素。例如数组{3 ,4,5, 1, 2 ｝为｛ 1,2,3, 4,5}的一个旋转，该数组的最小值为 1。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">  &#x2F;&#x2F;  int [] array&#x3D;&#123;3 ,4,5, 1, 2 &#125;;</span><br><span class="line">     int [] array&#x3D;&#123;1 ,1,1, 2, 0 &#125;;</span><br><span class="line">     &#x2F;&#x2F;   int [] array&#x3D;&#123;1 ,1,1, 0, 1 &#125;;</span><br><span class="line">    System.out.println(findMin(array));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Integer findMin(int [] arr)&#123;</span><br><span class="line">        if(arr&#x3D;&#x3D;null)</span><br><span class="line">            return null;</span><br><span class="line">        int start&#x3D;0;</span><br><span class="line">        int end&#x3D;arr.length-1;</span><br><span class="line"></span><br><span class="line">        while (start&lt;end)&#123;</span><br><span class="line">            int mid&#x3D;(start+end)&#x2F;2;</span><br><span class="line">            if(arr[mid]&gt;arr[end])&#123;</span><br><span class="line">                start&#x3D;mid+1;</span><br><span class="line">            &#125;else if(arr[mid]&lt;arr[end])&#123;</span><br><span class="line">                end&#x3D;mid;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                start++;</span><br><span class="line">                end--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return arr[start];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+# 题9：斐波那契数列
+写一个函数，输入n，求斐波那契（Fibonacci) 数列的第n项
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner sc&#x3D;new Scanner(System.in);</span><br><span class="line">        int n&#x3D;sc.nextInt();</span><br><span class="line">    System.out.println(Fibonacci(n));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static long Fibonacci(int n)&#123;</span><br><span class="line">    long res&#x3D;0;</span><br><span class="line">    long numb1&#x3D;0;</span><br><span class="line">    long numb2&#x3D;1;</span><br><span class="line">    if(n&#x3D;&#x3D;0)&#123;</span><br><span class="line">        return numb1;</span><br><span class="line">    &#125;</span><br><span class="line">    if(n&#x3D;&#x3D;1)&#123;</span><br><span class="line">        return numb2;</span><br><span class="line">    &#125;</span><br><span class="line">    while(n!&#x3D;1)&#123;</span><br><span class="line">        res&#x3D;numb1+numb2;</span><br><span class="line">        numb1&#x3D;numb2;</span><br><span class="line">        numb2&#x3D;res;</span><br><span class="line">        n--;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br/>
+# 题10：二进制中1的个数
+请实现一个函数， 输入一个整数，输出该数二进制表示中1的个数。
+例如把9表示成二进制是1001 ，有2位是1. 因此如果输入9，该出2。
+```
+import java.util.Scanner;
+
+<p>public class Main {<br>    public static void main(String[] args) {<br>        Scanner sc=new Scanner(System.in);<br>        int n=sc.nextInt();<br>    System.out.println(numberOf1(n));<br>    }</p>
+<pre><code>public static int numberOf1(int n){
+    int count=0;
+    while (n!=0){
+        n=n&amp;(n-1);
+        count++;
+    }
+    return count;
+}</code></pre><p>}</p>
+<p>``` </p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498648976508&di=0a707e43f7854a1b70038ba84df0be8e&imgtype=0&src=http%3A%2F%2Fs2.sinaimg.cn%2Fmw690%2F005DdmLAzy6JP9GXZQJa1%26690" alt=""></p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://zhoudamin.github.io/2017/06/28/%E5%89%91%E6%8C%87Offer(1-10)/>http://zhoudamin.github.io/2017/06/28/%E5%89%91%E6%8C%87Offer(1-10)/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2018-07-30T23:36:27+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 30, 2018</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/" rel="nofollow"><i class="/favicon.ico fa-fw" aria-hidden="true"></i><p>算法与数学</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://zhoudamin.github.io/2017/06/28/%E5%89%91%E6%8C%87Offer(1-10)/&title=剑指Offer(1-10) - Damin's Notes&summary=剑指Offer题目解析！
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://zhoudamin.github.io/2017/06/28/%E5%89%91%E6%8C%87Offer(1-10)/&title=剑指Offer(1-10) - Damin's Notes&summary=剑指Offer题目解析！
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://zhoudamin.github.io/2017/06/28/%E5%89%91%E6%8C%87Offer(1-10)/&title=剑指Offer(1-10) - Damin's Notes&summary=剑指Offer题目解析！
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2017/06/28/LeetCode%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-%E4%BA%8C/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>LeetCode解题思路(二)</p>
+                <p class='content'>
+
+
+
+1Java代码实现
+
+
+
+</p>
+              </a>
+            
+            
+              <a class='next' href='/2017/06/26/LeetCode%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-%E4%B8%80/'>
+                <p class='title'>LeetCode解题思路(一)<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>做的一些题的解题思路
+
+Product of Array Except Self除本身之外的数组之积Given an array of n integers where n &gt; 1, nu...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '剑指Offer(1-10)',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

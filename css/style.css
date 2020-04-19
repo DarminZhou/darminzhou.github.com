@@ -4078,6 +4078,7 @@ ul.list-v >li>a {
   padding: 0 20px 0 16px;
   height: 32px;
   border-left: 2px solid transparent;
+  text-overflow: ellipsis;
 }
 ul.list-v >li>a:hover,
 ul.list-v >li>a.active,
@@ -4281,6 +4282,11 @@ ul.list-v >li>a.active {
   }
   .l_header .menu {
     display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .list-v li {
+    max-width: 264px;
   }
 }
 .l_main .prev-next {
