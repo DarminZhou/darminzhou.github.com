@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>标签：leetcode - Damin&#39;s Notes</title>
+    <title>Tag: LeetCode - Damin&#39;s Notes</title>
   
   
 
@@ -359,8 +359,8 @@
         
           
   <h2 class="title">
-    <a href="/2020/04/19/%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
-      三数之和
+    <a href="/2017/06/26/LeetCode%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-%E4%B8%80/">
+      LeetCode解题思路(一)
     </a>
   </h2>
 
@@ -385,9 +385,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/' rel="nofollow">
+    <a href='/categories/%E7%AE%97%E6%B3%95/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>算法与数学</p>
+      <p>算法</p>
     </a>
   </div>
 
@@ -398,7 +398,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 19, 2020</p>
+    <p>发布于：Jun 26, 2017</p>
   </a>
 </div>
 
@@ -426,29 +426,13 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <p>给你一个包含 <em>n</em> 个整数的数组&nbsp;<code>nums</code>，判断&nbsp;<code>nums</code>&nbsp;中是否存在三个元素 <em>a，b，c ，</em>使得&nbsp;<em>a + b + c = </em>0 ？请你找出所有满足条件且不重复的三元组。</p>
-
-<p><strong>注意：</strong>答案中不可以包含重复的三元组。</p>
-
-<p>&nbsp;</p>
-
-<p><strong>示例：</strong></p>
-
-<pre>给定数组 nums = [-1, 0, 1, 2, -1, -4]，
-
-满足要求的三元组集合为：
-[
-  [-1, 0, 1],
-  [-1, -1, 2]
-]
-</pre>
-<div><div>Related Topics</div><div><li>数组</li><li>双指针</li></div></div>
+        <p>做的一些题的解题思路<br><img src="http://upload-images.jianshu.io/upload_images/3876828-a4346506018aa44f.gif?imageMogr2/auto-orient/strip" alt="面对疾风吧" title="面对疾风吧"></p>
       
     </div>
     
       
         <div class="button readmore">
-          <a href="/2020/04/19/%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
+          <a href="/2017/06/26/LeetCode%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-%E4%B8%80/">
             Read More <i class="fas fa-chevron-right"></i>
           </a>
         </div>
@@ -776,16 +760,33 @@
       
     
       
-        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
+        Use
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        作为主题，总访问量为
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+		  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("08/03/2017 10:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+          times
         
       
     
@@ -994,6 +995,25 @@
       $(element).attr("href", $(this).attr("src"));
       /* 图片采用懒加载处理时,
        * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
+��放图片的真实地址，比如 data-original,
        * 那么此处将原本的属性名src替换为对应属性名data-original,
        * 修改如下
        */
