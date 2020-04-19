@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[三数之和]]></title>
+    <url>%2F2020%2F04%2F19%2F%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C%2F</url>
+    <content type="text"><![CDATA[给你一个包含 n 个整数的数组&nbsp;nums，判断&nbsp;nums&nbsp;中是否存在三个元素 a，b，c ，使得&nbsp;a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。 注意：答案中不可以包含重复的三元组。 &nbsp; 示例： 给定数组 nums = [-1, 0, 1, 2, -1, -4]， 满足要求的三元组集合为：[ [-1, 0, 1], [-1, -1, 2]] Related Topics数组双指针先排序，然后定点，双指针搜索。另外去重。 1234567891011121314151617181920212223242526272829303132333435363738394041class Solution &#123; public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) &#123; Arrays.sort(nums); List&lt;List&lt;Integer&gt;&gt; rstList = new ArrayList&lt;List&lt;Integer&gt;&gt;(); for (int i = 0; i &lt; nums.length - 2; i++) &#123; if (nums[i] &gt; 0) &#123; break; &#125; if (i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]) &#123; continue; &#125; int first = i + 1; int end = nums.length - 1; while (first &lt; end) &#123; int temp = nums[i] + nums[first] + nums[end]; if (temp &gt; 0) &#123; end--; &#125; else if (temp &lt; 0) &#123; first++; &#125; else &#123; List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); list.add(nums[i]); list.add(nums[first]); list.add(nums[end]); rstList.add(list); first++; end--; while (first &lt; end &amp;&amp; nums[first] == nums[first - 1]) &#123; first++; &#125; while (first &lt; end &amp;&amp; nums[end] == nums[end + 1]) &#123; end--; &#125; &#125; &#125; &#125; return rstList; &#125;&#125;]]></content>
+      <categories>
+        <category>算法与数学</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Apollo核心概念]]></title>
+    <url>%2F2019%2F10%2F13%2FApollo%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%2F</url>
+    <content type="text"><![CDATA[携程框架Apollo概念介绍 核心功能统一管理不同环境、不同集群的配置配置修改实时生效（热发布）版本发布管理 #]]></content>
+      <categories>
+        <category>开发者手册</category>
+      </categories>
+      <tags>
+        <tag>Apollo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ValidParentheses]]></title>
     <url>%2F2019%2F09%2F22%2FValidParentheses%2F</url>
     <content type="text"><![CDATA[给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。 有效字符串需满足： 左括号必须用相同类型的右括号闭合。左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串。 解题思路：1.用堆栈的数据结构处理括号的入栈与对比2.用map存储键值对，来进行入栈与对比判断 12345678910111213141516171819202122232425262728293031323334353637383940import java.util.HashMap;import java.util.Map;import java.util.Stack;/** * 给定一个只包括 '('，')'，'&#123;'，'&#125;'，'['，']' 的字符串，判断字符串是否有效。 * * 有效字符串需满足： * * 左括号必须用相同类型的右括号闭合。 * 左括号必须以正确的顺序闭合。 * 注意空字符串可被认为是有效字符串。 */public class ValidParentheses &#123; public static void main (String [] args)&#123; String str = "()[]&#123;&#125;"; System.out.println(checkValid(str)); &#125; public static boolean checkValid (String str)&#123; Stack&lt;Character&gt; stk = new Stack&lt;&gt;(); Map&lt;Character,Character&gt; map = new HashMap() ; map.put(')','('); map.put(']','['); map.put('&#125;','&#123;'); for(int i= 0;i&lt;str.length();i++)&#123; if(map.containsValue(str.charAt(i)))&#123; stk.push(str.charAt(i)); &#125;else &#123; if(stk.peek().equals(map.get(str.charAt(i))))&#123; stk.pop(); &#125;else &#123; return false; &#125; &#125; &#125; return stk.size()==0; &#125;&#125; 2019.9.22晴天百草园]]></content>
