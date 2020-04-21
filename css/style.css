@@ -3819,6 +3819,13 @@ div.hoverbox:hover >div.target {
   font-size: 1.25rem;
   font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
 }
+.l_header .logo {
+  padding: 0 20px;
+  line-height: 56px;
+  font-size: 25.6px;
+  font-family: Skranji,'Varela Round',"Microsoft YaHei","Source Sans Pro","Helvetica Neue",Menlo,Monaco,monospace,"Lucida Console",sans-serif,Helvetica,"Hiragino Sans GB","Hiragino Sans GB W3",Source Han Sans CN Regular,WenQuanYi Micro Hei,Arial,sans-serif;
+  letter-spacing: 0;
+}
 .l_header .wrapper .nav-main .title img {
   height: 64px;
 }
