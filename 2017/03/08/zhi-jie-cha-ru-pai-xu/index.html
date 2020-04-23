@@ -751,19 +751,27 @@ public class InsertSort {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2017/03/12/xi-er-pai-xu/">
+                <a href="/2017/03/12/jian-dan-zhi-jie-pai-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="希尔排序">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="简单直接排序">
                         
-                        <span class="card-title">希尔排序</span>
+                        <span class="card-title">简单直接排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基本思想：算法先要排序的一组数按某个增量d（n/2,n为要排序数的个数）分成若干组，每组中记录的下标相差d.对每组中全部元素进行直接插入排序，然后再用一个较小的增量（d/2）对它进行分组，在每组中再进行直接插入排序。当增量减到1时，进行直接
+                            基本思想：每个数与第一个数相比，选最小的放第一个；然后从第二个数开始，每个数与第二个数相比，选最小的放第二；……
+
+
+
+Java代码实现
+package algorithms4th;
+
+public class SelectSort {
+ 
                         
                     </div>
                     <div class="publish-info">
