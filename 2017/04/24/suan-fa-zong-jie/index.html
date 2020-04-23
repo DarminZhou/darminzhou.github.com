@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -475,11 +475,67 @@
                 <p>一些常用算法分类总结<br><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/5/41532.jpg" alt=""></p>
 <a id="more"></a>
 <p><code>1.字符串</code></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">·字符串(String)</span><br><span class="line">	通常把它作为字符数组</span><br><span class="line">	java : String内置类型，不可更改，要更改的话可考虑转StringBuffer, StringBuilder, char []之类</span><br><span class="line">	Java:   ［0..65535]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">·和数组相关，内容广泛</span><br><span class="line">	概念理解：字典序</span><br><span class="line">	简单操作：插入、删除字符，旋转</span><br><span class="line">	规则判断 （罗马数字转换 是否是合法的整数、浮点数）</span><br><span class="line">	数字运算（ 大数加法、二进制加法）</span><br><span class="line">	排序、交换 （partition过程）</span><br><span class="line">	字符计数（hash)：变位词</span><br><span class="line">	匹配 （正则表达式、全串匹配、KMP、周期判断）</span><br><span class="line">	动态规划 (LCS、编辑距离、最长回文子串）</span><br><span class="line">	搜索 （单词变换、排列组合）</span><br><span class="line"></span><br><span class="line">总结：</span><br><span class="line">·我理解的in-place (原地）</span><br><span class="line">	本身O(1)空间</span><br><span class="line">	递归，堆栈空间可以不考虑</span><br><span class="line">·原地相关的问题</span><br><span class="line">	字符串循环左移、右移动</span><br><span class="line">	快排partition相关</span><br><span class="line">·滑动窗口</span><br><span class="line">	能达到O(n)的的时间复杂度</span><br><span class="line">	O(1)的空间复杂度</span><br><span class="line">·规则相关——细致</span><br><span class="line">·匹配 （暴力）：KMP比较少见</span><br><span class="line">·Manacher——要求比较高的笔试</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>·字符串(String)
+    通常把它作为字符数组
+    java : String内置类型，不可更改，要更改的话可考虑转StringBuffer, StringBuilder, char []之类
+    Java:   ［0..65535]
 
-<p><code>2.数组</code></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">·数组(array)</span><br><span class="line">	java : [], ArrayList </span><br><span class="line">	数组下标是一种特殊的hash…做计数</span><br><span class="line">	理解数组与map</span><br><span class="line">	给数组“顺序”</span><br><span class="line"></span><br><span class="line">·查找和排序</span><br><span class="line">	二分查找</span><br><span class="line">	元素交换</span><br><span class="line">	排序，中位数</span><br><span class="line">	归并</span><br><span class="line">	位运算</span><br><span class="line">	前缀和的应用</span><br><span class="line">·动态规划</span><br><span class="line">·排列组合</span><br><span class="line"></span><br><span class="line">总结：</span><br><span class="line">·利用序</span><br><span class="line">	理解二分查找</span><br><span class="line">·利用前缀和</span><br><span class="line">	查找、计算、排序</span><br><span class="line">·理解数组</span><br><span class="line">	map</span><br><span class="line">·用数组实现高级数据结构</span><br><span class="line">	一般树： 存每个节点的父亲  （并查集）</span><br><span class="line">	二叉树： 下标从1开始a[i]的儿子是a[i * 2]和a[i * 2 + 1] (堆）</span><br><span class="line">·抓住简单题</span><br><span class="line">	分治法求逆序对数</span><br><span class="line">	有序数组归并</span><br><span class="line">	两个有序数组的中位数</span><br><span class="line">	两头扫的方法 （2-SUM, 3-SUM)</span><br></pre></td></tr></tbody></table></figure>
-<p><code>3.栈和队列</code><br>简介：<br>  堆栈和队列统称线性表<br>    简单的线性结构<br>    数组和链表可以实现这两种数据结构<br>  堆栈<br>    后进先出 (Last In First Out)<br>  队列<br>    先进先出 (First In First Out)</p>
+
+·和数组相关，内容广泛
+    概念理解：字典序
+    简单操作：插入、删除字符，旋转
+    规则判断 （罗马数字转换 是否是合法的整数、浮点数）
+    数字运算（ 大数加法、二进制加法）
+    排序、交换 （partition过程）
+    字符计数（hash)：变位词
+    匹配 （正则表达式、全串匹配、KMP、周期判断）
+    动态规划 (LCS、编辑距离、最长回文子串）
+    搜索 （单词变换、排列组合）
+
+总结：
+·我理解的in-place (原地）
+    本身O(1)空间
+    递归，堆栈空间可以不考虑
+·原地相关的问题
+    字符串循环左移、右移动
+    快排partition相关
+·滑动窗口
+    能达到O(n)的的时间复杂度
+    O(1)的空间复杂度
+·规则相关——细致
+·匹配 （暴力）：KMP比较少见
+·Manacher——要求比较高的笔试</code></pre><p><code>2.数组</code></p>
+<pre><code>·数组(array)
+    java : [], ArrayList 
+    数组下标是一种特殊的hash…做计数
+    理解数组与map
+    给数组“顺序”
+
+·查找和排序
+    二分查找
+    元素交换
+    排序，中位数
+    归并
+    位运算
+    前缀和的应用
+·动态规划
+·排列组合
+
+总结：
+·利用序
+    理解二分查找
+·利用前缀和
+    查找、计算、排序
+·理解数组
+    map
+·用数组实现高级数据结构
+    一般树： 存每个节点的父亲  （并查集）
+    二叉树： 下标从1开始a[i]的儿子是a[i * 2]和a[i * 2 + 1] (堆）
+·抓住简单题
+    分治法求逆序对数
+    有序数组归并
+    两个有序数组的中位数
+    两头扫的方法 （2-SUM, 3-SUM)</code></pre><p><code>3.栈和队列</code><br>简介：<br>  堆栈和队列统称线性表<br>    简单的线性结构<br>    数组和链表可以实现这两种数据结构<br>  堆栈<br>    后进先出 (Last In First Out)<br>  队列<br>    先进先出 (First In First Out)</p>
 <p>面试题总体分析：<br>  堆栈<br>    基本理解<br>    DFS<br>      深度优先——按深度遍历<br>      递归转非递归<br>  队列<br>    基本理解<br>    BFS<br>         广度优先——按层序遍历</p>
 <p><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/4/38832.jpg" alt=""></p>
 <script>
@@ -736,33 +792,35 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2017/04/26/er-wei-ma-qian-yan-fa-zhan/">
+                <a href="/2017/06/21/java-shi-xian-chang-jian-pai-xu-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="二维码前沿发展">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Java实现常见排序算法">
                         
-                        <span class="card-title">二维码前沿发展</span>
+                        <span class="card-title">Java实现常见排序算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            二维码纠错、定位、去模糊都已经研究很透了，现在很多公司都在推自己的闭源码！
+                            一些常见的排序算法实现！
 
-Facebook正努力使之用户在Messenger上更容易互相联系，所以它推出了许多新方式来让用户聊天。Messenger用户现在已经有专门的个人链接（m.me/
+
+
+·查找算法典型的二分查找对于二分查找算法要求, 查找前的数据必须是已经排好序的, 然后得到数组的开始位置start和结束位置end, 取中间位置mid的数据a[mid]跟待查找数据key进行比较, 若 a[m
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2017-04-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-06-21
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BA%8C%E7%BB%B4%E7%A0%81/" class="post-category">
-                                    二维码
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -772,8 +830,8 @@ Facebook正努力使之用户在Messenger上更容易互相联系，所以它推
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
-                        <span class="chip bg-color">二维码</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>

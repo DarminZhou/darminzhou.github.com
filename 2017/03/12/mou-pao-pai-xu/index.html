@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -477,10 +477,26 @@
 
 <p><img src="http://img.my.csdn.net/uploads/201209/07/1347009396_8149.jpg" alt=""></p>
 <p>Java实现</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package algorithms4th;</span><br><span class="line"></span><br><span class="line">public class BubbleSort {</span><br><span class="line">	public static void main(String [] args){</span><br><span class="line">		int a []={49,38,65,97,76,13,27,49,78,34,12,64,5,4,62,99,98,54,56,17,18,23,34,15,35,25,53,51};</span><br><span class="line">		for(int j=0;j&lt;a.length-1;j++){</span><br><span class="line">		    for(int i=a.length-1;i&gt;j;i--){</span><br><span class="line">		    	if(a[i]&lt;a[i-1]){</span><br><span class="line">		    		int temp=a[i];</span><br><span class="line">		    		a[i]=a[i-1];</span><br><span class="line">		    		a[i-1]=temp;</span><br><span class="line">		    	}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">		 for(int i=0;i&lt;a.length;i++){</span><br><span class="line">        	 System.out.print(a[i]+" ");</span><br><span class="line">         }</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>package algorithms4th;
 
-
-<p><img src="http://img.hb.aicdn.com/a07fb4ceb3b44c47f084ec9432d64ffa26685f1c39f7ca-f56mId_fw658" alt=""></p>
+public class BubbleSort {
+    public static void main(String [] args){
+        int a []={49,38,65,97,76,13,27,49,78,34,12,64,5,4,62,99,98,54,56,17,18,23,34,15,35,25,53,51};
+        for(int j=0;j&lt;a.length-1;j++){
+            for(int i=a.length-1;i&gt;j;i--){
+                if(a[i]&lt;a[i-1]){
+                    int temp=a[i];
+                    a[i]=a[i-1];
+                    a[i-1]=temp;
+                }
+        }
+    }
+         for(int i=0;i&lt;a.length;i++){
+             System.out.print(a[i]+" ");
+         }
+    }
+}
+</code></pre><p><img src="http://img.hb.aicdn.com/a07fb4ceb3b44c47f084ec9432d64ffa26685f1c39f7ca-f56mId_fw658" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -752,7 +768,7 @@
 
 
 Java代码实现
-1
+p
                         
                     </div>
                     <div class="publish-info">

@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -478,11 +478,36 @@
 <p><img src="http://bruce.u.qiniudn.com/2013/11/27/reading/photos-1.jpg" alt=""></p>
 <p>Math.ceil()是常见编程语言中的常用代码,ceil() 方法执行的是向上取整计算，它返回的是大于或等于函数参数，并且与之最接近的整数。</p>
 <p>Java代码实现</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package algorithms4th;</span><br><span class="line"></span><br><span class="line">public class ShellSort {</span><br><span class="line">    public static void main (String []args){</span><br><span class="line">        int a []={49,38,65,97,76,13,27,49,78,34,12,64,5,4,62,99,98,54,56,17,18,23,34,15,35,25,53,51};</span><br><span class="line">        int temp=0;</span><br><span class="line">        double d1=a.length;</span><br><span class="line">        while(true){</span><br><span class="line">        	 d1=Math.ceil(d1/3);</span><br><span class="line">        	int d=(int)d1;</span><br><span class="line">        	for(int x=0;x&lt;d;x++){</span><br><span class="line">        		for(int j=(int) (x+d);j&lt;a.length;j+=d){</span><br><span class="line">        			int i=(int) (j-d);</span><br><span class="line">        			if(a[i]&gt;a[j]){</span><br><span class="line">        				temp=a[j];</span><br><span class="line">        				a[j]=a[i];</span><br><span class="line">        				a[i]=temp;</span><br><span class="line">        			}</span><br><span class="line">        		}        			</span><br><span class="line">        	}</span><br><span class="line">        	if(d==1){</span><br><span class="line">        		break;</span><br><span class="line">        	}</span><br><span class="line">        }</span><br><span class="line">        	for(int i=0;i&lt;a.length;i++){</span><br><span class="line">        		System.out.print(a[i]+" ");</span><br><span class="line">        	}</span><br><span class="line">    	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>package algorithms4th;
 
-
-
-<p><img src="http://img.hb.aicdn.com/8bf8d63c5036682e56c3bac00cf985936bbff3b0e1433-QWDLmP_fw658" alt=""></p>
+public class ShellSort {
+    public static void main (String []args){
+        int a []={49,38,65,97,76,13,27,49,78,34,12,64,5,4,62,99,98,54,56,17,18,23,34,15,35,25,53,51};
+        int temp=0;
+        double d1=a.length;
+        while(true){
+             d1=Math.ceil(d1/3);
+            int d=(int)d1;
+            for(int x=0;x&lt;d;x++){
+                for(int j=(int) (x+d);j&lt;a.length;j+=d){
+                    int i=(int) (j-d);
+                    if(a[i]&gt;a[j]){
+                        temp=a[j];
+                        a[j]=a[i];
+                        a[i]=temp;
+                    }
+                }                    
+            }
+            if(d==1){
+                break;
+            }
+        }
+            for(int i=0;i&lt;a.length;i++){
+                System.out.print(a[i]+" ");
+            }
+        }
+}
+</code></pre><p><img src="http://img.hb.aicdn.com/8bf8d63c5036682e56c3bac00cf985936bbff3b0e1433-QWDLmP_fw658" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -754,7 +779,10 @@
 
 
 Java实现
-12345678910111213141516171819package algorithms4th;public class BubbleSort
+package algorithms4th;
+
+public class BubbleSort {
+    public static void m
                         
                     </div>
                     <div class="publish-info">
@@ -791,29 +819,28 @@ Java实现
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2017/03/12/jian-dan-zhi-jie-pai-xu/">
+                <a href="/2017/03/08/zhi-jie-cha-ru-pai-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="简单直接排序">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="直接插入排序">
                         
-                        <span class="card-title">简单直接排序</span>
+                        <span class="card-title">直接插入排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基本思想：每个数与第一个数相比，选最小的放第一个；然后从第二个数开始，每个数与第二个数相比，选最小的放第二；……
-
+                            基本思想：在要排序的一组数中，假设前面(n-1)[n&gt;=2] 个数已经是排好顺序的，现在要把第n个数插到前面的有序数中，使得这n个数也是排好顺序的。如此反复循环，直到全部排好顺序。
 
 
 Java代码实现
-12345678910111213141516171819package algorithms4th;
+package algorit
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-03-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-03-08
                             </span>
                         <span class="publish-author">
                             

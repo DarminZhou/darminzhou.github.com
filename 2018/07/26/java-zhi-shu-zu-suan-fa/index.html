@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -480,9 +480,20 @@
 <p>For example, given [1,2,3,4], return [24,12,8,6].</p>
 <p>Follow up:<br>Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.)</p>
 <p>思路：<br>首先，介绍方法： [1,a1,a12,a123].*[a234,a34,a4,1]=[a234,a134,a124,a123]<br>这个算法有个O(1)的思路:就是用常数的方法，从左边乘到右边，再取一个常数，从右边乘到左边</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//关键算法段</span></span><br><span class="line"></span><br><span class="line">left[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;num.length;++i){</span><br><span class="line">    left[i]=left[i-<span class="number">1</span>]*num[i-<span class="number">1</span>];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> right=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=num.length-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--){</span><br><span class="line">    left[i]*=right;   <span class="comment">//right 初始为1，每次乘完再迭代</span></span><br><span class="line">    right*=num[i];</span><br><span class="line">}</span><br><span class="line"><span class="keyword">return</span> left;</span><br></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//关键算法段</span>
 
+left<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
 
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>num<span class="token punctuation">.</span>length<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    left<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>left<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>num<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> right<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>num<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    left<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">*=</span>right<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//right 初始为1，每次乘完再迭代</span>
+    right<span class="token operator">*=</span>num<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">return</span> left<span class="token punctuation">;</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {

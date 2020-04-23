@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -478,13 +478,49 @@
 
 
 <h2 id="Search-for-a-Range"><a href="#Search-for-a-Range" class="headerlink" title="Search for a Range"></a>Search for a Range</h2><p>描述<br>Given a sorted array of integers, find the starting and ending position of a given target value.<br>Your algorithm’s runtime complexity must be in the order of O(log n) .<br>If the target is not found in the array, return [-1, -1] .<br>For example, Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4] .<br>分析<br>已经排好了序，用二分查找。<br>重新实现 lower_bound 和 upper_bound<br>Search for a Range</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// Search for a Range</span><br><span class="line">// 重新实现 lower_bound 和 upper_bound</span><br><span class="line">// 时间复杂度O(logn)，空间复杂度O(1)</span><br><span class="line">public class Solution{</span><br><span class="line">	private static int[] searchRange(int [] nums,int target){</span><br><span class="line">        int lower=lower_bound(nums,0,nums.length,target);</span><br><span class="line">        int high=upper_bound(nums,0,nums.length,target);</span><br><span class="line"></span><br><span class="line">        if(lower == nums.length || nums[lower]!=target)</span><br><span class="line">            return new int[]{-1,-1};</span><br><span class="line">        else</span><br><span class="line">            return new int[]{lower,high-1};</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  private static   int lower_bound(int [] A , int first ,int last ,int target){</span><br><span class="line">        while(first!=last){</span><br><span class="line">            int mid=(first+last)/2;</span><br><span class="line">            if(target&gt;A[mid])   first=++mid;</span><br><span class="line">            else	last=mid;</span><br><span class="line">        }</span><br><span class="line">        return first;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  private static   int upper_bound(int [] A , int first ,int last ,int target){</span><br><span class="line">        while(first!=last){</span><br><span class="line">            int mid=(first+last)/2;</span><br><span class="line">            if(target&gt;=A[mid])   first=++mid; //找到最远边界</span><br><span class="line">            else	last=mid;</span><br><span class="line">        }</span><br><span class="line">        return first;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>// Search for a Range
+// 重新实现 lower_bound 和 upper_bound
+// 时间复杂度O(logn)，空间复杂度O(1)
+public class Solution{
+    private static int[] searchRange(int [] nums,int target){
+        int lower=lower_bound(nums,0,nums.length,target);
+        int high=upper_bound(nums,0,nums.length,target);
 
+        if(lower == nums.length || nums[lower]!=target)
+            return new int[]{-1,-1};
+        else
+            return new int[]{lower,high-1};
+    }
 
-<h2 id="Search-Insert-Position"><a href="#Search-Insert-Position" class="headerlink" title="Search Insert Position"></a>Search Insert Position</h2><p>描述<br>Given a sorted array and a target value, return the index if the target is found. If not, return the index<br>where it would be if it were inserted in order.<br>You may assume no duplicates in the array.<br>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0<br>分析<br>即 std::lower_bound() 。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static int searchInsert(int [] nums , int target){</span><br><span class="line">          int first=0;</span><br><span class="line">          int last=nums.length;</span><br><span class="line">          while(first!=last){</span><br><span class="line">              int mid=(first+last)/2;</span><br><span class="line">              if(target&gt;nums[mid])</span><br><span class="line">                  first=mid+1;</span><br><span class="line">              else last=mid;</span><br><span class="line">          }</span><br><span class="line">          return first;</span><br><span class="line">     }</span><br></pre></td></tr></tbody></table></figure>
+  private static   int lower_bound(int [] A , int first ,int last ,int target){
+        while(first!=last){
+            int mid=(first+last)/2;
+            if(target&gt;A[mid])   first=++mid;
+            else    last=mid;
+        }
+        return first;
+    }
 
-<p><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/2/19124.jpg" alt=""></p>
+  private static   int upper_bound(int [] A , int first ,int last ,int target){
+        while(first!=last){
+            int mid=(first+last)/2;
+            if(target&gt;=A[mid])   first=++mid; //找到最远边界
+            else    last=mid;
+        }
+        return first;
+    }
+}</code></pre><h2 id="Search-Insert-Position"><a href="#Search-Insert-Position" class="headerlink" title="Search Insert Position"></a>Search Insert Position</h2><p>描述<br>Given a sorted array and a target value, return the index if the target is found. If not, return the index<br>where it would be if it were inserted in order.<br>You may assume no duplicates in the array.<br>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0<br>分析<br>即 std::lower_bound() 。</p>
+<pre><code>  public static int searchInsert(int [] nums , int target){
+            int first=0;
+            int last=nums.length;
+            while(first!=last){
+                int mid=(first+last)/2;
+                if(target&gt;nums[mid])
+                    first=mid+1;
+                else last=mid;
+            }
+            return first;
+       }</code></pre><p><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/2/19124.jpg" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -755,7 +791,10 @@
 
 
 1.比较两个浮点数大小
-123456789一般不会直接用“==”或者“!=”对两个浮点数进行比较。判断两个浮点数float a 与 float b 是否相等可以根据他们的差的绝对值是否大于0来进行判断。判断相等：
+一般不会直接用“==”或者“!=”对两个浮点数进行比较。
+判断两个浮点数float a 与 float b 是否相等可以根据他们的差的绝对值是否大于0来进行判断。
+判断相等：
+if（Mat
                         
                     </div>
                     <div class="publish-info">

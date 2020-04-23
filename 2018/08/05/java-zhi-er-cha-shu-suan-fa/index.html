@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -479,7 +479,18 @@
 <p>Assume a BST is defined as follows:</p>
 <p>The left subtree of a node contains only nodes with keys less than the node’s key.<br>The right subtree of a node contains only nodes with keys greater than the node’s key.<br>Both the left and right subtrees must also be binary search trees.</p>
 <p>思路，用递归，左&lt;根&lt;右 &amp;&amp; 左根递归 &amp;&amp; 右根递归<br>关键代码</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span></span>{</span><br><span class="line">    <span class="keyword">return</span> isValidBST(root,INT_MIN,INT_MAX);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function">bool <span class="title">isValidBST</span> <span class="params">(TreeNode* root,<span class="keyword">int</span> lower ,<span class="keyword">int</span> upper )</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(root == nullptr) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> root.val&gt;lower &amp;&amp; root.val&lt;upper </span><br><span class="line">           &amp;&amp; isValidBST(root.left,lower,root.val)</span><br><span class="line">           &amp;&amp; isValidBST(root.right,root.val,upper);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValidBST</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">isValidBST</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span>INT_MIN<span class="token punctuation">,</span>INT_MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+bool <span class="token function">isValidBST</span> <span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">,</span><span class="token keyword">int</span> lower <span class="token punctuation">,</span><span class="token keyword">int</span> upper <span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>root <span class="token operator">==</span> nullptr<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> root<span class="token punctuation">.</span>val<span class="token operator">></span>lower <span class="token operator">&amp;&amp;</span> root<span class="token punctuation">.</span>val<span class="token operator">&lt;</span>upper 
+           <span class="token operator">&amp;&amp;</span> <span class="token function">isValidBST</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span>lower<span class="token punctuation">,</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+           <span class="token operator">&amp;&amp;</span> <span class="token function">isValidBST</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span>root<span class="token punctuation">.</span>val<span class="token punctuation">,</span>upper<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }

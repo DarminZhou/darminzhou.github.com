@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -478,32 +478,116 @@
 <h1 id="好多鱼！"><a href="#好多鱼！" class="headerlink" title="好多鱼！"></a>好多鱼！</h1><p>牛牛有一个鱼缸。鱼缸里面已经有n条鱼，每条鱼的大小为fishSize[i] (1 ≤ i ≤ n,均为正整数)，牛牛现在想把新捕捉的鱼放入鱼缸。鱼缸内存在着大鱼吃小鱼的定律。经过观察，牛牛发现一条鱼A的大小为另外一条鱼B大小的2倍到10倍(包括2倍大小和10倍大小)，鱼A会吃掉鱼B。考虑到这个，牛牛要放入的鱼就需要保证：<br>1、放进去的鱼是安全的，不会被其他鱼吃掉<br>2、这条鱼放进去也不能吃掉其他鱼<br>鱼缸里面已经存在的鱼已经相处了很久，不考虑他们互相捕食。现在知道新放入鱼的大小范围<a href="考虑鱼的大小都是整数表示">minSize,maxSize</a>,牛牛想知道有多少种大小的鱼可以放入这个鱼缸。</p>
 <p>输入描述:<br>输入数据包括3行.<br>第一行为新放入鱼的尺寸范围minSize,maxSize(1 ≤ minSize,maxSize ≤ 1000)，以空格分隔。<br>第二行为鱼缸里面已经有鱼的数量n(1 ≤ n ≤ 50)<br>第三行为已经有的鱼的大小fishSize[i](1 ≤ fishSize[i] ≤ 1000)，以空格分隔。</p>
 <p>输出描述:<br>输出有多少种大小的鱼可以放入这个鱼缸。考虑鱼的大小都是整数表示<br>示例1<br>输入</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 12</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></tbody></table></figure>
-<p>输出</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Random;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main{</span><br><span class="line">    public static void main(String[] args){</span><br><span class="line">        Scanner scanner = new Scanner(System.in);</span><br><span class="line">        System.out.println("minSize :");</span><br><span class="line">        int minSize = scanner.nextInt();</span><br><span class="line">        System.out.println("maxSize :");</span><br><span class="line">        int maxSize = scanner.nextInt();</span><br><span class="line">        System.out.println("inNumber :");</span><br><span class="line">        int inNumber = scanner.nextInt();</span><br><span class="line"></span><br><span class="line">        System.out.println("inFishSize[ ] :");</span><br><span class="line">        int [] inFishSize = new int[inNumber];</span><br><span class="line">       for(int i=0;i&lt;inNumber;i++) {</span><br><span class="line">           inFishSize[i]=scanner.nextInt();</span><br><span class="line">       }</span><br><span class="line">       int count =0;</span><br><span class="line">       for(int i=minSize;i&lt;=maxSize ;i++){</span><br><span class="line">           boolean flag=false;</span><br><span class="line">           for(int j=0;j&lt;inNumber ;j++){</span><br><span class="line">               if(( i*2&lt;=inFishSize[j]&amp;&amp;inFishSize[j]&lt;=i*10 )||( inFishSize[j]*2&lt;=i &amp;&amp; inFishSize[j]*10&gt;=i )){</span><br><span class="line">                   flag=true;</span><br><span class="line">                   break;</span><br><span class="line">               }</span><br><span class="line">           }</span><br><span class="line">           if(!flag){</span><br><span class="line">               count++;</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line">      System.out.println(count);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>1 12
+1
+1</code></pre><p>输出</p>
+<pre><code>3</code></pre><pre><code>import java.util.Random;
+import java.util.Scanner;
 
-<h1 id="DNA合成"><a href="#DNA合成" class="headerlink" title="DNA合成"></a>DNA合成</h1><p>DNA分子是以4种脱氧核苷酸为单位连接而成的长链，这4种脱氧核苷酸分别含有A,T,C,G四种碱基。碱基互补配对原则：A和T是配对的，C和G是配对的。如果两条碱基链长度是相同的并且每个位置的碱基是配对的，那么他们就可以配对合成为DNA的双螺旋结构。现在给出两条碱基链，允许在其中一条上做替换操作：把序列上的某个位置的碱基更换为另外一种碱基。问最少需要多少次让两条碱基链配对成功<br>输入描述:<br>输入包括一行：<br>包括两个字符串,分别表示两条链,两个字符串长度相同且长度均小于等于50。<br>输出描述:<br>输出一个整数，即最少需要多少次让两条碱基链配对成功<br>示例1<br>输入</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ACGT</span><br><span class="line">TGCA</span><br></pre></td></tr></tbody></table></figure>
-<p>输出</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main{</span><br><span class="line">    public static void main(String[] args){</span><br><span class="line">        Scanner scanner = new Scanner(System.in);</span><br><span class="line">        System.out.println("输入碱基s1 :");</span><br><span class="line">        String s1=scanner.nextLine();</span><br><span class="line">        System.out.println("输入碱基s2 :");</span><br><span class="line">        String s2= scanner.nextLine();</span><br><span class="line"></span><br><span class="line">    if(s1.length()!=s2.length()||s1.isEmpty()||s2.isEmpty()){</span><br><span class="line">    return;</span><br><span class="line">    }</span><br><span class="line">    int count =0;</span><br><span class="line">    for(int i=0;i&lt;s1.length();i++){</span><br><span class="line">        if(!( (s1.charAt(i)=='A' &amp;&amp; s2.charAt(i)=='T') ||</span><br><span class="line">            (s2.charAt(i)=='A' &amp;&amp; s1.charAt(i)=='T') ||</span><br><span class="line">            (s1.charAt(i)=='C' &amp;&amp; s2.charAt(i)=='G') ||</span><br><span class="line">            (s2.charAt(i)=='C' &amp;&amp; s1.charAt(i)=='G') )){</span><br><span class="line">            count++;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    System.out.println(count);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="连续整数"><a href="#连续整数" class="headerlink" title="连续整数"></a>连续整数</h1><p>牛牛的好朋友羊羊在纸上写了n+1个整数，羊羊接着抹除掉了一个整数，给牛牛猜他抹除掉的数字是什么。牛牛知道羊羊写的整数神排序之后是一串连续的正整数，牛牛现在要猜出所有可能是抹除掉的整数。例如：<br>10 7 12 8 11 那么抹除掉的整数只可能是9<br>5 6 7 8 那么抹除掉的整数可能是4也可能是9<br>输入描述:<br>输入包括2行：<br>第一行为整数n(1 &lt;= n &lt;= 50)，即抹除一个数之后剩下的数字个数<br>第二行为n个整数num[i] (1 &lt;= num[i] &lt;= 1000000000)<br>输出描述:<br>在一行中输出所有可能是抹除掉的数,从小到大输出,用空格分割,行末无空格。如果没有可能的数，则输出mistake<br>示例1<br>输入</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3 6</span><br></pre></td></tr></tbody></table></figure>
-<p>输出</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mistake</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main{</span><br><span class="line">    public static void main(String[] args){</span><br><span class="line">       Scanner scanner=new Scanner(System.in);</span><br><span class="line">       System.out.println("剩下数字个数 ：");</span><br><span class="line">       int n=scanner.nextInt();</span><br><span class="line">       int [] num=new int[n];</span><br><span class="line">       System.out.println("输入剩下数字 :");</span><br><span class="line">       int max=Integer.MIN_VALUE;</span><br><span class="line">       int min=Integer.MAX_VALUE;</span><br><span class="line">       int s=0;</span><br><span class="line">       for(int i=0;i&lt;n;i++){</span><br><span class="line">       num[i]=scanner.nextInt();</span><br><span class="line">       s+=num[i];</span><br><span class="line">       if(num[i]&lt;min) min=num[i];</span><br><span class="line">       if(num[i]&gt;max) max=num[i];</span><br><span class="line">       }</span><br><span class="line"></span><br><span class="line">       if(max-min+1 == n){</span><br><span class="line">           if(s==(max+min)*n/2){</span><br><span class="line">               if(min&gt;1){</span><br><span class="line">                   System.out.println((min-1)+" "+ (max+1));</span><br><span class="line">               }else {</span><br><span class="line">                   System.out.println(max+1);</span><br><span class="line">               }</span><br><span class="line">           }else {</span><br><span class="line">               System.out.println("mistake!");</span><br><span class="line">           }</span><br><span class="line">       }else {</span><br><span class="line">           if(max-min==n){</span><br><span class="line">           for(int j=1;j&lt;n;j++){</span><br><span class="line">               if(num[j]==num[j-1]){</span><br><span class="line">                   System.out.println("mistake!");</span><br><span class="line">               }else if (num[j]==num[j-1]+2){</span><br><span class="line">                   System.out.println(num[j]-1);</span><br><span class="line">               }</span><br><span class="line">           }</span><br><span class="line">       }else {</span><br><span class="line">           System.out.println("mistake!");</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+public class Main{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("minSize :");
+        int minSize = scanner.nextInt();
+        System.out.println("maxSize :");
+        int maxSize = scanner.nextInt();
+        System.out.println("inNumber :");
+        int inNumber = scanner.nextInt();
 
+        System.out.println("inFishSize[ ] :");
+        int [] inFishSize = new int[inNumber];
+       for(int i=0;i&lt;inNumber;i++) {
+           inFishSize[i]=scanner.nextInt();
+       }
+       int count =0;
+       for(int i=minSize;i&lt;=maxSize ;i++){
+           boolean flag=false;
+           for(int j=0;j&lt;inNumber ;j++){
+               if(( i*2&lt;=inFishSize[j]&amp;&amp;inFishSize[j]&lt;=i*10 )||( inFishSize[j]*2&lt;=i &amp;&amp; inFishSize[j]*10&gt;=i )){
+                   flag=true;
+                   break;
+               }
+           }
+           if(!flag){
+               count++;
+           }
+       }
+      System.out.println(count);
+    }
+}</code></pre><h1 id="DNA合成"><a href="#DNA合成" class="headerlink" title="DNA合成"></a>DNA合成</h1><p>DNA分子是以4种脱氧核苷酸为单位连接而成的长链，这4种脱氧核苷酸分别含有A,T,C,G四种碱基。碱基互补配对原则：A和T是配对的，C和G是配对的。如果两条碱基链长度是相同的并且每个位置的碱基是配对的，那么他们就可以配对合成为DNA的双螺旋结构。现在给出两条碱基链，允许在其中一条上做替换操作：把序列上的某个位置的碱基更换为另外一种碱基。问最少需要多少次让两条碱基链配对成功<br>输入描述:<br>输入包括一行：<br>包括两个字符串,分别表示两条链,两个字符串长度相同且长度均小于等于50。<br>输出描述:<br>输出一个整数，即最少需要多少次让两条碱基链配对成功<br>示例1<br>输入</p>
+<pre><code>ACGT
+TGCA</code></pre><p>输出</p>
+<pre><code>0</code></pre><pre><code>import java.util.Scanner;
 
+public class Main{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("输入碱基s1 :");
+        String s1=scanner.nextLine();
+        System.out.println("输入碱基s2 :");
+        String s2= scanner.nextLine();
 
+    if(s1.length()!=s2.length()||s1.isEmpty()||s2.isEmpty()){
+    return;
+    }
+    int count =0;
+    for(int i=0;i&lt;s1.length();i++){
+        if(!( (s1.charAt(i)=='A' &amp;&amp; s2.charAt(i)=='T') ||
+            (s2.charAt(i)=='A' &amp;&amp; s1.charAt(i)=='T') ||
+            (s1.charAt(i)=='C' &amp;&amp; s2.charAt(i)=='G') ||
+            (s2.charAt(i)=='C' &amp;&amp; s1.charAt(i)=='G') )){
+            count++;
+        }
+    }
+    System.out.println(count);
+    }
+}</code></pre><h1 id="连续整数"><a href="#连续整数" class="headerlink" title="连续整数"></a>连续整数</h1><p>牛牛的好朋友羊羊在纸上写了n+1个整数，羊羊接着抹除掉了一个整数，给牛牛猜他抹除掉的数字是什么。牛牛知道羊羊写的整数神排序之后是一串连续的正整数，牛牛现在要猜出所有可能是抹除掉的整数。例如：<br>10 7 12 8 11 那么抹除掉的整数只可能是9<br>5 6 7 8 那么抹除掉的整数可能是4也可能是9<br>输入描述:<br>输入包括2行：<br>第一行为整数n(1 &lt;= n &lt;= 50)，即抹除一个数之后剩下的数字个数<br>第二行为n个整数num[i] (1 &lt;= num[i] &lt;= 1000000000)<br>输出描述:<br>在一行中输出所有可能是抹除掉的数,从小到大输出,用空格分割,行末无空格。如果没有可能的数，则输出mistake<br>示例1<br>输入</p>
+<pre><code>2
+3 6</code></pre><p>输出</p>
+<pre><code>mistake</code></pre><pre><code>import java.util.Scanner;
 
+public class Main{
+    public static void main(String[] args){
+       Scanner scanner=new Scanner(System.in);
+       System.out.println("剩下数字个数 ：");
+       int n=scanner.nextInt();
+       int [] num=new int[n];
+       System.out.println("输入剩下数字 :");
+       int max=Integer.MIN_VALUE;
+       int min=Integer.MAX_VALUE;
+       int s=0;
+       for(int i=0;i&lt;n;i++){
+       num[i]=scanner.nextInt();
+       s+=num[i];
+       if(num[i]&lt;min) min=num[i];
+       if(num[i]&gt;max) max=num[i];
+       }
 
-
-
-
-
-
-<h2 id="序列和"><a href="#序列和" class="headerlink" title="序列和"></a>序列和</h2><h2 id="01翻转"><a href="#01翻转" class="headerlink" title="01翻转"></a>01翻转</h2><p>最长公共连续子串</p>
+       if(max-min+1 == n){
+           if(s==(max+min)*n/2){
+               if(min&gt;1){
+                   System.out.println((min-1)+" "+ (max+1));
+               }else {
+                   System.out.println(max+1);
+               }
+           }else {
+               System.out.println("mistake!");
+           }
+       }else {
+           if(max-min==n){
+           for(int j=1;j&lt;n;j++){
+               if(num[j]==num[j-1]){
+                   System.out.println("mistake!");
+               }else if (num[j]==num[j-1]+2){
+                   System.out.println(num[j]-1);
+               }
+           }
+       }else {
+           System.out.println("mistake!");
+           }
+       }
+    }
+}</code></pre><h2 id="序列和"><a href="#序列和" class="headerlink" title="序列和"></a>序列和</h2><h2 id="01翻转"><a href="#01翻转" class="headerlink" title="01翻转"></a>01翻转</h2><p>最长公共连续子串</p>
 <p>组装三角形</p>
 <p>最小的矩形</p>
 <p>字符串分类</p>
@@ -521,8 +605,7 @@
 <p>神奇数</p>
 <p>添加字符</p>
 <p>数组变换</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java代码实现</span><br></pre></td></tr></tbody></table></figure>
-<br>
+<pre><code>Java代码实现</code></pre><br>
 
 <p><img src="https://cdn.pixabay.com/photo/2017/07/02/16/33/church-2464899_960_720.jpg" alt=""></p>
 <script>

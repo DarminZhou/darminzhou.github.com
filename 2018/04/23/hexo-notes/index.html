@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -475,7 +475,33 @@
                 <p>遇到的小问题</p>
 <a id="more"></a>
 <h1 id="关于设置页宽"><a href="#关于设置页宽" class="headerlink" title="关于设置页宽"></a>关于设置页宽</h1><p>没错，这就是我上面提到的那个主题，这个主题有三种外观，其中我现在使用的是 Pisces Scheme ，但还是做了一些修改，因为原来那个宽度太小了，不适合展示代码块，也不太美观。修改方法如下：<br>Pisces 的布局定义在 source/css/_schemes/Picses/_layout.styl 中，打开文件并在最后添加以下 css<br>引用自  <a href="http://www.aidansu.com/2017/github-pages-build-blog/" target="_blank" rel="noopener">http://www.aidansu.com/2017/github-pages-build-blog/</a></p>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header</span>{</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">    +tablet() {</span><br><span class="line">        <span class="selector-tag">width</span>: 100%;</span><br><span class="line">    }</span><br><span class="line">    +<span class="selector-tag">mobile</span>() {</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.main-inner</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">    +tablet() {</span><br><span class="line">        <span class="selector-tag">width</span>: 100%;</span><br><span class="line">    }</span><br><span class="line">    +<span class="selector-tag">mobile</span>() {</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.content-wrap</span> {</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">260px</span>);</span><br><span class="line">    +tablet() {</span><br><span class="line">        <span class="selector-tag">width</span>: 100%;</span><br><span class="line">    }</span><br><span class="line">    +<span class="selector-tag">mobile</span>() {</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.header</span></span><span class="token punctuation">{</span>
+    <span class="token selector">width: 80%;
+    +tablet() </span><span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">+mobile() </span><span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.container</span> <span class="token class">.main-inner</span> </span><span class="token punctuation">{</span>
+    <span class="token selector">width: 80%;
+    +tablet() </span><span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">+mobile() </span><span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.content-wrap</span> </span><span class="token punctuation">{</span>
+    <span class="token selector">width: calc(100% - 260px);
+    +tablet() </span><span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">+mobile() </span><span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -805,7 +831,7 @@ SaaS 软件即服务
 
 本代码源自   http://www.jhlabs.com/ip/blurring.html
 Java运动模糊算法：
-1
+i
                         
                     </div>
                     <div class="publish-info">

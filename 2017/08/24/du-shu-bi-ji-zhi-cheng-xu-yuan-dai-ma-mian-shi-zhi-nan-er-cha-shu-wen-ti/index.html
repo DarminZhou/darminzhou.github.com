@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -480,29 +480,242 @@
 <h1 id="判断二叉树是不是平衡二叉树"><a href="#判断二叉树是不是平衡二叉树" class="headerlink" title="判断二叉树是不是平衡二叉树"></a>判断二叉树是不是平衡二叉树</h1><p>输入一棵二叉树的根节点，判断该树是不是平衡的二叉树。如果某二叉树中任意结点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。</p>
 <p>先比较左边，再比较右边；</p>
 <p>左子树也先比较左边再比较右边。</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalance</span><span class="params">(Node head)</span></span>{</span><br><span class="line">      <span class="keyword">boolean</span> res=<span class="keyword">true</span>;</span><br><span class="line">      getHeight(head,<span class="number">1</span>,res);</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getHeight</span><span class="params">(Node head , <span class="keyword">int</span> level ,<span class="keyword">boolean</span> res)</span></span>{</span><br><span class="line">      <span class="keyword">if</span>(head==<span class="keyword">null</span>){</span><br><span class="line">          <span class="keyword">return</span> level;</span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">      <span class="keyword">int</span> lH=getHeight(head.left,level+<span class="number">1</span>,res);</span><br><span class="line">      <span class="keyword">if</span>(!res){</span><br><span class="line">          <span class="keyword">return</span> level;</span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">      <span class="keyword">int</span> rH=getHeight(head.right,level+<span class="number">1</span>,res);</span><br><span class="line">      <span class="keyword">if</span>(!res){</span><br><span class="line">          <span class="keyword">return</span> level;</span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(Math.abs(lH-rH)&gt;<span class="number">1</span>){</span><br><span class="line">          res=<span class="keyword">false</span>;</span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">return</span> Math.max(lH,rH);</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java">  <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isBalance</span><span class="token punctuation">(</span>Node head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">boolean</span> res<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token function">getHeight</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getHeight</span><span class="token punctuation">(</span>Node head <span class="token punctuation">,</span> <span class="token keyword">int</span> level <span class="token punctuation">,</span><span class="token keyword">boolean</span> res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> level<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">int</span> lH<span class="token operator">=</span><span class="token function">getHeight</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>left<span class="token punctuation">,</span>level<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> level<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">int</span> rH<span class="token operator">=</span><span class="token function">getHeight</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>right<span class="token punctuation">,</span>level<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> level<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>lH<span class="token operator">-</span>rH<span class="token punctuation">)</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            res<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>lH<span class="token punctuation">,</span>rH<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
 <hr>
 <h1 id="根据后序数组重建搜索二叉树"><a href="#根据后序数组重建搜索二叉树" class="headerlink" title="根据后序数组重建搜索二叉树"></a>根据后序数组重建搜索二叉树</h1><p>给定一个整型数组arr，已知其中没有重复值，判断arr是否可能是节点值类型为整型的搜索二叉树后序遍历的结果。</p>
 <p>数组最后一个值，肯定是根节点的值</p>
 <p>小于根节点的为左子树，大于根节点的为左子树</p>
 <p>对应2,1,3小于4</p>
 <p>6,5,7大于4</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>{</span><br><span class="line">       <span class="keyword">int</span> [] arr={<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">4</span>};</span><br><span class="line">       System.out.println(isPostArray(arr));</span><br><span class="line">   }</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPostArray</span><span class="params">(<span class="keyword">int</span> [] arr)</span></span>{</span><br><span class="line">       <span class="keyword">if</span>(arr==<span class="keyword">null</span> || arr.length==<span class="number">0</span>){</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">       }</span><br><span class="line">       <span class="keyword">return</span> isPost(arr,<span class="number">0</span>,arr.length-<span class="number">1</span>);</span><br><span class="line">   }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isPost</span><span class="params">(<span class="keyword">int</span> [] arr, <span class="keyword">int</span> start ,<span class="keyword">int</span> end)</span></span>{</span><br><span class="line">       <span class="keyword">if</span>(start==end){</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       }</span><br><span class="line">       <span class="keyword">int</span> less=-<span class="number">1</span>;</span><br><span class="line">       <span class="keyword">int</span> more=end;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=start;i&lt;end;i++){</span><br><span class="line">           <span class="keyword">if</span>(arr[i]&lt;arr[end]){</span><br><span class="line">           less=i;</span><br><span class="line">       }<span class="keyword">else</span> {</span><br><span class="line">           more=more==end ? i : more;</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span>(less==-<span class="number">1</span>||more==end){</span><br><span class="line">           <span class="keyword">return</span> isPost(arr,start,end-<span class="number">1</span>);</span><br><span class="line">       }</span><br><span class="line">       <span class="keyword">if</span>(less!=more-<span class="number">1</span>){</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">       }</span><br><span class="line">     </span><br><span class="line">       <span class="keyword">return</span> isPost(arr,start,less)&amp;&amp;isPost(arr,more,end-<span class="number">1</span>);</span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java"> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String <span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">isPostArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isPostArray</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token operator">==</span>null <span class="token operator">||</span> arr<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">isPost</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isPost</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> start <span class="token punctuation">,</span><span class="token keyword">int</span> end<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>start<span class="token operator">==</span>end<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> less<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> more<span class="token operator">=</span>end<span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">;</span>i<span class="token operator">&lt;</span>end<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            less<span class="token operator">=</span>i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+            more<span class="token operator">=</span>more<span class="token operator">==</span>end <span class="token operator">?</span> i <span class="token operator">:</span> more<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>less<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token operator">||</span>more<span class="token operator">==</span>end<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">isPost</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>start<span class="token punctuation">,</span>end<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>less<span class="token operator">!=</span>more<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> <span class="token function">isPost</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>start<span class="token punctuation">,</span>less<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token function">isPost</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>more<span class="token punctuation">,</span>end<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span></code></pre>
 <hr>
-<h1 id="二叉树的序列化和反序列化"><a href="#二叉树的序列化和反序列化" class="headerlink" title="二叉树的序列化和反序列化"></a>二叉树的序列化和反序列化</h1><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> BinaryTree;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by zdmein on 2017/9/7.</span></span><br><span class="line"><span class="comment">               12</span></span><br><span class="line"><span class="comment">           /      \</span></span><br><span class="line"><span class="comment">         3        null</span></span><br><span class="line"><span class="comment">     /    \</span></span><br><span class="line"><span class="comment">  null    null</span></span><br><span class="line"><span class="comment"> 先序遍历：12！3！#！#！#！</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NodeSerial</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义Node</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>{</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> value;</span><br><span class="line">        <span class="keyword">public</span> Node left;</span><br><span class="line">        <span class="keyword">public</span> Node right;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">int</span> data)</span></span>{</span><br><span class="line">            <span class="keyword">this</span>.value=data;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 先序遍历</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">serialByPre</span><span class="params">(Node head)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"#!"</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        String res=head.value+<span class="string">"!"</span>;</span><br><span class="line">        res+=serialByPre(head.left);</span><br><span class="line">        res+=serialByPre(head.right);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 先序遍历反序列化</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">reconByPreString</span><span class="params">(String preStr)</span></span>{</span><br><span class="line">        String [] values=preStr.split(<span class="string">"!"</span>);</span><br><span class="line">        Queue&lt;String&gt; queue=<span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;values.length;i++){</span><br><span class="line">            queue.offer(values[i]);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> reconPreOrder(queue);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Queue</span></span><br><span class="line"><span class="comment">     add        增加一个元索                     如果队列已满，则抛出一个IIIegaISlabEepeplian异常</span></span><br><span class="line"><span class="comment">     remove     移除并返回队列头部的元素         如果队列为空，则抛出一个NoSuchElementException异常</span></span><br><span class="line"><span class="comment">     element    返回队列头部的元素               如果队列为空，则抛出一个NoSuchElementException异常</span></span><br><span class="line"><span class="comment">     offer      添加一个元素并返回true           如果队列已满，则返回false</span></span><br><span class="line"><span class="comment">     poll       移除并返问队列头部的元素         如果队列为空，则返回null</span></span><br><span class="line"><span class="comment">     peek       返回队列头部的元素               如果队列为空，则返回null</span></span><br><span class="line"><span class="comment">     put        添加一个元素                     如果队列满，则阻塞</span></span><br><span class="line"><span class="comment">     take       移除并返回队列头部的元素         如果队列为空，则阻塞</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">reconPreOrder</span><span class="params">(Queue&lt;String&gt; queue)</span></span>{</span><br><span class="line">        String value = queue.poll();</span><br><span class="line">        <span class="keyword">if</span>(value.equals(<span class="string">"#"</span>)){</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        Node head=<span class="keyword">new</span> Node(Integer.valueOf(value));</span><br><span class="line">        Node left=reconPreOrder(queue);</span><br><span class="line">        Node right=reconPreOrder(queue);</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="二叉树的序列化和反序列化"><a href="#二叉树的序列化和反序列化" class="headerlink" title="二叉树的序列化和反序列化"></a>二叉树的序列化和反序列化</h1><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> BinaryTree<span class="token punctuation">;</span>
 
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>LinkedList<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Queue<span class="token punctuation">;</span>
 
+<span class="token comment" spellcheck="true">/**
+ * Created by zdmein on 2017/9/7.
+               12
+           /      \
+         3        null
+     /    \
+  null    null
+ 先序遍历：12！3！#！#！#！
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NodeSerial</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/**
+     * 定义Node
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> value<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> Node left<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> Node right<span class="token punctuation">;</span>
 
+        <span class="token keyword">public</span> <span class="token function">Node</span><span class="token punctuation">(</span><span class="token keyword">int</span> data<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token operator">=</span>data<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 先序遍历
+     */</span>
+    <span class="token keyword">public</span> String <span class="token function">serialByPre</span><span class="token punctuation">(</span>Node head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">"#!"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        String res<span class="token operator">=</span>head<span class="token punctuation">.</span>value<span class="token operator">+</span><span class="token string">"!"</span><span class="token punctuation">;</span>
+        res<span class="token operator">+=</span><span class="token function">serialByPre</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token operator">+=</span><span class="token function">serialByPre</span><span class="token punctuation">(</span>head<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 先序遍历反序列化
+     */</span>
+    <span class="token keyword">public</span> Node <span class="token function">reconByPreString</span><span class="token punctuation">(</span>String preStr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        String <span class="token punctuation">[</span><span class="token punctuation">]</span> values<span class="token operator">=</span>preStr<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Queue<span class="token operator">&lt;</span>String<span class="token operator">></span> queue<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span>String<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>values<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            queue<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span>values<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">reconPreOrder</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * Queue
+     add        增加一个元索                     如果队列已满，则抛出一个IIIegaISlabEepeplian异常
+     remove     移除并返回队列头部的元素         如果队列为空，则抛出一个NoSuchElementException异常
+     element    返回队列头部的元素               如果队列为空，则抛出一个NoSuchElementException异常
+     offer      添加一个元素并返回true           如果队列已满，则返回false
+     poll       移除并返问队列头部的元素         如果队列为空，则返回null
+     peek       返回队列头部的元素               如果队列为空，则返回null
+     put        添加一个元素                     如果队列满，则阻塞
+     take       移除并返回队列头部的元素         如果队列为空，则阻塞
+     */</span>
+
+    <span class="token keyword">public</span> Node <span class="token function">reconPreOrder</span><span class="token punctuation">(</span>Queue<span class="token operator">&lt;</span>String<span class="token operator">></span> queue<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        String value <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">poll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"#"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        Node head<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>Integer<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Node left<span class="token operator">=</span><span class="token function">reconPreOrder</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Node right<span class="token operator">=</span><span class="token function">reconPreOrder</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
 <hr>
 <h1 id="找到二叉树中的最大搜索二叉子树"><a href="#找到二叉树中的最大搜索二叉子树" class="headerlink" title="找到二叉树中的最大搜索二叉子树"></a>找到二叉树中的最大搜索二叉子树</h1><p> 题目：给定一棵二叉树的头节点head, 已知其中所有节点的值都不一样，<br> 找到含有节点最多的搜索二叉子树，并返回这颗子树的头节点。</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> BinaryTree;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by zdmein on 2017/9/8.</span></span><br><span class="line"><span class="comment"> * 找到二叉树中的最大搜索二叉子树</span></span><br><span class="line"><span class="comment"> 题目：给定一棵二叉树的头节点head, 已知其中所有节点的值都不一样，</span></span><br><span class="line"><span class="comment"> 找到含有节点最多的搜索二叉子树，并返回这颗子树的头节点。</span></span><br><span class="line"><span class="comment">                             6</span></span><br><span class="line"><span class="comment">                          /    \</span></span><br><span class="line"><span class="comment">                       1       12</span></span><br><span class="line"><span class="comment">                     /\       /    \</span></span><br><span class="line"><span class="comment">                   0   3     10       13</span></span><br><span class="line"><span class="comment">                            /  \      /  \</span></span><br><span class="line"><span class="comment">                           4    14    2   9</span></span><br><span class="line"><span class="comment">                          /\     /\</span></span><br><span class="line"><span class="comment">                         2  5    1  6</span></span><br><span class="line"><span class="comment"> 二叉搜索树：</span></span><br><span class="line"><span class="comment">        10</span></span><br><span class="line"><span class="comment">       /  \</span></span><br><span class="line"><span class="comment">     4     14</span></span><br><span class="line"><span class="comment">    / \    / \</span></span><br><span class="line"><span class="comment">   2  5   1   6</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> 要求：</span></span><br><span class="line"><span class="comment"> 如果节点数为N，要求时间复杂度为O（N） ,额外空间复杂度为O(h),h为二叉树的高度。</span></span><br><span class="line"><span class="comment"> 解：</span></span><br><span class="line"><span class="comment"> 以节点node为头的树中，最大的搜索二叉子树只可能来自一下两种情况。</span></span><br><span class="line"><span class="comment"> 1.如果来自node左子树上的最大搜索二叉子树是以node.left为头的；来自node右子树的最大搜索二叉树是以</span></span><br><span class="line"><span class="comment"> node.right为头的；node左子树上的最大搜索二叉子树的最大值小于node.value；</span></span><br><span class="line"><span class="comment"> node右子树的最大搜索二叉子树的最小值大于node.value,那么以节点node为头的整棵树都是搜索二叉树。</span></span><br><span class="line"><span class="comment"> 2如果不满足第一中情况，说明节点node为头的整颗树不能连成搜索二叉树。这种情况下，以node为头的树上的最大搜索二叉子树来自node的左子树上的最大搜索二叉子树和来自右子树上的最大搜索二叉子树之间，</span></span><br><span class="line"><span class="comment"> 节点较多的那个。</span></span><br><span class="line"><span class="comment"> 过程如下：</span></span><br><span class="line"><span class="comment"> 1，整个过程是二叉树的后序遍历。（左右根）</span></span><br><span class="line"><span class="comment"> 2，遍历到当前节点记为cur时，先遍历cur的左子树收集4个信息，分别是左子树上最大搜索二叉子树的头节点（IBST） ，节点数（ISize）,最小值（IMin）,最大值（IMax）.</span></span><br><span class="line"><span class="comment"> 再遍历cur的右子树收集4个信息，分别是右子树上最大搜索二叉子树的头节点（RBST） ，节点数（RSize）,最小值（RMin）,最大值（RMax）.</span></span><br><span class="line"><span class="comment"> 3, 根据步骤2收集的信息，判断是否满足第一种情况，如果满足第一种情况就返回cur，如果满足第二种情况，就返回IBST和RBST中较大的一个。</span></span><br><span class="line"><span class="comment"> 4，可以使用全局变量的方式实现步骤2中收集节点数，最大和最小的情况。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">biggestSubBST1</span> </span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>{</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> value;</span><br><span class="line">        <span class="keyword">public</span> Node left;</span><br><span class="line">        <span class="keyword">public</span> Node right;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">int</span> data)</span></span>{</span><br><span class="line">            <span class="keyword">this</span>.value=data;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">biggestSubBST</span><span class="params">(Node head)</span></span>{</span><br><span class="line">        <span class="keyword">int</span> [] record =<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">        <span class="keyword">return</span> posOrder(head , record);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">posOrder</span><span class="params">(Node head,<span class="keyword">int</span> [] record)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="keyword">null</span>){</span><br><span class="line">            record[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">            record[<span class="number">1</span>]=Integer.MAX_VALUE;</span><br><span class="line">            record[<span class="number">2</span>]=Integer.MIN_VALUE;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> value=head.value;</span><br><span class="line">        Node left=head.left;</span><br><span class="line">        Node right=head.right;</span><br><span class="line">        Node lBST=posOrder(left,record);</span><br><span class="line">        <span class="keyword">int</span> lSize=record[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> lMin=record[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> lMax=record[<span class="number">2</span>];</span><br><span class="line">        Node rBST=posOrder(right,record);</span><br><span class="line">        <span class="keyword">int</span> rSize=record[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> rMin=record[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> rMax=record[<span class="number">2</span>];</span><br><span class="line">        record[<span class="number">1</span>]=Math.min(value,lMin);</span><br><span class="line">        record[<span class="number">2</span>]=Math.max(value,rMax);</span><br><span class="line">        <span class="keyword">if</span>(left==lBST&amp;&amp;right==rBST&amp;&amp;lMax&lt;value&amp;&amp;rMin&gt;value){</span><br><span class="line">            record[<span class="number">0</span>]=lSize+rSize+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        record[<span class="number">0</span>]=Math.max(lSize,rSize);</span><br><span class="line">        <span class="keyword">return</span> lSize&gt;rSize?head.left:head.right;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> BinaryTree<span class="token punctuation">;</span>
 
+<span class="token comment" spellcheck="true">/**
+ * Created by zdmein on 2017/9/8.
+ * 找到二叉树中的最大搜索二叉子树
+ 题目：给定一棵二叉树的头节点head, 已知其中所有节点的值都不一样，
+ 找到含有节点最多的搜索二叉子树，并返回这颗子树的头节点。
+                             6
+                          /    \
+                       1       12
+                     /\       /    \
+                   0   3     10       13
+                            /  \      /  \
+                           4    14    2   9
+                          /\     /\
+                         2  5    1  6
+ 二叉搜索树：
+        10
+       /  \
+     4     14
+    / \    / \
+   2  5   1   6
 
+ 要求：
+ 如果节点数为N，要求时间复杂度为O（N） ,额外空间复杂度为O(h),h为二叉树的高度。
+ 解：
+ 以节点node为头的树中，最大的搜索二叉子树只可能来自一下两种情况。
+ 1.如果来自node左子树上的最大搜索二叉子树是以node.left为头的；来自node右子树的最大搜索二叉树是以
+ node.right为头的；node左子树上的最大搜索二叉子树的最大值小于node.value；
+ node右子树的最大搜索二叉子树的最小值大于node.value,那么以节点node为头的整棵树都是搜索二叉树。
+ 2如果不满足第一中情况，说明节点node为头的整颗树不能连成搜索二叉树。这种情况下，以node为头的树上的最大搜索二叉子树来自node的左子树上的最大搜索二叉子树和来自右子树上的最大搜索二叉子树之间，
+ 节点较多的那个。
+ 过程如下：
+ 1，整个过程是二叉树的后序遍历。（左右根）
+ 2，遍历到当前节点记为cur时，先遍历cur的左子树收集4个信息，分别是左子树上最大搜索二叉子树的头节点（IBST） ，节点数（ISize）,最小值（IMin）,最大值（IMax）.
+ 再遍历cur的右子树收集4个信息，分别是右子树上最大搜索二叉子树的头节点（RBST） ，节点数（RSize）,最小值（RMin）,最大值（RMax）.
+ 3, 根据步骤2收集的信息，判断是否满足第一种情况，如果满足第一种情况就返回cur，如果满足第二种情况，就返回IBST和RBST中较大的一个。
+ 4，可以使用全局变量的方式实现步骤2中收集节点数，最大和最小的情况。
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">biggestSubBST1</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token keyword">int</span> value<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> Node left<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> Node right<span class="token punctuation">;</span>
 
+        <span class="token keyword">public</span> <span class="token function">Node</span><span class="token punctuation">(</span><span class="token keyword">int</span> data<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token operator">=</span>data<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
+    <span class="token keyword">public</span> Node <span class="token function">biggestSubBST</span><span class="token punctuation">(</span>Node head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> record <span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">posOrder</span><span class="token punctuation">(</span>head <span class="token punctuation">,</span> record<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
+    <span class="token keyword">public</span> Node <span class="token function">posOrder</span><span class="token punctuation">(</span>Node head<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> record<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            record<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+            record<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
+            record<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span>Integer<span class="token punctuation">.</span>MIN_VALUE<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">int</span> value<span class="token operator">=</span>head<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+        Node left<span class="token operator">=</span>head<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        Node right<span class="token operator">=</span>head<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        Node lBST<span class="token operator">=</span><span class="token function">posOrder</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span>record<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> lSize<span class="token operator">=</span>record<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> lMin<span class="token operator">=</span>record<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> lMax<span class="token operator">=</span>record<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        Node rBST<span class="token operator">=</span><span class="token function">posOrder</span><span class="token punctuation">(</span>right<span class="token punctuation">,</span>record<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rSize<span class="token operator">=</span>record<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rMin<span class="token operator">=</span>record<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rMax<span class="token operator">=</span>record<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        record<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span>lMin<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        record<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span>rMax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>left<span class="token operator">==</span>lBST<span class="token operator">&amp;&amp;</span>right<span class="token operator">==</span>rBST<span class="token operator">&amp;&amp;</span>lMax<span class="token operator">&lt;</span>value<span class="token operator">&amp;&amp;</span>rMin<span class="token operator">></span>value<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            record<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>lSize<span class="token operator">+</span>rSize<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        record<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>lSize<span class="token punctuation">,</span>rSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> lSize<span class="token operator">></span>rSize<span class="token operator">?</span>head<span class="token punctuation">.</span>left<span class="token operator">:</span>head<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <hr>
 <h1 id="找到二叉树中符合搜索二叉树条件的最大拓扑结构"><a href="#找到二叉树中符合搜索二叉树条件的最大拓扑结构" class="headerlink" title="找到二叉树中符合搜索二叉树条件的最大拓扑结构"></a>找到二叉树中符合搜索二叉树条件的最大拓扑结构</h1><script>
         document.querySelectorAll('.github-emoji')
@@ -758,58 +971,45 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2017/08/28/linux-xue-xi-zhi-nan/">
+                <a href="/2017/08/30/mian-jing-teng-xun-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Linux学习指南">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="面经-腾讯1">
                         
-                        <span class="card-title">Linux学习指南</span>
+                        <span class="card-title">面经-腾讯1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            发现学过的东西很容易忘，所以常常复习、总结还是蛮必要的。
+                            基础查漏补缺~
 
 
-Linux基础
-输出
-
-12echo "Hellbo"Hellbo
-
-
-快捷键
+面向对象的特征
+继承：联结性的层次模型，表述共性
+多态：允许不同类对同一消息作出响应
+抽象：过程抽象，数据抽象
+封装：将客观事物抽象成类
 
 
+重写和重载有什么不同
+重写（override）：派生类函数覆盖
 
 
-快捷键
-作用
-
-
-
-Ctrl+c
-终止程序
-
-
-Ctrl+d
-键盘输入结束或退出终端
-
-
-
+重载（ov
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2017-08-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-08-30
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/%E9%9D%A2%E7%BB%8F/" class="post-category">
+                                    面经
                                 </a>
                             
                             
@@ -819,8 +1019,16 @@ Ctrl+d
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/%E7%AC%94%E8%AF%95/">
+                        <span class="chip bg-color">笔试</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%85%BE%E8%AE%AF/">
+                        <span class="chip bg-color">腾讯</span>
                     </a>
                     
                 </div>

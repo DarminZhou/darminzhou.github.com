@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -476,7 +476,28 @@
 <a id="more"></a>
 <p><img src="http://img.my.csdn.net/uploads/201209/07/1347008997_4015.jpg" alt=""></p>
 <p>Java代码实现</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package algorithms4th;</span><br><span class="line"></span><br><span class="line">public class InsertSort {</span><br><span class="line">	public static void main (String [] args){</span><br><span class="line">	  int a[]={49,38,65,97,76,13,27,49,78,34,12,64,5,4,62,99,98,54,56,17,18,23,34,15,35,25,53,51};</span><br><span class="line">      int temp=0;</span><br><span class="line">      for(int i=1;i&lt;a.length;i++){</span><br><span class="line">    	  for(int j=i-1;j&gt;0;j--){</span><br><span class="line">    		  if(a[j]&lt;a[j-1]){</span><br><span class="line">    			  temp=a[j];</span><br><span class="line">    			  a[j]=a[j-1];</span><br><span class="line">    			  a[j-1]=temp;</span><br><span class="line">    		  }</span><br><span class="line">    	  }</span><br><span class="line">      }</span><br><span class="line">	</span><br><span class="line">	for(int i=0;i&lt;a.length;i++){</span><br><span class="line">		System.out.print(a[i]+" ");</span><br><span class="line">	}</span><br><span class="line">	}	</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+<pre><code>package algorithms4th;
+
+public class InsertSort {
+    public static void main (String [] args){
+      int a[]={49,38,65,97,76,13,27,49,78,34,12,64,5,4,62,99,98,54,56,17,18,23,34,15,35,25,53,51};
+      int temp=0;
+      for(int i=1;i&lt;a.length;i++){
+          for(int j=i-1;j&gt;0;j--){
+              if(a[j]&lt;a[j-1]){
+                  temp=a[j];
+                  a[j]=a[j-1];
+                  a[j-1]=temp;
+              }
+          }
+      }
+
+    for(int i=0;i&lt;a.length;i++){
+        System.out.print(a[i]+" ");
+    }
+    }    
+}
+</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -730,24 +751,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2017/03/12/jian-dan-zhi-jie-pai-xu/">
+                <a href="/2017/03/12/xi-er-pai-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="简单直接排序">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="希尔排序">
                         
-                        <span class="card-title">简单直接排序</span>
+                        <span class="card-title">希尔排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基本思想：每个数与第一个数相比，选最小的放第一个；然后从第二个数开始，每个数与第二个数相比，选最小的放第二；……
-
-
-
-Java代码实现
-12345678910111213141516171819package algorithms4th;
+                            基本思想：算法先要排序的一组数按某个增量d（n/2,n为要排序数的个数）分成若干组，每组中记录的下标相差d.对每组中全部元素进行直接插入排序，然后再用一个较小的增量（d/2）对它进行分组，在每组中再进行直接插入排序。当增量减到1时，进行直接
                         
                     </div>
                     <div class="publish-info">
@@ -800,7 +816,7 @@ Java代码实现
 
 
 Java代码实现
-123456789101112
+package algorit
                         
                     </div>
                     <div class="publish-info">

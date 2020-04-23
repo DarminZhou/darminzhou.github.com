@@ -125,50 +125,6 @@ target = 13
   </entry>
   
   <entry>
-    <title>ValidParentheses</title>
-    <link href="http://zhoudamin.github.io/2019/09/22/validparentheses/"/>
-    <id>http://zhoudamin.github.io/2019/09/22/validparentheses/</id>
-    <published>2019-09-22T08:25:18.000Z</published>
-    <updated>2019-09-22T08:29:47.399Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。&lt;/p&gt;
-&lt;p&gt;有效字符串需满足：&lt;/p&gt;
-&lt;p&gt;左括号必须用相同类型的右括号闭合。&lt;br&gt;左括号必须以正确的顺序闭合。&lt;br&gt;注意空字符串可被认为是有效字符串。   &lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="算法与数学" scheme="http://zhoudamin.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="算法" scheme="http://zhoudamin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MissingRange</title>
-    <link href="http://zhoudamin.github.io/2019/09/08/missingrange/"/>
-    <id>http://zhoudamin.github.io/2019/09/08/missingrange/</id>
-    <published>2019-09-08T09:39:20.000Z</published>
-    <updated>2019-09-08T09:44:20.941Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;  Given a sorted integer array where the range of elements are [0, 99] inclusive, return its&lt;br&gt;  missing ranges.&lt;br&gt;  For example, given [0, 1, 3, 50, 75]&lt;br&gt;  return [“2”, “4-&amp;gt;49”, “51-&amp;gt;74”, “76-&amp;gt;99”]&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="算法与数学" scheme="http://zhoudamin.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="算法" scheme="http://zhoudamin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java知识增强</title>
     <link href="http://zhoudamin.github.io/2019/08/07/java-zhi-shi-zeng-qiang/"/>
     <id>http://zhoudamin.github.io/2019/08/07/java-zhi-shi-zeng-qiang/</id>
@@ -186,27 +142,6 @@ target = 13
     
     
       <category term="Java" scheme="http://zhoudamin.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一次NZJ</title>
-    <link href="http://zhoudamin.github.io/2019/05/13/di-yi-ci-nzj/"/>
-    <id>http://zhoudamin.github.io/2019/05/13/di-yi-ci-nzj/</id>
-    <published>2019-05-13T15:45:04.000Z</published>
-    <updated>2019-07-28T02:20:42.833Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;入我厂第一次沟，以后还需更加努力。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="观点与感想" scheme="http://zhoudamin.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/"/>
-    
-    
-      <category term="工作" scheme="http://zhoudamin.github.io/tags/%E5%B7%A5%E4%BD%9C/"/>
     
   </entry>
   
@@ -270,27 +205,6 @@ target = 13
     
     
       <category term="AI" scheme="http://zhoudamin.github.io/tags/AI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell脚本学习与演练</title>
-    <link href="http://zhoudamin.github.io/2018/10/14/shell-jiao-ben-xue-xi-yu-yan-lian/"/>
-    <id>http://zhoudamin.github.io/2018/10/14/shell-jiao-ben-xue-xi-yu-yan-lian/</id>
-    <published>2018-10-14T08:30:10.000Z</published>
-    <updated>2019-01-12T14:53:58.080Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;平时经常接触Linux的操作指导，是不是可以写个脚本一键式解决这些繁琐的操作呢？ok&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://zhoudamin.github.io/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="http://zhoudamin.github.io/tags/Linux/"/>
     
   </entry>
   
@@ -421,29 +335,6 @@ target = 13
   </entry>
   
   <entry>
-    <title>Java并发编程实战</title>
-    <link href="http://zhoudamin.github.io/2018/06/16/java-bing-fa-bian-cheng-shi-zhan/"/>
-    <id>http://zhoudamin.github.io/2018/06/16/java-bing-fa-bian-cheng-shi-zhan/</id>
-    <published>2018-06-16T02:54:24.000Z</published>
-    <updated>2018-06-16T03:17:54.472Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;基于《Java并发编程实战》，作者Brain等。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="开发者手册" scheme="http://zhoudamin.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/"/>
-    
-      <category term="编程语言" scheme="http://zhoudamin.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="并发" scheme="http://zhoudamin.github.io/tags/%E5%B9%B6%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java实现彩色二维码</title>
     <link href="http://zhoudamin.github.io/2018/05/02/java-shi-xian-cai-se-er-wei-ma/"/>
     <id>http://zhoudamin.github.io/2018/05/02/java-shi-xian-cai-se-er-wei-ma/</id>
@@ -488,6 +379,124 @@ target = 13
     
     
       <category term="HTTP" scheme="http://zhoudamin.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>云计算基础</title>
+    <link href="http://zhoudamin.github.io/2018/04/25/yun-ji-suan-ji-chu/"/>
+    <id>http://zhoudamin.github.io/2018/04/25/yun-ji-suan-ji-chu/</id>
+    <published>2018-04-25T10:13:17.000Z</published>
+    <updated>2018-04-25T10:14:35.004Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;云计算分类&quot;&gt;&lt;a href=&quot;#云计算分类&quot; class=&quot;headerlink&quot; title=&quot;云计算分类&quot;&gt;&lt;/a&gt;云计算分类&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;IaaS 基础设施即服务&lt;/li&gt;
+&lt;li&gt;PaaS 平台即服务&lt;/li&gt;
+&lt;li&gt;SaaS
+        
+      
+    
+    </summary>
+    
+    
+      <category term="云计算" scheme="http://zhoudamin.github.io/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    
+    
+      <category term="云计算" scheme="http://zhoudamin.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo Notes</title>
+    <link href="http://zhoudamin.github.io/2018/04/23/hexo-notes/"/>
+    <id>http://zhoudamin.github.io/2018/04/23/hexo-notes/</id>
+    <published>2018-04-23T15:07:42.000Z</published>
+    <updated>2018-04-23T15:15:14.704Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;遇到的小问题&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Notes" scheme="http://zhoudamin.github.io/categories/Notes/"/>
+    
+    
+      <category term="Hexo" scheme="http://zhoudamin.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 运动模糊</title>
+    <link href="http://zhoudamin.github.io/2018/04/23/java-yun-dong-mo-hu/"/>
+    <id>http://zhoudamin.github.io/2018/04/23/java-yun-dong-mo-hu/</id>
+    <published>2018-04-23T12:41:58.000Z</published>
+    <updated>2018-04-23T14:32:38.495Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想用Java 写个运动模糊的效果，无奈本人水平有限，国内也没找到资源，于是Google到了一个文档，特地分享出来！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="图像" scheme="http://zhoudamin.github.io/categories/%E5%9B%BE%E5%83%8F/"/>
+    
+    
+      <category term="Java" scheme="http://zhoudamin.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>优秀博主整理</title>
+    <link href="http://zhoudamin.github.io/2017/09/12/you-xiu-bo-zhu-zheng-li/"/>
+    <id>http://zhoudamin.github.io/2017/09/12/you-xiu-bo-zhu-zheng-li/</id>
+    <published>2017-09-12T01:59:40.000Z</published>
+    <updated>2018-04-23T15:50:59.749Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;优秀博主整理&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Life" scheme="http://zhoudamin.github.io/categories/Life/"/>
+    
+    
+      <category term="博主" scheme="http://zhoudamin.github.io/tags/%E5%8D%9A%E4%B8%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用数据结构底层实现及源码</title>
+    <link href="http://zhoudamin.github.io/2017/09/12/chang-yong-shu-ju-jie-gou-di-ceng-shi-xian-ji-yuan-ma/"/>
+    <id>http://zhoudamin.github.io/2017/09/12/chang-yong-shu-ju-jie-gou-di-ceng-shi-xian-ji-yuan-ma/</id>
+    <published>2017-09-12T01:59:40.000Z</published>
+    <updated>2018-04-23T02:27:20.062Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ZDM–ArrayList、HashMap、Collection、LinkedList、Redis 底层实现及源码&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://zhoudamin.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="Java" scheme="http://zhoudamin.github.io/tags/Java/"/>
+    
+      <category term="数据结构" scheme="http://zhoudamin.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="源码" scheme="http://zhoudamin.github.io/tags/%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   

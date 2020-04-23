@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -476,40 +476,39 @@
 <a id="more"></a>
 
 <h1 id="猴子摘桃"><a href="#猴子摘桃" class="headerlink" title="猴子摘桃"></a>猴子摘桃</h1><p>小猴子下山，沿着下山的路有一排桃树，每棵树都结了一些桃子。小猴子想摘桃子，但是又一些条件需要遵守，小瘦子只能沿着下山的方向走，不能回头，每棵树最多摘一个，而且一旦摘了一棵树的桃子，就不能再摘比这棵树结的桃子少的树上的桃子，那么小猴子最多能摘到几课桃子呢？<br>距离说明，比如有五棵树，分别结了10，4，5，12，8棵桃子，那么小猴子最多能摘3颗桃子，来自于结了4，5，12颗桃子的桃树。</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span>[] m = {<span class="number">10</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">12</span>,<span class="number">8</span>};</span><br><span class="line">        <span class="keyword">int</span> maxP[]=<span class="keyword">new</span> <span class="keyword">int</span> [m.length];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m.length;j++){</span><br><span class="line">            maxP[j]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;j;k++){</span><br><span class="line">                <span class="keyword">if</span>(maxP[k]+<span class="number">1</span>&gt;maxP[j] &amp;&amp; m[j]&gt;m[k]){</span><br><span class="line">                    maxP[j]=maxP[k]+<span class="number">1</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">int</span> maxPeach=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;maxP.length;k++){</span><br><span class="line">            <span class="keyword">if</span>(maxPeach&lt;maxP[k]){</span><br><span class="line">                maxPeach=maxP[k];</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        System.out.println(maxPeach);</span><br><span class="line">    }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-
-
-
-
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> m <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> maxP<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">int</span> <span class="token punctuation">[</span>m<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>m<span class="token punctuation">.</span>length<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            maxP<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>k<span class="token operator">&lt;</span>j<span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>maxP<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">></span>maxP<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> m<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>m<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    maxP<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>maxP<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> maxPeach<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>k<span class="token operator">&lt;</span>maxP<span class="token punctuation">.</span>length<span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>maxPeach<span class="token operator">&lt;</span>maxP<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                maxPeach<span class="token operator">=</span>maxP<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>maxPeach<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span></code></pre>
 <h1 id="页码统计"><a href="#页码统计" class="headerlink" title="页码统计"></a>页码统计</h1><p>牛牛新买了一本算法书，算法书一共有n页，页码从1到n。牛牛于是想了一个算法题目：在这本算法书页码中0~9每个数字分别出现了多少次？<br>输入描述:</p>
 <p>输入包括一个整数n(1 ≤ n ≤ 1,000,000,000)</p>
 <p>输出描述:</p>
 <p>输出包括一行10个整数，即0~9这些数字在页码中出现的次数，以空格分隔。行末无空格。<br>示例1<br>输入</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">999</span><br></pre></td></tr></tbody></table></figure>
-<p>输出</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">189 300 300 300 300 300 300 300 300 300</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-
-
-
-
-
-<h1 id="创造新世界"><a href="#创造新世界" class="headerlink" title="创造新世界"></a>创造新世界</h1><h1 id="双核处理"><a href="#双核处理" class="headerlink" title="双核处理"></a>双核处理</h1><h1 id="堆砖块"><a href="#堆砖块" class="headerlink" title="堆砖块"></a>堆砖块</h1><h1 id="不等式数列"><a href="#不等式数列" class="headerlink" title="不等式数列"></a>不等式数列</h1><h1 id="牛牛的数列"><a href="#牛牛的数列" class="headerlink" title="牛牛的数列"></a>牛牛的数列</h1><p>牛牛现在有一个n个数组成的数列,牛牛现在想取一个连续的子序列,并且这个子序列还必须得满足:最多只改变一个数,就可以使得这个连续的子序列是一个严格上升的子序列,牛牛想知道这个连续子序列最长的长度是多少。<br>输入描述:</p>
+<pre><code>999</code></pre><p>输出</p>
+<pre><code>189 300 300 300 300 300 300 300 300 300</code></pre><h1 id="创造新世界"><a href="#创造新世界" class="headerlink" title="创造新世界"></a>创造新世界</h1><h1 id="双核处理"><a href="#双核处理" class="headerlink" title="双核处理"></a>双核处理</h1><h1 id="堆砖块"><a href="#堆砖块" class="headerlink" title="堆砖块"></a>堆砖块</h1><h1 id="不等式数列"><a href="#不等式数列" class="headerlink" title="不等式数列"></a>不等式数列</h1><h1 id="牛牛的数列"><a href="#牛牛的数列" class="headerlink" title="牛牛的数列"></a>牛牛的数列</h1><p>牛牛现在有一个n个数组成的数列,牛牛现在想取一个连续的子序列,并且这个子序列还必须得满足:最多只改变一个数,就可以使得这个连续的子序列是一个严格上升的子序列,牛牛想知道这个连续子序列最长的长度是多少。<br>输入描述:</p>
 <p>输入包括两行,第一行包括一个整数n(1 ≤ n ≤ 10^5),即数列的长度;<br>第二行n个整数a_i, 表示数列中的每个数(1 ≤ a_i ≤ 10^9),以空格分割。</p>
 <p>输出描述:</p>
 <p>输出一个整数,表示最长的长度。<br>示例1<br>输入</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6 </span><br><span class="line">7 2 3 1 5 6</span><br></pre></td></tr></tbody></table></figure>
-<p>输出</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></tbody></table></figure>
-
-
-<h1 id="暗黑的字符串"><a href="#暗黑的字符串" class="headerlink" title="暗黑的字符串"></a>暗黑的字符串</h1><h1 id="数字和为sum的方法数"><a href="#数字和为sum的方法数" class="headerlink" title="数字和为sum的方法数"></a>数字和为sum的方法数</h1><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java代码实现</span><br></pre></td></tr></tbody></table></figure>
-<br>
+<pre><code>6 
+7 2 3 1 5 6</code></pre><p>输出</p>
+<pre><code>5</code></pre><h1 id="暗黑的字符串"><a href="#暗黑的字符串" class="headerlink" title="暗黑的字符串"></a>暗黑的字符串</h1><h1 id="数字和为sum的方法数"><a href="#数字和为sum的方法数" class="headerlink" title="数字和为sum的方法数"></a>数字和为sum的方法数</h1><pre><code>Java代码实现</code></pre><br>
 
 <p><img src="http://img0.pconline.com.cn/pconline/1104/26/2398938_date-night-615.gif" alt=""></p>
 <script>
@@ -786,13 +785,12 @@
 饥饿的小易
 跳石板
 地下迷宫
-1Java代码实现
-
+Java代码实现
 
 
 
         document.querySelectorAll('.github-emoji')
-          .forEach(el =
+          .forEach(el => 
                         
                     </div>
                     <div class="publish-info">
@@ -814,16 +812,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
                     <a href="/tags/%E7%AC%94%E8%AF%95/">
                         <span class="chip bg-color">笔试</span>
                     </a>
                     
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                     <a href="/tags/%E9%9D%A2%E8%AF%95/">

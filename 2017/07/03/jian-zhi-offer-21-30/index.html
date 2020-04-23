@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -475,24 +475,104 @@
                 <p><img src="http://img1.imgtn.bdimg.com/it/u=1822661550,696742345&amp;fm=11&amp;gp=0.jpg" alt=""></p>
 <a id="more"></a>
 <h1 id="题21：包含min函数的栈"><a href="#题21：包含min函数的栈" class="headerlink" title="题21：包含min函数的栈"></a>题21：包含min函数的栈</h1><p>题目：定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的min函数。在该栈中，调用min，push及pop的时间复杂度都是O(1).</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public class Main{</span><br><span class="line">    private MyStack&lt;Integer&gt; minStack = new MyStack&lt;&gt;();</span><br><span class="line">    private MyStack&lt;Integer&gt; dataStack = new MyStack&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    public void push(Integer item){</span><br><span class="line">        dataStack.push(item);</span><br><span class="line">        if(minStack.length == 0 || item&lt;=minStack.head.data){</span><br><span class="line">            minStack.push(item);</span><br><span class="line">        }else{</span><br><span class="line">            minStack.push(minStack.head.data);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    public Integer pop(){</span><br><span class="line">        if(dataStack.length == 0 || minStack.length == 0){</span><br><span class="line">            return null;</span><br><span class="line">        }</span><br><span class="line">        minStack.pop();</span><br><span class="line">        return dataStack.pop();</span><br><span class="line">    }</span><br><span class="line">    public Integer min(){</span><br><span class="line">        if(minStack.length == 0){</span><br><span class="line">            return null;</span><br><span class="line">        }</span><br><span class="line">        return minStack.head.data;</span><br><span class="line">    }</span><br><span class="line">    public static void main(String[] args){</span><br><span class="line">        E21MinInStack test = new E21MinInStack();</span><br><span class="line">        test.push(3);</span><br><span class="line">        test.push(2);</span><br><span class="line">        test.push(1);</span><br><span class="line">        System.out.println(test.pop());</span><br><span class="line">        System.out.println(test.min());</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<br>
+<pre><code>public class Main{
+    private MyStack&lt;Integer&gt; minStack = new MyStack&lt;&gt;();
+    private MyStack&lt;Integer&gt; dataStack = new MyStack&lt;&gt;();
+
+    public void push(Integer item){
+        dataStack.push(item);
+        if(minStack.length == 0 || item&lt;=minStack.head.data){
+            minStack.push(item);
+        }else{
+            minStack.push(minStack.head.data);
+        }
+    }
+    public Integer pop(){
+        if(dataStack.length == 0 || minStack.length == 0){
+            return null;
+        }
+        minStack.pop();
+        return dataStack.pop();
+    }
+    public Integer min(){
+        if(minStack.length == 0){
+            return null;
+        }
+        return minStack.head.data;
+    }
+    public static void main(String[] args){
+        E21MinInStack test = new E21MinInStack();
+        test.push(3);
+        test.push(2);
+        test.push(1);
+        System.out.println(test.pop());
+        System.out.println(test.min());
+    }
+}</code></pre><br>
 # 题28：字符串的排列
 题目：输入一个字符串，打印出该字符串中字符的所有排列。例如输入字符串abc，则打印出由字符a、b、c所能排列出来的所有字符串abc、acb、bac、bca、cab和cba。
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class Main {</span><br><span class="line">    public static void main(String[] args){</span><br><span class="line">    permutation("abc");</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public static void permutation(String str){</span><br><span class="line">   int count=0;</span><br><span class="line">   if(str==null){</span><br><span class="line">       return;</span><br><span class="line">   }</span><br><span class="line">   char []  chs=str.toCharArray();//将字符串转换为字符数组</span><br><span class="line">   int point=0;</span><br><span class="line">   System.out.print(chs);</span><br><span class="line">   System.out.print(" ");</span><br><span class="line">   count++;</span><br><span class="line">   char temp1=chs[point];</span><br><span class="line">   chs[point]=chs[++point];</span><br><span class="line">   chs[point]=temp1;</span><br><span class="line">   while (!String.valueOf(chs).equals(str)){</span><br><span class="line">       System.out.print(chs);</span><br><span class="line">       System.out.print(" ");</span><br><span class="line">       count++;</span><br><span class="line">       if(point==chs.length-1){</span><br><span class="line">           char temp=chs[point];</span><br><span class="line">           chs[point]=chs[0];</span><br><span class="line">           chs[0]=temp;</span><br><span class="line">           point=0;</span><br><span class="line">       }else {</span><br><span class="line">           char temp=chs[point];</span><br><span class="line">           chs[point]=chs[++point];</span><br><span class="line">           chs[point]=temp;</span><br><span class="line">       }</span><br><span class="line">   }</span><br><span class="line">    System.out.println(count);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+```
+public class Main {
+    public static void main(String[] args){
+    permutation("abc");
+    }
 
-<br>
+<pre><code>public static void permutation(String str){</code></pre><p>   int count=0;<br>   if(str==null){<br>       return;<br>   }<br>   char []  chs=str.toCharArray();//将字符串转换为字符数组<br>   int point=0;<br>   System.out.print(chs);<br>   System.out.print(“ “);<br>   count++;<br>   char temp1=chs[point];<br>   chs[point]=chs[++point];<br>   chs[point]=temp1;<br>   while (!String.valueOf(chs).equals(str)){<br>       System.out.print(chs);<br>       System.out.print(“ “);<br>       count++;<br>       if(point==chs.length-1){<br>           char temp=chs[point];<br>           chs[point]=chs[0];<br>           chs[0]=temp;<br>           point=0;<br>       }else {<br>           char temp=chs[point];<br>           chs[point]=chs[++point];<br>           chs[point]=temp;<br>       }<br>   }<br>    System.out.println(count);<br>    }<br>}</p>
+<pre><code>
+&lt;br/&gt;
 # 题29：数组中出现次数超过一半的数组
 题目描述
-数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出null。
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class Main {</span><br><span class="line">    public static void main(String[] args){</span><br><span class="line">    int [] array={1,2,3,2,2,2,5,4,2};</span><br><span class="line">    System.out.println(morethanhalfnumber(array));</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public static Integer  morethanhalfnumber(int [] array){</span><br><span class="line">        int count=1;</span><br><span class="line">        int temp=array[0];</span><br><span class="line">        for(int i=1;i&lt;array.length;i++){</span><br><span class="line">            if(temp==array[i]){</span><br><span class="line">                count++;</span><br><span class="line">            }else {</span><br><span class="line">                count--;</span><br><span class="line">                if(count==0){</span><br><span class="line">                    temp=array[i];</span><br><span class="line">                    count++;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        int count1=0;</span><br><span class="line">        for(int i=0;i&lt;array.length;i++){</span><br><span class="line">            if(array[i]==temp){</span><br><span class="line">                count1++;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        return count1&gt;=array.length/2 ? temp:null;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<br>
+数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出null。</code></pre><p>public class Main {<br>    public static void main(String[] args){<br>    int [] array={1,2,3,2,2,2,5,4,2};<br>    System.out.println(morethanhalfnumber(array));<br>    }</p>
+<pre><code>public static Integer  morethanhalfnumber(int [] array){
+    int count=1;
+    int temp=array[0];
+    for(int i=1;i&lt;array.length;i++){
+        if(temp==array[i]){
+            count++;
+        }else {
+            count--;
+            if(count==0){
+                temp=array[i];
+                count++;
+            }
+        }
+    }
+    int count1=0;
+    for(int i=0;i&lt;array.length;i++){
+        if(array[i]==temp){
+            count1++;
+        }
+    }
+    return count1&gt;=array.length/2 ? temp:null;
+}</code></pre><p>}</p>
+<pre><code>&lt;br/&gt;
 # 题30：最小的k个数
 题目描述
-输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4。
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.TreeSet;</span><br><span class="line"></span><br><span class="line">public class Main {</span><br><span class="line">    public static void main(String[] args){</span><br><span class="line">    int [] array={4,5,1,6,2,7,3,8};</span><br><span class="line">    int k=4;</span><br><span class="line">    System.out.println(MinKnumber(array,k));</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    public static ArrayList&lt;Integer&gt; MinKnumber(int [] array, int k){</span><br><span class="line">    if(array==null)</span><br><span class="line">        return null;</span><br><span class="line">    ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;(k);</span><br><span class="line"></span><br><span class="line">    if(k&gt;array.length)</span><br><span class="line">        return list;</span><br><span class="line">        TreeSet&lt;Integer&gt; tree=new TreeSet&lt;Integer&gt;();</span><br><span class="line">        for(int i=0;i&lt;array.length;i++){</span><br><span class="line">            tree.add(array[i]);</span><br><span class="line">        }</span><br><span class="line">        int i=0;</span><br><span class="line">        for (Integer elem:tree){</span><br><span class="line">            if(i&gt;k-1)</span><br><span class="line">                break;</span><br><span class="line">            list.add(elem);</span><br><span class="line">            i++;</span><br><span class="line">        }</span><br><span class="line">        return list;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4。</code></pre><p>import java.util.ArrayList;<br>import java.util.TreeSet;</p>
+<p>public class Main {<br>    public static void main(String[] args){<br>    int [] array={4,5,1,6,2,7,3,8};<br>    int k=4;<br>    System.out.println(MinKnumber(array,k));</p>
+<pre><code>}
 
+public static ArrayList&lt;Integer&gt; MinKnumber(int [] array, int k){
+if(array==null)
+    return null;
+ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;(k);
 
+if(k&gt;array.length)
+    return list;
+    TreeSet&lt;Integer&gt; tree=new TreeSet&lt;Integer&gt;();
+    for(int i=0;i&lt;array.length;i++){
+        tree.add(array[i]);
+    }
+    int i=0;
+    for (Integer elem:tree){
+        if(i&gt;k-1)
+            break;
+        list.add(elem);
+        i++;
+    }
+    return list;
+}</code></pre><p>}</p>
+<p>```</p>
 <p><img src="http://qq.yh31.com/tp/zjbq/201706091131061993.gif" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -799,43 +879,55 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2017/06/28/leetcode-jie-ti-si-lu-er/">
+                <a href="/2017/06/24/efounds-bi-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="LeetCode解题思路(二)">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Efounds笔试">
                         
-                        <span class="card-title">LeetCode解题思路(二)</span>
+                        <span class="card-title">Efounds笔试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Efounds的笔试~
 
 
-
-1Java代码实现
-
-
-
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.data
+1.比较两个浮点数大小
+一般不会直接用“==”或者“!=”对两个浮点数进行比较。
+判断两个浮点数float a 与 float b 是否相等可以根据他们的差的绝对值是否大于0来进行判断。
+判断相等：
+if（Mat
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-06-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-06-24
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Damin ZHOU
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    算法与数学
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AF%95/">
+                        <span class="chip bg-color">笔试</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
                 </div>
                 
             </div>

@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -480,18 +480,107 @@
 <p><img src="http://cdn01.wallconvert.com/_media/wp_400x250/1/5/41149.jpg" alt=""></p>
 <a id="more"></a>
 <p><code>1.比较两个浮点数大小</code></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">一般不会直接用“==”或者“!=”对两个浮点数进行比较。</span><br><span class="line">判断两个浮点数float a 与 float b 是否相等可以根据他们的差的绝对值是否大于0来进行判断。</span><br><span class="line">判断相等：</span><br><span class="line">if（Math.abs(a-b)&lt;=0）{相等}</span><br><span class="line">或者</span><br><span class="line">if（!Math.abs(a-b)&gt;0）{相等}</span><br><span class="line"></span><br><span class="line">判断不等：</span><br><span class="line">if（Math.abs(a-b)&gt;0）{不相等}</span><br></pre></td></tr></tbody></table></figure>
-<p><code>2，用最快排序找到无序的数组里第K大的数</code></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">public class AlgCode {</span><br><span class="line">    public static void main(String[] args) {</span><br><span class="line">     // int [] nums={5, 7, 1, 8,3, 10};  //测试</span><br><span class="line">        int [] nums=  {3,1,4,7,5,8,0};</span><br><span class="line">        int k=5;</span><br><span class="line">      int  res= findKth(nums,0,nums.length-1,k-1);</span><br><span class="line">      System.out.print("The Kth is: "+res);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    private static int findKth(int [] data ,int first , int last ,int k){</span><br><span class="line">        int kth;</span><br><span class="line">        if(first==last) kth=data[first];</span><br><span class="line">        else {</span><br><span class="line">            int pivot = data[first];</span><br><span class="line">            int splitPoint = partition(data, first, last);</span><br><span class="line">            if (k &lt; splitPoint)</span><br><span class="line">                kth = findKth(data, first, splitPoint - 1, k);</span><br><span class="line">            else if(k&gt;splitPoint)</span><br><span class="line">                kth = findKth(data, splitPoint + 1, last, k);</span><br><span class="line">            else</span><br><span class="line">            kth = pivot;</span><br><span class="line">           }</span><br><span class="line">           return kth;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        private static int partition(int [] data ,int first , int last){</span><br><span class="line">            int pivot = data[first];</span><br><span class="line">            while(first&lt;last) {</span><br><span class="line">                while (first &lt; last &amp;&amp; data[last] &gt; pivot)</span><br><span class="line">                    last--;</span><br><span class="line">                data[first] = data[last];</span><br><span class="line">                while (first &lt; last &amp;&amp; data[first] &lt; pivot)</span><br><span class="line">                    first++;</span><br><span class="line">                data[last] = data[first];</span><br><span class="line">            }</span><br><span class="line">                data[first]=pivot;</span><br><span class="line">                return first;</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
-<p><code>3，单链表是否有环并如何找到环入口</code><br>首先要了解什么叫环，如图，Join.next-&gt;Pos，Pos.next-&gt;Join，那么该链表有环<br><img src="http://images.cnitblog.com/i/466768/201404/162209501501814.png" alt=""></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedLoop{</span><br><span class="line">    //内部静态类定义结点类</span><br><span class="line">	static class Node{</span><br><span class="line">	int val;</span><br><span class="line">	Node next;</span><br><span class="line">	public Node(int val){</span><br><span class="line">	this.val = val;</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line">	//判断单链表是否有环</span><br><span class="line">	public static boolean hasLoop(Node head){</span><br><span class="line">	Node p1=head;  //指向头节点</span><br><span class="line">	Node p2=head.next;  //指向下一个节点</span><br><span class="line"></span><br><span class="line">	while(p2!=null &amp;&amp;p2.next!=null){</span><br><span class="line">		p1=p1.next;</span><br><span class="line">		p2=p2.next.next;</span><br><span class="line">		if(p2==null){</span><br><span class="line">			return false;</span><br><span class="line">		}</span><br><span class="line">		int val1=p1.val;</span><br><span class="line">		int val2=p2.val;</span><br><span class="line">		if(val1==val2)</span><br><span class="line">		return true;</span><br><span class="line">	}</span><br><span class="line">	return false;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">	public static void main(String [] args){</span><br><span class="line">		Node n1=new Node(1);</span><br><span class="line">		Node n2=new Node(3);</span><br><span class="line">		Node n3=new Node(6);</span><br><span class="line">		Node n4=new Node(4);</span><br><span class="line">		Node n5=new Node(5);</span><br><span class="line">		Node n6=new Node(10);</span><br><span class="line">		n1.next = n2;</span><br><span class="line">		n2.next = n3;</span><br><span class="line">		n3.next = n4;</span><br><span class="line">		n4.next = n5;</span><br><span class="line">		n5.next = n6;</span><br><span class="line">		n6.next = n5;</span><br><span class="line">		System.out.println(hasLoop(n1));</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p><code>4，快排第一次排列后的顺序</code></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int [] nums=  {3,1,4,7,5,8,0};      </span><br><span class="line">如果基准为3；</span><br><span class="line">第一次快排后:</span><br><span class="line">nums={0,1,3,7,5,8,4};</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>一般不会直接用“==”或者“!=”对两个浮点数进行比较。
+判断两个浮点数float a 与 float b 是否相等可以根据他们的差的绝对值是否大于0来进行判断。
+判断相等：
+if（Math.abs(a-b)&lt;=0）{相等}
+或者
+if（!Math.abs(a-b)&gt;0）{相等}
 
-<p><code>5，Java 数据输入</code></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a =0;</span><br><span class="line">Scanner input = new Scanner(System.in);</span><br><span class="line">System.out.println("输入数字:");</span><br><span class="line">a = input.nextInt();</span><br></pre></td></tr></tbody></table></figure>
+判断不等：
+if（Math.abs(a-b)&gt;0）{不相等}
+</code></pre><p><code>2，用最快排序找到无序的数组里第K大的数</code></p>
+<pre><code>public class AlgCode {
+    public static void main(String[] args) {
+     // int [] nums={5, 7, 1, 8,3, 10};  //测试
+        int [] nums=  {3,1,4,7,5,8,0};
+        int k=5;
+      int  res= findKth(nums,0,nums.length-1,k-1);
+      System.out.print("The Kth is: "+res);
+    }
 
-<p><code>6，软件生命周期</code></p>
+    private static int findKth(int [] data ,int first , int last ,int k){
+        int kth;
+        if(first==last) kth=data[first];
+        else {
+            int pivot = data[first];
+            int splitPoint = partition(data, first, last);
+            if (k &lt; splitPoint)
+                kth = findKth(data, first, splitPoint - 1, k);
+            else if(k&gt;splitPoint)
+                kth = findKth(data, splitPoint + 1, last, k);
+            else
+            kth = pivot;
+           }
+           return kth;
+        }
+
+        private static int partition(int [] data ,int first , int last){
+            int pivot = data[first];
+            while(first&lt;last) {
+                while (first &lt; last &amp;&amp; data[last] &gt; pivot)
+                    last--;
+                data[first] = data[last];
+                while (first &lt; last &amp;&amp; data[first] &lt; pivot)
+                    first++;
+                data[last] = data[first];
+            }
+                data[first]=pivot;
+                return first;
+        }
+    }</code></pre><p><code>3，单链表是否有环并如何找到环入口</code><br>首先要了解什么叫环，如图，Join.next-&gt;Pos，Pos.next-&gt;Join，那么该链表有环<br><img src="http://images.cnitblog.com/i/466768/201404/162209501501814.png" alt=""></p>
+<pre><code>public class LinkedLoop{
+    //内部静态类定义结点类
+    static class Node{
+    int val;
+    Node next;
+    public Node(int val){
+    this.val = val;
+    }
+}
+    //判断单链表是否有环
+    public static boolean hasLoop(Node head){
+    Node p1=head;  //指向头节点
+    Node p2=head.next;  //指向下一个节点
+
+    while(p2!=null &amp;&amp;p2.next!=null){
+        p1=p1.next;
+        p2=p2.next.next;
+        if(p2==null){
+            return false;
+        }
+        int val1=p1.val;
+        int val2=p2.val;
+        if(val1==val2)
+        return true;
+    }
+    return false;
+}
+
+    public static void main(String [] args){
+        Node n1=new Node(1);
+        Node n2=new Node(3);
+        Node n3=new Node(6);
+        Node n4=new Node(4);
+        Node n5=new Node(5);
+        Node n6=new Node(10);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
+        n5.next = n6;
+        n6.next = n5;
+        System.out.println(hasLoop(n1));
+    }
+}</code></pre><p><code>4，快排第一次排列后的顺序</code></p>
+<pre><code>int [] nums=  {3,1,4,7,5,8,0};      
+如果基准为3；
+第一次快排后:
+nums={0,1,3,7,5,8,4}; </code></pre><p><code>5，Java 数据输入</code></p>
+<pre><code>  int a =0;
+  Scanner input = new Scanner(System.in);
+  System.out.println("输入数字:");
+  a = input.nextInt();</code></pre><p><code>6，软件生命周期</code></p>
 <p>软件生命周期(SDLC，Systems Development Life Cycle,SDLC)是软件的产生直到报废或停止使用的生命周期。<br>软件生存周期包括：</p>
 <p>一，问题定义。要求系统分析员与用户进行交流，弄清“用户需要计算机解决什么问题”然后提出关于“系统目标与范围的说明”，提交用户审查和确认。</p>
 <p>二，可行性研究。一方面在于把待开发的系统的目标以明确的语言描述出来，另一方面从经济、技术、法律等多方面进行可行性分析。</p>
@@ -769,26 +858,28 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2017/06/26/leetcode-jie-ti-si-lu-yi/">
+                <a href="/2017/07/03/jian-zhi-offer-21-30/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="LeetCode解题思路(一)">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="剑指Offer(21-30)">
                         
-                        <span class="card-title">LeetCode解题思路(一)</span>
+                        <span class="card-title">剑指Offer(21-30)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            做的一些题的解题思路
+                            
 
-Product of Array Except Self除本身之外的数组之积Given an array of n integers where n &gt; 1, nums, return an array out
+题21：包含min函数的栈题目：定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的min函数。在该栈中，调用min，push及pop的时间复杂度都是O(1).
+public class Main{
+    private My
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2017-06-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-07-03
                         </span>
                         <span class="publish-author">
                             
@@ -805,8 +896,8 @@ Product of Array Except Self除本身之外的数组之积Given an array of n in
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LeetCode/">
-                        <span class="chip bg-color">LeetCode</span>
+                    <a href="/tags/%E5%89%91%E6%8C%87Offer/">
+                        <span class="chip bg-color">剑指Offer</span>
                     </a>
                     
                 </div>

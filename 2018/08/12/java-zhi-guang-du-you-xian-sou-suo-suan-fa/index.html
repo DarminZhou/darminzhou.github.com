@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -485,9 +485,37 @@
 <p>思路就是用两个set,一个存老的单词，如果添加进路径，就删除；一个存路径。</p>
 <p>循环终止条件是路径匹配到尾巴的目标单词；</p>
 <p>关键代码</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">ladderLen</span><span class="params">(String beginWord ,String endWord ,List&lt;String&gt; wordList)</span></span>{</span><br><span class="line">    Set&lt;String&gt; wordSet = <span class="keyword">new</span> HashSet&lt;&gt;(wordList);</span><br><span class="line">    Set&lt;String&gt; visited = <span class="keyword">new</span> HashSet&lt;&gt;;</span><br><span class="line">    visited.add(beginWord);</span><br><span class="line">    <span class="keyword">int</span> len=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//开始计算路径与清楚单词集合里的单词</span></span><br><span class="line">    <span class="comment">//算法终止条件</span></span><br><span class="line">    <span class="keyword">while</span>(!visited.contains(endWord)){</span><br><span class="line">        Set&lt;String&gt; temp = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(String word:visited){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;word.length;i++){</span><br><span class="line">                <span class="keyword">char</span>[] chars=word.toCharArray();</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=(<span class="keyword">int</span>)<span class="string">'a'</span>;j&lt;(<span class="keyword">int</span>)<span class="string">'z'</span>+<span class="number">1</span>;j++){</span><br><span class="line">                    chars[i]=(<span class="keyword">char</span>)j;</span><br><span class="line">                    String newWord=<span class="keyword">new</span> String(chars);</span><br><span class="line">                    <span class="keyword">if</span>(wordSet.contains(newWord)){</span><br><span class="line">                        temp.add(newWord);</span><br><span class="line">                        wordSet.remove(newWord);</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        len += <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(temp.size()==<span class="number">0</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">        vistied=temp;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">ladderLen</span><span class="token punctuation">(</span>String beginWord <span class="token punctuation">,</span>String endWord <span class="token punctuation">,</span>List<span class="token operator">&lt;</span>String<span class="token operator">></span> wordList<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Set<span class="token operator">&lt;</span>String<span class="token operator">></span> wordSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>wordList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Set<span class="token operator">&lt;</span>String<span class="token operator">></span> visited <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">;</span>
+    visited<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>beginWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> len<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-
+    <span class="token comment" spellcheck="true">//开始计算路径与清楚单词集合里的单词</span>
+    <span class="token comment" spellcheck="true">//算法终止条件</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>visited<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>endWord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        Set<span class="token operator">&lt;</span>String<span class="token operator">></span> temp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>String word<span class="token operator">:</span>visited<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>word<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> chars<span class="token operator">=</span>word<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token string">'a'</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token string">'z'</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    chars<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span>j<span class="token punctuation">;</span>
+                    String newWord<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">if</span><span class="token punctuation">(</span>wordSet<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>newWord<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                        temp<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>newWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        wordSet<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>newWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        len <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>temp<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        vistied<span class="token operator">=</span>temp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> len<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -742,33 +770,37 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/10/14/shell-jiao-ben-xue-xi-yu-yan-lian/">
+                <a href="/2019/03/03/ren-ren-dong-ai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="shell脚本学习与演练">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="人人懂AI">
                         
-                        <span class="card-title">shell脚本学习与演练</span>
+                        <span class="card-title">人人懂AI</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            平时经常接触Linux的操作指导，是不是可以写个脚本一键式解决这些繁琐的操作呢？ok
+                            人人懂AI入门学习！
 
-写一个简单脚本123456789vi test1.sh······························test1.sh#! /bin/bas
+
+神经网络M-P Model多参数，多权重学习模型
+单层感知器：输入就输出的
+多层感知器深度网络的前身。输入层–隐含层–输出层
+Back Propagetion Algorithm前向计算输出，比较期望输出，得到误差
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-10-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-03-03
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    算法与数学
                                 </a>
                             
                             
@@ -778,8 +810,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/AI/">
+                        <span class="chip bg-color">AI</span>
                     </a>
                     
                 </div>

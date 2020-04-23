@@ -30,7 +30,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Damin's Notes" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-dark.css" type="text/css"></head>
 
 
 <body>
@@ -479,10 +479,8 @@
 <p>Set接口不保证维护元素的次序</p>
 <h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>映射表（关联数组）的基本思想是维护的是键-值（对）关联，因此可以用键来查找值。</p>
 <p>基本方法</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Map.put()</span><br><span class="line">Map.get()</span><br></pre></td></tr></tbody></table></figure>
-
-
-
+<pre class=" language-java"><code class="language-java">Map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+Map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h1 id="21-并发"><a href="#21-并发" class="headerlink" title="21. 并发"></a>21. 并发</h1><ul>
 <li>阻塞：</li>
 </ul>
@@ -491,8 +489,35 @@
 <p>一个线程就是在进程中的一个单一的顺序控制流，因此，单个进程可以拥有多个并发执行的任务。</p>
 <hr>
 <p>LiftOff任务将显示发射之前的倒计时：</p>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LiftOff</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>{</span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">int</span> countDown = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span>   <span class="keyword">int</span> taskCount =<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> id=taskCount++;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LiftOff</span><span class="params">()</span></span>{</span><br><span class="line">		<span class="keyword">this</span>.countDown=countDown;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">status</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"#"</span>+id +<span class="string">"("</span>+(countDown&gt;<span class="number">0</span> ? countDown:<span class="string">"LiftOff ！"</span>)+<span class="string">")."</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{</span><br><span class="line">	<span class="keyword">while</span>(countDown--&gt;<span class="number">0</span>){</span><br><span class="line">	System.out.println(status());</span><br><span class="line">	Thread.yield();</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/*************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPro</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>{</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)</span><br><span class="line">            <span class="keyword">new</span> Thread(<span class="keyword">new</span> LiftOff()).start();</span><br><span class="line">        System.out.println(<span class="string">"Waiting for LiftOff !"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LiftOff</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span><span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token keyword">int</span> countDown <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span>   <span class="token keyword">int</span> taskCount <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> id<span class="token operator">=</span>taskCount<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token function">LiftOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>countDown<span class="token operator">=</span>countDown<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
+<span class="token keyword">public</span> String <span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"#"</span><span class="token operator">+</span>id <span class="token operator">+</span><span class="token string">"("</span><span class="token operator">+</span><span class="token punctuation">(</span>countDown<span class="token operator">></span><span class="token number">0</span> <span class="token operator">?</span> countDown<span class="token operator">:</span><span class="token string">"LiftOff ！"</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">")."</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>countDown<span class="token operator">--</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Thread<span class="token punctuation">.</span><span class="token function">yield</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/*************************************************************/</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadPro</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String <span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">LiftOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Waiting for LiftOff !"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <hr>
 <ul>
 <li>执行器（Executor）</li>
@@ -820,39 +845,38 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2017/08/07/java-ji-chu-1/">
+                <a href="/2017/07/27/shu-ju-jie-gou-yu-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Java基础-1">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="数据结构与算法">
                         
-                        <span class="card-title">Java基础-1</span>
+                        <span class="card-title">数据结构与算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java基本功
+                            一些基本的数据结构与算法
 
 
+数据结构(1)数组 (Array)
 
-Java是否存在内存泄露内存泄露是指一个不再被程序使用的对象或变量还在内存中占有存储空间。
-如果开发人员忘记释放已分配的内存就会造成内存泄露。
-在Java中，判断一个内存空间是否符合垃圾回收机制标准有两个：
-
-给对象赋
+    在程序设计中，为了处理方便， 把具有相同类型的若干变量按有序的形式组织起来。
+    这些按序排列的同类数据元素的集合称为数组。
+    在Ｃ语言中， 数组属于构造
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-08-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-07-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -862,8 +886,16 @@ Java是否存在内存泄露内存泄露是指一个不再被程序使用的对�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">基础</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                    <a href="/tags/Java%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95%E5%AE%9D%E5%85%B8/">
+                        <span class="chip bg-color">Java程序员面试笔试宝典</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%B9%A6%E7%B1%8D/">
+                        <span class="chip bg-color">书籍</span>
                     </a>
                     
                 </div>
