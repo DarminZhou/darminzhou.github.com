@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhoudamin.github.io/"/>
-  <updated>2020-04-25T03:29:27.600Z</updated>
+  <updated>2020-04-25T09:12:53.075Z</updated>
   <id>http://zhoudamin.github.io/</id>
   
   <author>
@@ -17,11 +17,60 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[面试题56 - I]数组中数字出现的次数</title>
+    <link href="http://zhoudamin.github.io/2020/04/25/mian-shi-ti-56-i-shu-zu-zhong-shu-zi-chu-xian-de-ci-shu/"/>
+    <id>http://zhoudamin.github.io/2020/04/25/mian-shi-ti-56-i-shu-zu-zhong-shu-zi-chu-xian-de-ci-shu/</id>
+    <published>2020-04-25T09:08:12.000Z</published>
+    <updated>2020-04-25T09:12:53.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个整型数组 &lt;code&gt;nums&lt;/code&gt; 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;示例 1：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;&amp;lt;strong&amp;gt;输入：&amp;lt;/strong&amp;gt;nums = [4,1,4,6]
+&amp;lt;strong&amp;gt;输出：&amp;lt;/strong&amp;gt;[1,6] 或 [6,1]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;示例 2：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;&amp;lt;strong&amp;gt;输入：&amp;lt;/strong&amp;gt;nums = [1,2,10,4,1,4,3,3]
+&amp;lt;strong&amp;gt;输出：&amp;lt;/strong&amp;gt;[2,10] 或 [10,2]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;限制：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;code&gt;2 &amp;lt;= nums &amp;lt;= 10000&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="理解计算机" scheme="http://zhoudamin.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+      <category term="算法与数学" scheme="http://zhoudamin.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="观点与感想" scheme="http://zhoudamin.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/"/>
+    
+      <category term="开发者手册" scheme="http://zhoudamin.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/"/>
+    
+      <category term="编程语言" scheme="http://zhoudamin.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Linux" scheme="http://zhoudamin.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Pow(x, n)</title>
     <link href="http://zhoudamin.github.io/2020/04/25/pow-x-n/"/>
     <id>http://zhoudamin.github.io/2020/04/25/pow-x-n/</id>
     <published>2020-04-25T03:26:31.000Z</published>
-    <updated>2020-04-25T03:29:27.600Z</updated>
+    <updated>2020-04-25T08:36:03.489Z</updated>
     
     <summary type="html">
     
@@ -29,22 +78,13 @@
 
 &lt;p&gt;&lt;strong&gt;示例 1:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;strong&gt;输入:&lt;/strong&gt; 2.00000, 10
-&lt;strong&gt;输出:&lt;/strong&gt; 1024.00000
-&lt;/pre&gt;
-
+&lt;p&gt;&lt;strong&gt;输入:&lt;/strong&gt; 2.00000, 10&lt;br&gt;&lt;strong&gt;输出:&lt;/strong&gt; 1024.00000&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例&amp;nbsp;2:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;strong&gt;输入:&lt;/strong&gt; 2.10000, 3
-&lt;strong&gt;输出:&lt;/strong&gt; 9.26100
-&lt;/pre&gt;
-
+&lt;p&gt;&lt;strong&gt;输入:&lt;/strong&gt; 2.10000, 3&lt;br&gt;&lt;strong&gt;输出:&lt;/strong&gt; 9.26100&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例&amp;nbsp;3:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;strong&gt;输入:&lt;/strong&gt; 2.00000, -2
-&lt;strong&gt;输出:&lt;/strong&gt; 0.25000
-&lt;strong&gt;解释:&lt;/strong&gt; 2&lt;sup&gt;-2&lt;/sup&gt; = 1/2&lt;sup&gt;2&lt;/sup&gt; = 1/4 = 0.25&lt;/pre&gt;
-
+&lt;p&gt;&lt;strong&gt;输入:&lt;/strong&gt; 2.00000, -2&lt;br&gt;&lt;strong&gt;输出:&lt;/strong&gt; 0.25000&lt;br&gt;&lt;strong&gt;解释:&lt;/strong&gt; 2&lt;sup&gt;-2&lt;/sup&gt; = 1/2&lt;sup&gt;2&lt;/sup&gt; = 1/4 = 0.25&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;说明:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -118,7 +158,7 @@ target = 13
     <link href="http://zhoudamin.github.io/2020/04/19/san-shu-zhi-he/"/>
     <id>http://zhoudamin.github.io/2020/04/19/san-shu-zhi-he/</id>
     <published>2020-04-19T09:53:06.000Z</published>
-    <updated>2020-04-19T09:56:22.578Z</updated>
+    <updated>2020-04-25T08:45:13.289Z</updated>
     
     <summary type="html">
     
@@ -130,14 +170,13 @@ target = 13
 
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;给定数组 nums = [-1, 0, 1, 2, -1, -4]，
 
 满足要求的三元组集合为：
 [
   [-1, 0, 1],
   [-1, -1, 2]
-]
-&lt;/pre&gt;
+]&lt;/code&gt;&lt;/pre&gt;
 &lt;div&gt;&lt;div&gt;Related Topics&lt;/div&gt;&lt;div&gt;&lt;li&gt;数组&lt;/li&gt;&lt;li&gt;双指针&lt;/li&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
@@ -487,27 +526,6 @@ target = 13
     
     
       <category term="并发" scheme="http://zhoudamin.github.io/tags/%E5%B9%B6%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java实现彩色二维码</title>
-    <link href="http://zhoudamin.github.io/2018/05/02/java-shi-xian-cai-se-er-wei-ma/"/>
-    <id>http://zhoudamin.github.io/2018/05/02/java-shi-xian-cai-se-er-wei-ma/</id>
-    <published>2018-05-02T11:30:05.000Z</published>
-    <updated>2018-05-02T11:35:35.945Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用Zxing库实现彩色二维码的生成，代码如下：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="编程语言" scheme="http://zhoudamin.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="Java 二维码" scheme="http://zhoudamin.github.io/tags/Java-%E4%BA%8C%E7%BB%B4%E7%A0%81/"/>
     
   </entry>
   
