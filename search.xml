@@ -16455,12 +16455,10 @@ public class Hashtable<K,V>
           });
       </script>]]></content>
       <categories>
-        <category>理解计算机</category>
         <category>算法与数学</category>
-        <category>观点与感想</category>
-        <category>开发者手册</category>
-        <category>编程语言</category>
-        <category>Linux</category>
       </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
   </entry>
 </search>
