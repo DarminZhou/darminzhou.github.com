@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="[面试题56 - I]数组中数字出现的次数, Notes">
+    <meta name="keywords" content="删除链表的倒数第N个节点, Notes">
     <meta name="description" content="Goals determine &lt;br/&gt; what you are going to be .">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>[面试题56 - I]数组中数字出现的次数 | Notes</title>
+    <title>删除链表的倒数第N个节点 | Notes</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">[面试题56 - I]数组中数字出现的次数</h1>
+                    <h1 class="description center-align post-title">删除链表的倒数第N个节点</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-25
+                    2020-04-26
                 </div>
                 
 
@@ -472,47 +472,40 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>一个整型数组 <code>nums</code> 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。</p>
+                <p>给定一个链表，删除链表的倒数第&nbsp;<em>n&nbsp;</em>个节点，并且返回链表的头结点。</p>
 
-<p>&nbsp;</p>
+<p><strong>示例：</strong></p>
 
-<p><strong>示例 1：</strong></p>
 
-<pre class=" language-js"><code class="language-js">输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>
-输出：<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span> 或 <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span></code></pre>
-<p><strong>示例 2：</strong></p>
+<pre class=" language-js"><code class="language-js">给定一个链表<span class="token punctuation">:</span> <span class="token number">1</span><span class="token operator">-</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">-</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span><span class="token number">3</span><span class="token operator">-</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span><span class="token number">4</span><span class="token operator">-</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span><span class="token number">5</span><span class="token punctuation">,</span> 和 <span class="token operator">&lt;</span>em<span class="token operator">></span>n<span class="token operator">&lt;</span><span class="token operator">/</span>em<span class="token operator">></span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">.</span>
 
-<pre class=" language-js"><code class="language-js">输入：nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
-输出：<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span> 或 <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span></code></pre>
-<p>&nbsp;</p>
+当删除了倒数第二个节点后，链表变为 <span class="token number">1</span><span class="token operator">-</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span><span class="token number">2</span><span class="token operator">-</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span><span class="token number">3</span><span class="token operator">-</span><span class="token operator">&amp;</span>gt<span class="token punctuation">;</span><span class="token number">5</span><span class="token punctuation">.</span></code></pre>
+<p><strong>说明：</strong></p>
 
-<p><strong>限制：</strong></p>
+<p>给定的 <em>n</em>&nbsp;保证是有效的。</p>
 
-<ul>
-    <li><code>2 &lt;= nums &lt;= 10000</code></li>
-</ul>
+<p><strong>进阶：</strong></p>
 
-<p>&nbsp;</p>
+<p>你能尝试使用一趟扫描实现吗？</p>
+<div><div>Related Topics</div><div><li>链表</li><li>双指针</li></div></div>
 
 <a id="more"></a>
-
-<p>用一个list去装数组，遍历过程中，如果元素已经存在，就去除（remove有去除object和index两种方式，要注意下），最后剩下的就是我们求的。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">singleNumbers</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        List list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>list<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                list<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Object<span class="token punctuation">)</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rst <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> rst<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            rst<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> list<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> rst<span class="token punctuation">;</span>
+<p>双指针，new一个新的头结点，返回的时候要返回次节点</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> ListNode <span class="token function">removeNthFromEnd</span><span class="token punctuation">(</span>ListNode head<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ListNode pre <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    pre<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    ListNode first <span class="token operator">=</span> pre <span class="token punctuation">;</span>
+    ListNode last <span class="token operator">=</span> pre <span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        last <span class="token operator">=</span> last<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>last<span class="token punctuation">.</span>next<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        first <span class="token operator">=</span> first<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        last <span class="token operator">=</span> last<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    first<span class="token punctuation">.</span>next<span class="token operator">=</span>first<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> pre<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -557,7 +550,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://zhoudamin.github.io/2020/04/25/mian-shi-ti-56-i-shu-zu-zhong-shu-zi-chu-xian-de-ci-shu/">http://zhoudamin.github.io/2020/04/25/mian-shi-ti-56-i-shu-zu-zhong-shu-zi-chu-xian-de-ci-shu/</a>
+                    <a href="http://zhoudamin.github.io/2020/04/26/shan-chu-lian-biao-de-dao-shu-di-n-ge-jie-dian/">http://zhoudamin.github.io/2020/04/26/shan-chu-lian-biao-de-dao-shu-di-n-ge-jie-dian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -764,9 +757,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/04/26/shan-chu-lian-biao-de-dao-shu-di-n-ge-jie-dian/">
                     <div class="card-image">
@@ -789,9 +783,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -804,6 +798,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -822,27 +817,26 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/25/pow-x-n/">
+                <a href="/2020/04/25/mian-shi-ti-56-i-shu-zu-zhong-shu-zi-chu-xian-de-ci-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Pow(x, n)">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="[面试题56 - I]数组中数字出现的次数">
                         
-                        <span class="card-title">Pow(x, n)</span>
+                        <span class="card-title">[面试题56 - I]数组中数字出现的次数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            实现&nbsp;pow(x, n)&nbsp;，即计算 x 的 n 次幂函数。
+                            一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。
 
-示例 1:
+&nbsp;
 
-输入: 2.00000, 10输出: 1024.00000
-示例&nbsp;2:
+示例 1：
 
-输入: 2.10000, 3输出: 9.26100
-示例&n
+输入：nums = [4,1,4,6]
+输出：[1,6] 
                         
                     </div>
                     <div class="publish-info">

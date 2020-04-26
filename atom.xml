@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhoudamin.github.io/"/>
-  <updated>2020-04-25T09:18:19.102Z</updated>
+  <updated>2020-04-26T14:49:41.117Z</updated>
   <id>http://zhoudamin.github.io/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>删除链表的倒数第N个节点</title>
+    <link href="http://zhoudamin.github.io/2020/04/26/shan-chu-lian-biao-de-dao-shu-di-n-ge-jie-dian/"/>
+    <id>http://zhoudamin.github.io/2020/04/26/shan-chu-lian-biao-de-dao-shu-di-n-ge-jie-dian/</id>
+    <published>2020-04-26T14:46:26.000Z</published>
+    <updated>2020-04-26T14:49:41.117Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给定一个链表，删除链表的倒数第&amp;nbsp;&lt;em&gt;n&amp;nbsp;&lt;/em&gt;个节点，并且返回链表的头结点。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+
+
+&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;给定一个链表: 1-&amp;amp;gt;2-&amp;amp;gt;3-&amp;amp;gt;4-&amp;amp;gt;5, 和 &amp;lt;em&amp;gt;n&amp;lt;/em&amp;gt; = 2.
+
+当删除了倒数第二个节点后，链表变为 1-&amp;amp;gt;2-&amp;amp;gt;3-&amp;amp;gt;5.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;给定的 &lt;em&gt;n&lt;/em&gt;&amp;nbsp;保证是有效的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;进阶：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;你能尝试使用一趟扫描实现吗？&lt;/p&gt;
+&lt;div&gt;&lt;div&gt;Related Topics&lt;/div&gt;&lt;div&gt;&lt;li&gt;链表&lt;/li&gt;&lt;li&gt;双指针&lt;/li&gt;&lt;/div&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="算法与数学" scheme="http://zhoudamin.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="leetcode" scheme="http://zhoudamin.github.io/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[面试题56 - I]数组中数字出现的次数</title>
     <link href="http://zhoudamin.github.io/2020/04/25/mian-shi-ti-56-i-shu-zu-zhong-shu-zi-chu-xian-de-ci-shu/"/>
     <id>http://zhoudamin.github.io/2020/04/25/mian-shi-ti-56-i-shu-zu-zhong-shu-zi-chu-xian-de-ci-shu/</id>
     <published>2020-04-25T09:08:12.000Z</published>
-    <updated>2020-04-25T09:18:19.102Z</updated>
+    <updated>2020-04-26T14:49:59.293Z</updated>
     
     <summary type="html">
     
@@ -486,29 +522,6 @@ target = 3
     
     
       <category term="Notes" scheme="http://zhoudamin.github.io/tags/Notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java并发编程实战</title>
-    <link href="http://zhoudamin.github.io/2018/06/16/java-bing-fa-bian-cheng-shi-zhan/"/>
-    <id>http://zhoudamin.github.io/2018/06/16/java-bing-fa-bian-cheng-shi-zhan/</id>
-    <published>2018-06-16T02:54:24.000Z</published>
-    <updated>2018-06-16T03:17:54.472Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;基于《Java并发编程实战》，作者Brain等。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="开发者手册" scheme="http://zhoudamin.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/"/>
-    
-      <category term="编程语言" scheme="http://zhoudamin.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="并发" scheme="http://zhoudamin.github.io/tags/%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   
