@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zhoudamin.github.io/categories/index.html</loc>
+    
+    <lastmod>2020-05-01T03:26:01.187Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhoudamin.github.io/friends/index.html</loc>
+    
+    <lastmod>2020-05-01T03:23:49.963Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhoudamin.github.io/about/index.html</loc>
+    
+    <lastmod>2020-05-01T03:19:47.203Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhoudamin.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-05-01T03:19:06.907Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhoudamin.github.io/2020/04/26/shan-chu-lian-biao-de-dao-shu-di-n-ge-jie-dian/</loc>
     
     <lastmod>2020-04-26T14:53:14.606Z</lastmod>
@@ -236,13 +264,6 @@
     <loc>http://zhoudamin.github.io/2017/06/22/java-zhi-cha-zhao-suan-fa/</loc>
     
     <lastmod>2018-07-26T15:29:16.128Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhoudamin.github.io/about/index.html</loc>
-    
-    <lastmod>2018-06-25T06:10:40.526Z</lastmod>
     
   </url>
   
@@ -614,20 +635,6 @@
     <loc>http://zhoudamin.github.io/2017/04/13/lian-biao/</loc>
     
     <lastmod>2017-04-14T07:50:22.340Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhoudamin.github.io/tags/index.html</loc>
-    
-    <lastmod>2017-04-05T04:50:12.386Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhoudamin.github.io/categories/index.html</loc>
-    
-    <lastmod>2017-03-31T13:59:52.125Z</lastmod>
     
   </url>
   
