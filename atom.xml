@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhoudamin.github.io/"/>
-  <updated>2020-05-02T09:19:05.451Z</updated>
+  <updated>2020-05-02T09:20:51.796Z</updated>
   <id>http://zhoudamin.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://zhoudamin.github.io/2020/05/02/zui-chang-hui-wen-zi-chuan/"/>
     <id>http://zhoudamin.github.io/2020/05/02/zui-chang-hui-wen-zi-chuan/</id>
     <published>2020-05-02T09:15:08.000Z</published>
-    <updated>2020-05-02T09:19:05.451Z</updated>
+    <updated>2020-05-02T09:20:51.796Z</updated>
     
     <summary type="html">
     
@@ -32,18 +32,10 @@
 &lt;pre&gt;&lt;code class=&quot;js&quot;&gt;输入: &quot;babad&quot;
 输出: &quot;bab&quot;
 注意: &quot;aba&quot; 也是一个有效答案。&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;strong&gt;输入:&lt;/strong&gt; &quot;babad&quot;
-&lt;strong&gt;输出:&lt;/strong&gt; &quot;bab&quot;
-&lt;strong&gt;注意:&lt;/strong&gt; &quot;aba&quot; 也是一个有效答案。
-&lt;/pre&gt;
-
 &lt;p&gt;&lt;strong&gt;示例 2：&lt;/strong&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;js&quot;&gt;输入: &quot;cbbd&quot;
 输出: &quot;bb&quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;strong&gt;输入:&lt;/strong&gt; &quot;cbbd&quot;
-&lt;strong&gt;输出:&lt;/strong&gt; &quot;bb&quot;
-&lt;/pre&gt;
 &lt;div&gt;&lt;div&gt;Related Topics&lt;/div&gt;&lt;div&gt;&lt;li&gt;字符串&lt;/li&gt;&lt;li&gt;动态规划&lt;/li&gt;&lt;/div&gt;&lt;/div&gt;
     
     </summary>
