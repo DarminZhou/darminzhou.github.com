@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhoudamin.github.io/"/>
-  <updated>2020-05-01T09:10:47.654Z</updated>
+  <updated>2020-05-02T02:33:12.288Z</updated>
   <id>http://zhoudamin.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>交换数字</title>
+    <link href="http://zhoudamin.github.io/2020/05/02/jiao-huan-shu-zi/"/>
+    <id>http://zhoudamin.github.io/2020/05/02/jiao-huan-shu-zi/</id>
+    <published>2020-05-02T02:31:06.000Z</published>
+    <updated>2020-05-02T02:33:12.288Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;编写一个函数，不用临时变量，直接交换&lt;code&gt;numbers = [a, b]&lt;/code&gt;中&lt;code&gt;a&lt;/code&gt;与&lt;code&gt;b&lt;/code&gt;的值。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;strong&gt;输入:&lt;/strong&gt; numbers = [1,2]
+&lt;strong&gt;输出:&lt;/strong&gt; [2,1]
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;提示：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;numbers.length == 2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;div&gt;Related Topics&lt;/div&gt;&lt;div&gt;&lt;li&gt;位运算&lt;/li&gt;&lt;li&gt;数学&lt;/li&gt;&lt;/div&gt;&lt;/div&gt;
+    
+    </summary>
+    
+    
+      <category term="算法与数学" scheme="http://zhoudamin.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="leetcode" scheme="http://zhoudamin.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>统计作战单位数</title>
@@ -547,27 +577,6 @@ target = 3
     <summary type="html">
     
       &lt;p&gt;二叉树算法&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="算法与数学" scheme="http://zhoudamin.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="算法与数学" scheme="http://zhoudamin.github.io/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java之数组算法</title>
-    <link href="http://zhoudamin.github.io/2018/07/26/java-zhi-shu-zu-suan-fa/"/>
-    <id>http://zhoudamin.github.io/2018/07/26/java-zhi-shu-zu-suan-fa/</id>
-    <published>2018-07-26T15:28:19.000Z</published>
-    <updated>2018-07-29T03:14:09.336Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;数组是常见的算法题，所以多做题，多总结，总是能找到idea的。&lt;/p&gt;
     
     </summary>
     
