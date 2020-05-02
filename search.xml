@@ -16729,4 +16729,85 @@ public class Hashtable<K,V>
         <tag>leetcode</tag>
       </tags>
   </entry>
+  <entry>
+    <title>最长回文子串</title>
+    <url>/2020/05/02/zui-chang-hui-wen-zi-chuan/</url>
+    <content><![CDATA[<p>给定一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。你可以假设&nbsp;<code>s</code> 的最大长度为 1000。</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre class=" language-js"><code class="language-js">输入<span class="token punctuation">:</span> <span class="token string">"babad"</span>
+输出<span class="token punctuation">:</span> <span class="token string">"bab"</span>
+注意<span class="token punctuation">:</span> <span class="token string">"aba"</span> 也是一个有效答案。</code></pre>
+<pre><strong>输入:</strong> "babad"
+<strong>输出:</strong> "bab"
+<strong>注意:</strong> "aba" 也是一个有效答案。
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre class=" language-js"><code class="language-js">输入<span class="token punctuation">:</span> <span class="token string">"cbbd"</span>
+输出<span class="token punctuation">:</span> <span class="token string">"bb"</span></code></pre>
+<pre><strong>输入:</strong> "cbbd"
+<strong>输出:</strong> "bb"
+</pre>
+<div><div>Related Topics</div><div><li>字符串</li><li>动态规划</li></div></div>
+
+<a id="more"></a>
+<p>中心法，找出 aba 和 abba 这两种情况的即可，然后每次判断是不是最长的。</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> String <span class="token function">longestPalindrome</span><span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>null <span class="token operator">==</span> s <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> maxLen <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> len1 <span class="token operator">=</span> <span class="token function">palindromicStr</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> i<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> len2 <span class="token operator">=</span> <span class="token function">palindromicStr</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> i<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            maxLen <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>len1<span class="token punctuation">,</span> len2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>maxLen <span class="token operator">></span> end <span class="token operator">-</span> start<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                start <span class="token operator">=</span> i <span class="token operator">-</span> <span class="token punctuation">(</span>maxLen <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                end <span class="token operator">=</span> i <span class="token operator">+</span> maxLen <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">palindromicStr</span><span class="token punctuation">(</span>String str<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> L <span class="token operator">=</span> left<span class="token punctuation">,</span> R <span class="token operator">=</span> right<span class="token punctuation">;</span>
+        <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>L <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> R <span class="token operator">&lt;</span> str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>L<span class="token punctuation">]</span> <span class="token operator">==</span> arr<span class="token punctuation">[</span>R<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            L<span class="token operator">--</span><span class="token punctuation">;</span>
+            R<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> R <span class="token operator">-</span> L <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>    </code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>算法与数学</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
 </search>

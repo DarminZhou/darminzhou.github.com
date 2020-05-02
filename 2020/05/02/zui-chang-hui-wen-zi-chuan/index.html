@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="交换数字, Notes">
+    <meta name="keywords" content="最长回文子串, Notes">
     <meta name="description" content="Goals determine &lt;br/&gt; what you are going to be .">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>交换数字 | Notes</title>
+    <title>最长回文子串 | Notes</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">交换数字</h1>
+                    <h1 class="description center-align post-title">最长回文子串</h1>
                 </div>
             </div>
         </div>
@@ -450,27 +450,58 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>编写一个函数，不用临时变量，直接交换<code>numbers = [a, b]</code>中<code>a</code>与<code>b</code>的值。</p>
-<p><strong>示例：</strong></p>
-<pre><strong>输入:</strong> numbers = [1,2]
-<strong>输出:</strong> [2,1]
+                <p>给定一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。你可以假设&nbsp;<code>s</code> 的最大长度为 1000。</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre class=" language-js"><code class="language-js">输入<span class="token punctuation">:</span> <span class="token string">"babad"</span>
+输出<span class="token punctuation">:</span> <span class="token string">"bab"</span>
+注意<span class="token punctuation">:</span> <span class="token string">"aba"</span> 也是一个有效答案。</code></pre>
+<pre><strong>输入:</strong> "babad"
+<strong>输出:</strong> "bab"
+<strong>注意:</strong> "aba" 也是一个有效答案。
 </pre>
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>numbers.length == 2</code></li>
-</ul>
-<div><div>Related Topics</div><div><li>位运算</li><li>数学</li></div></div>
+
+<p><strong>示例 2：</strong></p>
+
+<pre class=" language-js"><code class="language-js">输入<span class="token punctuation">:</span> <span class="token string">"cbbd"</span>
+输出<span class="token punctuation">:</span> <span class="token string">"bb"</span></code></pre>
+<pre><strong>输入:</strong> "cbbd"
+<strong>输出:</strong> "bb"
+</pre>
+<div><div>Related Topics</div><div><li>字符串</li><li>动态规划</li></div></div>
 
 <a id="more"></a>
-<p>交换数字即可</p>
+<p>中心法，找出 aba 和 abba 这两种情况的即可，然后每次判断是不是最长的。</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">swapNumbers</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> numbers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        numbers<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">^=</span> numbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        numbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">^=</span> numbers<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        numbers<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">^=</span> numbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> numbers<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> String <span class="token function">longestPalindrome</span><span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>null <span class="token operator">==</span> s <span class="token operator">||</span> s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> maxLen <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> start <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> len1 <span class="token operator">=</span> <span class="token function">palindromicStr</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> i<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> len2 <span class="token operator">=</span> <span class="token function">palindromicStr</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> i<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            maxLen <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>len1<span class="token punctuation">,</span> len2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>maxLen <span class="token operator">></span> end <span class="token operator">-</span> start<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                start <span class="token operator">=</span> i <span class="token operator">-</span> <span class="token punctuation">(</span>maxLen <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                end <span class="token operator">=</span> i <span class="token operator">+</span> maxLen <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> end <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">palindromicStr</span><span class="token punctuation">(</span>String str<span class="token punctuation">,</span> <span class="token keyword">int</span> left<span class="token punctuation">,</span> <span class="token keyword">int</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> L <span class="token operator">=</span> left<span class="token punctuation">,</span> R <span class="token operator">=</span> right<span class="token punctuation">;</span>
+        <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">toCharArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>L <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> R <span class="token operator">&lt;</span> str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>L<span class="token punctuation">]</span> <span class="token operator">==</span> arr<span class="token punctuation">[</span>R<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            L<span class="token operator">--</span><span class="token punctuation">;</span>
+            R<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> R <span class="token operator">-</span> L <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>    </code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -514,7 +545,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://zhoudamin.github.io/2020/05/02/jiao-huan-shu-zi/">http://zhoudamin.github.io/2020/05/02/jiao-huan-shu-zi/</a>
+                    <a href="http://zhoudamin.github.io/2020/05/02/zui-chang-hui-wen-zi-chuan/">http://zhoudamin.github.io/2020/05/02/zui-chang-hui-wen-zi-chuan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -721,9 +752,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/05/02/zui-chang-hui-wen-zi-chuan/">
                     <div class="card-image">
@@ -749,9 +781,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -764,6 +796,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -782,29 +815,33 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/01/tong-ji-zuo-zhan-dan-wei-shu/">
+                <a href="/2020/05/02/jiao-huan-shu-zi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="统计作战单位数">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="交换数字">
                         
-                        <span class="card-title">统计作战单位数</span>
+                        <span class="card-title">交换数字</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &nbsp;n 名士兵站成一排。每个士兵都有一个 独一无二 的评分 rating 。
+                            编写一个函数，不用临时变量，直接交换numbers = [a, b]中a与b的值。
+示例：
+输入: numbers = [1,2]
+输出: [2,1]
 
-每 3 个士兵可以组成一个作战单位，分组规则如下：
+提示：
 
+numbers.length == 2
 
-    从队伍中选出下标分别为 i、j、k 的 3 名士兵，他们的评分分别为 rating[i]
+Related Topics位运算
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
                             </span>
                         <span class="publish-author">
                             
