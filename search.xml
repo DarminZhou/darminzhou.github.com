@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>刷题总结</title>
+      <link href="/2020/05/03/shua-ti-zong-jie/"/>
+      <url>/2020/05/03/shua-ti-zong-jie/</url>
+      
+        <content type="html"><![CDATA[<p>刷题总结</p><a id="more"></a><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><ul><li>递归就是将大问题转化为小问题，然后推敲出递推公式，再思考出终止条件，将递推公式和终止条件输出为代码的过程。</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法与数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 总结 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>最长回文子串</title>
       <link href="/2020/05/02/zui-chang-hui-wen-zi-chuan/"/>
       <url>/2020/05/02/zui-chang-hui-wen-zi-chuan/</url>
