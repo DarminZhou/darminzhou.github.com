@@ -16825,6 +16825,15 @@ public class Hashtable<K,V>
 <p>是 low = mid + 1 ,high = mid -1 。而不是 low = mid ，high = mid ，会死循环。</p>
 </li>
 </ol>
+<ul>
+<li>二分查找条件</li>
+</ul>
+<ol>
+<li>数组</li>
+<li>有序</li>
+<li>数据量太小不适合，可以用遍历，效率差不多</li>
+<li>数据量太大也不适合，比如1G，二分查找依赖连续数组，数组存储在内存。要求计算机提供1G的连续内存空间要求比较高，可能无法申请到。</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
