@@ -456,6 +456,20 @@
 <h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><ul>
 <li>递归就是将大问题转化为小问题，然后推敲出递推公式，再思考出终止条件，将递推公式和终止条件输出为代码的过程。</li>
 </ul>
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ul>
+<li>三个注意点</li>
+</ul>
+<ol>
+<li><p>循环退出条件</p>
+<p>终止条件是 low &lt;=high，而不是 low&lt; high</p>
+</li>
+<li><p>mid的取值</p>
+<p>mid计算公式避免溢出，最好是 mid = low + (high - low )/2</p>
+</li>
+<li><p>low和high的更新</p>
+<p>是 low = mid + 1 ,high = mid -1 。而不是 low = mid ，high = mid ，会死循环。</p>
+</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -729,9 +743,12 @@
 递归
 递归就是将大问题转化为小问题，然后推敲出递推公式，再思考出终止条件，将递推公式和终止条件输出为代码的过程。
 
+二分查找
+三个注意点
 
-        document.querySelectorAll('.github-emoji')
-   
+
+循环退出条件
+终止条件是 low &lt;=high，而不是 low&lt; hig
                         
                     </div>
                     <div class="publish-info">
