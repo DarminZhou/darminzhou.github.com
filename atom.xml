@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhoudamin.github.io/"/>
-  <updated>2020-05-03T09:19:11.612Z</updated>
+  <updated>2020-05-13T14:12:00.308Z</updated>
   <id>http://zhoudamin.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>findbugs clean</title>
+    <link href="http://zhoudamin.github.io/2020/05/13/findbugs-clean/"/>
+    <id>http://zhoudamin.github.io/2020/05/13/findbugs-clean/</id>
+    <published>2020-05-13T13:57:43.000Z</published>
+    <updated>2020-05-13T14:12:00.308Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;收集的findbugs清理指导！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="开发者手册" scheme="http://zhoudamin.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/"/>
+    
+    
+      <category term="findbugs" scheme="http://zhoudamin.github.io/tags/findbugs/"/>
+    
+  </entry>
   
   <entry>
     <title>刷题总结</title>
@@ -575,27 +596,6 @@ target = 3
     
     
       <category term="Linux" scheme="http://zhoudamin.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java之广度优先搜索算法</title>
-    <link href="http://zhoudamin.github.io/2018/08/12/java-zhi-guang-du-you-xian-sou-suo-suan-fa/"/>
-    <id>http://zhoudamin.github.io/2018/08/12/java-zhi-guang-du-you-xian-sou-suo-suan-fa/</id>
-    <published>2018-08-12T14:35:39.000Z</published>
-    <updated>2018-08-12T15:01:33.696Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;BFS，全称是Breadth First Search。 简单说就是图搜索算法。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="算法与数学" scheme="http://zhoudamin.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="算法与数学" scheme="http://zhoudamin.github.io/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
